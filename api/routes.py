@@ -87,3 +87,28 @@ def get_subscription(sub_id):
         return jsonify({"error": f"Subscription {sub_id} not found"}), 404
  
     return jsonify(sub.to_dict())
+
+
+@api.route("/subscriptions", methods=["POST"])
+def create_subscription():
+    data = request.get_json()
+ 
+    if not data:
+        return jsonify({"error": "Request body must be JSON"}), 400
+ 
+    user_id = data.get("user_id")
+    name = data.get("name")
+    cost = data.get("cost")
+    billing_type = data.get("billing_type", "unknown")
+ 
+    if not user_id or not name or cost is None:
+        return jsonify({"error": "user_id, name, and cost are required"}), 400
+ 
+    new_sub = Subscription.create(
+        user=user_id,
+        name=name,
+        cost=cost,
+        billing_type=billing_type,
+    )
+ 
+    return jsonify(new_sub.to_dict()), 201
