@@ -2,9 +2,9 @@ from flask import Blueprint, request, jsonify
 from werkzeug.security import generate_password_hash, check_password_hash
 from peewee import IntegrityError, DoesNotExist
 
-from database.models import User
+from database.models import User , Subscription
 
-
+# Auth (Nathan's code)
 api = Blueprint("api", __name__)
 
 
@@ -64,3 +64,26 @@ def login():
 
     except DoesNotExist:
         return jsonify({"error": "Invalid email or password"}), 401
+    
+
+# Subscription CRUD (Leon's code)
+
+@api.route("/subscriptions", methods=["GET"])
+def list_subscriptions():
+    all_subs = Subscription.select()
+ 
+    result = []
+    for sub in all_subs:
+        result.append(sub.to_dict())
+ 
+    return jsonify({"subscriptions": result})
+ 
+ 
+@api.route("/subscriptions/<int:sub_id>", methods=["GET"])
+def get_subscription(sub_id):
+    sub = Subscription.get_or_none(Subscription.id == sub_id)
+ 
+    if sub is None:
+        return jsonify({"error": f"Subscription {sub_id} not found"}), 404
+ 
+    return jsonify(sub.to_dict())
