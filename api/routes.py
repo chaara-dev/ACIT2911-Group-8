@@ -112,3 +112,30 @@ def create_subscription():
     )
  
     return jsonify(new_sub.to_dict()), 201
+
+
+@api.route("/subscriptions/<int:sub_id>", methods=["PUT"])
+def update_subscription(sub_id):
+    sub = Subscription.get_or_none(Subscription.id == sub_id)
+ 
+    if sub is None:
+        return jsonify({"error": f"Subscription {sub_id} not found"}), 404
+ 
+    data = request.get_json()
+ 
+    if not data:
+        return jsonify({"error": "Request body must be JSON"}), 400
+ 
+    name = data.get("name")
+    cost = data.get("cost")
+    billing_type = data.get("billing_type")
+ 
+    if not name or cost is None or not billing_type:
+        return jsonify({"error": "name, cost, and billing_type are required"}), 400
+ 
+    sub.name = name
+    sub.cost = cost
+    sub.billing_type = billing_type
+    sub.save()
+ 
+    return jsonify(sub.to_dict())
