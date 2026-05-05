@@ -1,0 +1,118 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+body {
+    background: whitesmoke;
+    color: black
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+    padding:20px;
+}
+
+.header{
+    display:flex;
+    align-items: center;
+    justify-content:space-between;
+    background-color: white;
+    padding: 16px 20px;
+    border-radius: 15px;
+    box-shadow: 0px 5px 10px rgba(black);
+}
+
+.sub{
+    font-family: 'DM Serif Display', serif;
+}
+
+.stats{
+    display:flex;
+    gap:10px;
+}
+
+.stat-box {
+flex: 1;
+background: white;
+border-radius: 12px;
+padding:10px 15px;
+text-align: center;
+border: 1px solid;
+margin:10px 0px;
+}
+
+.stat-text{
+    font-size:12px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+}
+
+.stat-value{
+    font-size:16px;
+    font-weight:200;
+
+}
+
+.account{
+    font:15px;
+    padding:8px 14px;
+    border:none;
+    background-color: rosybrown;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.action{
+    display:flex;
+    flex-direction: row;
+    gap:15px;
+    margin:10px 0px;
+}
+
+.action button{
+    font:15px;
+    padding:10px 15px;
+    border:none;
+    background-color:white;
+    border-radius: 10px;
+    cursor:pointer;
+}
+
+.action .reminder{
+    margin-left:auto;
+    background:red;
+}
+
+.cards{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.card{
+    display:flex;
+    align-items: center;
+    justify-content:space-between;
+    padding:16px 20px;
+    border-radius:15px;
+    background:white;
+    color:black;
+    font-size: 15px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.08)
+}
+
+.badge1{
+    background: white;
+    color:red;
+}
+
+.badge2{
+    background: white;
+    color:green;
+    
+}
