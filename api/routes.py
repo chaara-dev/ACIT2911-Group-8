@@ -4,10 +4,9 @@ from peewee import IntegrityError, DoesNotExist
 
 from database.models import User , Subscription
 
-# Auth (Nathan's code)
 api = Blueprint("api", __name__)
 
-
+# Auth (Nathan's code)
 @api.route("/register", methods=["POST"])
 def register():
     data = request.get_json(silent=True)
@@ -139,3 +138,14 @@ def update_subscription(sub_id):
     sub.save()
  
     return jsonify(sub.to_dict())
+
+@api.route("/subscriptions/<int:sub_id>", methods=["DELETE"])
+def delete_subscription(sub_id):
+    sub = Subscription.get_or_none(Subscription.id == sub_id)
+ 
+    if sub is None:
+        return jsonify({"error": f"Subscription {sub_id} not found"}), 404
+ 
+    sub.delete_instance()
+ 
+    return jsonify({"message": f"Subscription {sub_id} deleted successfully"})
