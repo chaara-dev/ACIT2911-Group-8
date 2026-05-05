@@ -20,4 +20,7 @@ def create_app():
     db.create_tables([User, Subscription, Payment])
     db.close()
 
+    from api.routes import api
+    app.register_blueprint(api, url_prefix="/api")
+
     return app
