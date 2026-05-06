@@ -149,3 +149,7 @@ def delete_subscription(sub_id):
     sub.delete_instance()
  
     return jsonify({"message": f"Subscription {sub_id} deleted successfully"})
+
+@api.route("/logout", methods=["POST"])
+def logout():
+    return jsonify({"message": "Logout successful"}), 200
