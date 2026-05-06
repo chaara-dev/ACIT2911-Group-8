@@ -1,3 +1,44 @@
 .title {
     text-align: center;
+    text-decoration: underline;
+}
+
+#subscription-details {
+    display: flex;
+    flex-direction: column;
+    line-height: 3em;
+    align-items: center;
+    zoom: 150%;
+    border: 3px solid lightblue;
+    border-radius: 12px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    margin-top: 65px;
+}
+
+#subscription-details>div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#subscription-details>div>label {
+    display: block;
+    width: 90px;
+    text-align: center;
+    font-size: large;
+}
+
+#subscription-details>div>input {
+    font-size: large;
+    width: 250px;
+    margin-left: 15px;
+    height: 30px;
+}
+
+#formButtons {
+    margin-top: 12px;
 }
