@@ -64,6 +64,10 @@ def login():
     except DoesNotExist:
         return jsonify({"error": "Invalid email or password"}), 401
     
+@api.route("/logout", methods=["POST"])
+def logout():
+    return jsonify({"message": "Logout successful"}), 200
+    
 
 # Subscription CRUD (Leon's code)
 
@@ -150,6 +154,3 @@ def delete_subscription(sub_id):
  
     return jsonify({"message": f"Subscription {sub_id} deleted successfully"})
 
-@api.route("/logout", methods=["POST"])
-def logout():
-    return jsonify({"message": "Logout successful"}), 200
