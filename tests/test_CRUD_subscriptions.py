@@ -37,3 +37,19 @@ def test_get_subscription(client):
 def test_get_subscription_not_found(client):
     response = client.get("/api/subscriptions/999")
     assert response.status_code == 404
+
+# PUT tests
+def test_update_subscription(client):
+    response = client.put("/api/subscriptions/1", json={
+        "name": "Netflix Pro",
+        "cost": 19.99,
+        "billing_type": "monthly"
+    })
+    assert response.status_code == 200
+ 
+ 
+def test_update_subscription_not_found(client):
+    response = client.put("/api/subscriptions/999", json={
+        "name": "NF", "cost": 1, "billing_type": "monthly"
+    })
+    assert response.status_code == 404
