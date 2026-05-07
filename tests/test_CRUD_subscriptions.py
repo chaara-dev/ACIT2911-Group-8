@@ -53,3 +53,13 @@ def test_update_subscription_not_found(client):
         "name": "NF", "cost": 1, "billing_type": "monthly"
     })
     assert response.status_code == 404
+
+#Delete tests
+def test_delete_subscription(client):
+    response = client.delete("/api/subscriptions/1")
+    assert response.status_code == 200
+ 
+ 
+def test_delete_subscription_not_found(client):
+    response = client.delete("/api/subscriptions/999")
+    assert response.status_code == 404
