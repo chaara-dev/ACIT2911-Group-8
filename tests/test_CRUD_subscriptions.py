@@ -25,3 +25,15 @@ def test_create_unfinished_subscription(client):
     })
     assert response.status_code == 400
 
+# GET tests
+def test_list_subscriptions(client):
+    response = client.get("/api/subscriptions")
+    assert response.status_code == 200
+ 
+def test_get_subscription(client):
+    response = client.get("/api/subscriptions/1")
+    assert response.status_code == 200
+ 
+def test_get_subscription_not_found(client):
+    response = client.get("/api/subscriptions/999")
+    assert response.status_code == 404
