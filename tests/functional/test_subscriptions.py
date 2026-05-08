@@ -10,7 +10,7 @@ def test_client():
     with flask_app.test_client() as testing_client:
         testing_client.post(
             "/api/register",
-            json={"username": "test", "email": "zorofan4021@gmail.com", "password": "test"}
+            json={"username": "test", "email": "test@something.com", "password": "test"}
         )
         test_user = User.get(User.username == "test")
         testing_client.post(
