@@ -60,4 +60,5 @@
 #back-button:hover {
     background-color: rgb(128, 174, 189);
     border: 3px solid lightblue;
+    cursor: pointer;
 }
