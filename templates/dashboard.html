@@ -4,19 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/index.css">
+    <link rel="stylesheet" href="../static/dashboard.css">
     <title>Dashboard</title>
 </head>
 
 <body>
-    <div class="container">
-        <header class="header">
-            <h2 class="sub">Subscription Manager</h2>
-            <div id="buttons">
-                <a href="../templates/subscription-create.html" class="new-subscription">New Subscription</a>
-                <button class=" account">Log Out</button>
-            </div>
-        </header>
+    <header>
+        <h1>Dashboard</h1>
+        <div id="buttons">
+            <a href="../templates/subscription-create.html" class="new-subscription">New Subscription</a>
+            <button class=" account">Log Out</button>
+        </div>
+    </header>
+    <main>
         <div class="stats">
             <div class="stat-box">
                 <p class="stat-text">Active Subscription(s)</p>
@@ -31,35 +31,33 @@
                 <p class="stat-value" id="total-price">$99/m</p>
             </div>
 
-
         </div>
         <div class="action">
             <button id="filter-button">Filter</button>
             <button id="search-button">Search</button>
-            <button class="reminder" id="reminder-button">Reminder</button>
         </div>
         <div class="cards">
             <div class="card">
                 <span>$12</span>
                 <span>Netflix</span>
-                <span class="badge1">8 days</span>
+                <span class="date close">8 days</span>
             </div>
             <div class="card">
                 <span>$18</span>
                 <span>Youtube</span>
-                <span class="badge1">9 days</span>
+                <span class="date close">9 days</span>
             </div>
             <div class="card">
                 <span>$50</span>
                 <span>Microsoft</span>
-                <span class="badge2">20 days</span>
+                <span class="date far">20 days</span>
             </div>
             <div class="card">
                 <span>$19</span>
                 <span>Github</span>
-                <span class="badge2">28 days</span>
+                <span class="date far">28 days</span>
             </div>
         </div>
-    </div>
+    </main>
 
 </body>
