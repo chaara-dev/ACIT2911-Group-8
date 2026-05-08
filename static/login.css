@@ -1,0 +1,33 @@
+
+html {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Monospace;
+}
+
+body{
+    background:whitesmoke;
+    color:black;
+}
+.login{
+    display: flex;
+    align-items: center;
+    justify-content: space-between ;
+    background-color: white;
+    padding:15px 20px;
+    border-radius: 15px;
+}
+.login.input{
+    display: flex;
+    align-items: center;
+    justify-content: space-between ;
+    background-color: white;
+    padding:15px 20px;
+    border-radius: 15px;
+}
+.login-button{
+    margin-top: 12px;
+    margin-left: 0px;
+    text-decoration:none
+}
