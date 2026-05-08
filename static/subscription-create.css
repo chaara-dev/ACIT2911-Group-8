@@ -32,15 +32,23 @@
     font-size: large;
 }
 
-#subscription-details>div>input {
+#subscription-details>div>input,
+#submitButton,
+#subscriptionPeriodSelect {
     font-size: large;
     width: 250px;
     margin-left: 15px;
     height: 30px;
 }
 
-#formButtons {
+
+#submitButton {
     margin-top: 12px;
+    margin-left: 0px;
+}
+
+#subscriptionPeriod {
+    width: 250px;
 }
 
 #back-button {
