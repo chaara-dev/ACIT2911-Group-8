@@ -1,37 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="index.css"> 
-    <title>Document</title>
+    <link rel="stylesheet" href="../static/index.css">
+    <title>Dashboard</title>
 </head>
+
 <body>
     <div class="container">
         <header class="header">
             <h2 class="sub">Subscription Manager</h2>
-            <button class="account">Account</button>
+            <div id="buttons">
+                <a href="../templates/subscription-create.html" class="new-subscription">New Subscription</a>
+                <button class=" account">Account</button>
+            </div>
         </header>
         <div class="stats">
             <div class="stat-box">
-                <p class="stat-text">Active Subscription</p>
-                <p class="stat-value">4</p>
+                <p class="stat-text">Active Subscription(s)</p>
+                <p class="stat-value" id="active-sub">4</p>
             </div>
             <div class="stat-box">
                 <p class="stat-text">Next Renewal</p>
-                <p class="stat-value">8 days</p>
+                <p class="stat-value" id="next-renew">8 days</p>
             </div>
             <div class="stat-box">
                 <p class="stat-text">Total</p>
-                <p class="stat-value">$99/m</p>
+                <p class="stat-value" id="total-price">$99/m</p>
             </div>
 
 
         </div>
         <div class="action">
-            <button>Filter</button>
-            <button>Search</button>
-            <button class="reminder">Reminder</button>
+            <button id="filter-button">Filter</button>
+            <button id="search-button">Search</button>
+            <button class="reminder" id="reminder-button">Reminder</button>
         </div>
         <div class="cards">
             <div class="card">
@@ -54,7 +59,7 @@
                 <span>Github</span>
                 <span class="badge2">28 days</span>
             </div>
-        </div>   
+        </div>
     </div>
 
 </body>

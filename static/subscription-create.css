@@ -42,3 +42,23 @@
 #formButtons {
     margin-top: 12px;
 }
+
+#back-button {
+    background-color: lightblue;
+    border: 3px solid lightblue;
+    border-radius: 12px;
+    text-align: center;
+    padding: 12px 20px;
+    position: absolute;
+    right: 80px;
+    bottom: 100px;
+    text-decoration: none;
+    color: black;
+    font-size: larger;
+}
+
+#back-button:hover {
+    background-color: rgb(128, 174, 189);
+    border: 3px solid lightblue;
+    cursor: pointer;
+}
