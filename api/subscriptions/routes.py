@@ -8,13 +8,36 @@ from . import subscriptions_bp
 
 @subscriptions_bp.route("/subscriptions", methods=["GET"])
 def list_subscriptions():
-    all_subs = Subscription.select()
- 
-    result = []
-    for sub in all_subs:
-        result.append(sub.to_dict())
- 
-    return jsonify({"subscriptions": result})
+    search = request.args.get("search")
+    billing_type = request.args.get("billing_type")
+    sort = request.args.get("sort", "renewal_date")
+    order = request.args.get("order", "desc")
+
+    query = Subscription.select()
+
+    if search:
+        query = query.where(Subscription.name ** f"%{search}%")
+
+    if billing_type:
+        query = query.where(Subscription.billing_type == billing_type)
+
+    sort_fields = {
+        "cost": Subscription.cost,
+        "name": Subscription.name,
+        "renewal_date": Subscription.renewal_date,
+    }
+    sort_field = sort_fields.get(sort, Subscription.renewal_date)
+
+    if order == "asc":
+        query = query.order_by(sort_field.asc())
+    else:
+        query = query.order_by(sort_field.desc())
+
+    results = []
+    for result in query:
+        results.append(result.to_dict())
+
+    return jsonify({"subscriptions": results})
  
  
 @subscriptions_bp.route("/subscriptions/<int:sub_id>", methods=["GET"])
