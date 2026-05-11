@@ -1,0 +1,139 @@
+:root {
+    --primary-colour: #32c077;
+    --secondary-colour: #32afc0;
+
+    --primary-font: monospace;
+
+    --outer-background-colour: #282a36;
+    --inner-background-colour: #464a5b;
+
+    --primary-text-colour: black;
+    --green-text-colour: green;
+    --red-text-colour: darkred;
+}
+
+* {
+    font-family: var(--primary-font);
+}
+
+html {
+    background-color: var(--outer-background-colour);
+    zoom: 110%;
+}
+
+body {
+    max-width: 700px;
+    margin: auto;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header>h1 {
+    display: inline-block;
+    padding: 5px 7px;
+    background-color: var(--primary-colour);
+    border-radius: 12px;
+
+}
+
+main {
+    background-color: var(--inner-background-colour);
+    padding: 20px;
+    border: 3px solid var(--primary-colour);
+    border-radius: 12px;
+}
+
+.stats {
+    display: flex;
+    gap: 10px;
+}
+
+.stat-box {
+    flex: 1;
+    background: var(--secondary-colour);
+    border-radius: 12px;
+    padding: 10px 15px;
+    text-align: center;
+    border: 1px solid;
+    margin: 10px 0px;
+}
+
+.stat-text {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+}
+
+.stat-value {
+    font-size: 20px;
+    font-weight: 200;
+}
+
+.account,
+.new-subscription {
+    font-size: 15px;
+    padding: 8px 14px;
+    border: none;
+    background-color: var(--primary-colour);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.new-subscription {
+    text-decoration: none;
+    color: black;
+}
+
+.action {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px 0px;
+}
+
+.action button {
+    font: 15px;
+    padding: 10px 15px;
+    border: none;
+    background-color: var(--primary-colour);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.cards {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    border-radius: 15px;
+    background: var(--secondary-colour);
+    color: black;
+    font-size: 15px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.08)
+}
+
+.date {
+    padding: 1px 3px;
+    width: 70px;
+    text-align: center;
+    border-radius: 6px;
+}
+
+.close {
+    background-color: var(--green-text-colour);
+}
+
+.far {
+    background-color: var(--red-text-colour);
+}

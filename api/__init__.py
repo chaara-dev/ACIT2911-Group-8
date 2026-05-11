@@ -5,7 +5,11 @@ from database.models import User, Subscription, Payment
 
 
 def create_app():
-    app = Flask(__name__)
+    app = Flask(
+        __name__,
+        template_folder="../templates",
+        static_folder="../static"
+    )
 
     @app.before_request
     def before_request():
@@ -20,7 +24,13 @@ def create_app():
     db.create_tables([User, Subscription, Payment])
     db.close()
 
-    from api.routes import api
-    app.register_blueprint(api, url_prefix="/api")
+    from api.views import views_bp
+    app.register_blueprint(views_bp)
+
+    from api.subscriptions import subscriptions_bp
+    app.register_blueprint(subscriptions_bp, url_prefix="/api")
+
+    from api.auth import auth_bp
+    app.register_blueprint(auth_bp, url_prefix="/api")
 
     return app
