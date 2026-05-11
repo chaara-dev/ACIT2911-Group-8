@@ -1,10 +1,21 @@
 from flask import request, jsonify
 
-from database.models import User , Subscription
+from database.models import Subscription , Payment
+
+import datetime
 
 from . import subscriptions_bp
 
 # Subscription CRUD (Leon's code)
+def process_subscriptions():
+    now = datetime.datetime.now()
+    for sub in Subscription.select():
+        while sub.renewal_date <= now:
+            Payment.create(
+                subscription=sub.id,
+                amount=sub.cost,
+                date_paid=sub.renewal_date
+            )
 
 @subscriptions_bp.route("/subscriptions", methods=["GET"])
 def list_subscriptions():
