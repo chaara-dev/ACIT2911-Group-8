@@ -16,9 +16,17 @@ def process_subscriptions():
                 amount=sub.cost,
                 date_paid=sub.renewal_date
             )
+            if sub.billing_type == "Monthly":
+                sub.renewal_date = sub.renewal_date + datetime.timedelta(days=30)
+            else:
+                sub.renewal_date = sub.renewal_date + datetime.timedelta(days=365)
+        sub.save()
+
 
 @subscriptions_bp.route("/subscriptions", methods=["GET"])
 def list_subscriptions():
+    process_subscriptions()
+
     search = request.args.get("search")
     billing_type = request.args.get("billing_type")
     sort = request.args.get("sort", "renewal_date")
