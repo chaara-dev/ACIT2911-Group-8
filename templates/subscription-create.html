@@ -7,41 +7,48 @@
 </head>
 
 <body>
-    <h1 class="title">Create New Subscription</h1>
-    <form id="subscription-details">
-        <div id="subscriptionNameDiv">
-            <label for="subscriptionName">Name:</label>
-            <input type="text" id="subscriptionName" name="subscriptionName" form="subscription-details" />
+    <header>
+        <h1 class="title">New Subscription</h1>
+        <div id="buttons">
+            <a href="../templates/dashboard.html" class="to-dashboard">Dashboard</a>
+            <button class="account">Log Out</button>
         </div>
+    </header>
+    <main>
+        <form id="subscription-details">
+            <div id="subscriptionNameDiv">
+                <label for="subscriptionName">Name:</label>
+                <input type="text" id="subscriptionName" name="subscriptionName" form="subscription-details" />
+            </div>
 
-        </br>
+            </br>
 
-        <div id="subscriptionPriceDiv">
-            <label for="subscriptionPrice">Price ($):</label>
-            <input type="number" id="subscriptionPrice" name="subscriptionPrice" form="subscription-details" />
-        </div>
+            <div id="subscriptionPriceDiv">
+                <label for="subscriptionPrice">Price ($):</label>
+                <input type="number" id="subscriptionPrice" name="subscriptionPrice" form="subscription-details" />
+            </div>
 
-        </br>
+            </br>
 
-        <div id="subscriptionDateDiv">
-            <label for="subscriptionDate">Start Date:</label>
-            <input type="date" id="subscriptionDate" name="subscriptionDate" form="subscription-details" />
-        </div>
+            <div id="subscriptionDateDiv">
+                <label for="subscriptionDate">Start Date:</label>
+                <input type="date" id="subscriptionDate" name="subscriptionDate" form="subscription-details" />
+            </div>
 
-        </br>
+            </br>
 
-        <div id="subscriptionPeriodDiv">
-            <label for="subscriptionPeriod">Period:</label>
-            <select name="subscriptionPeriod" id="subscriptionPeriodSelect" form="subscription-details">
-                <option value="" disabled selected>Monthly or Yearly?</option>
-                <option value="Monthly">Monthly</option>
-                <option value="Yearly">Yearly</option>
-            </select>
-        </div>
+            <div id="subscriptionPeriodDiv">
+                <label for="subscriptionPeriod">Period:</label>
+                <select name="subscriptionPeriod" id="subscriptionPeriodSelect" form="subscription-details">
+                    <option value="" disabled selected>Monthly or Yearly?</option>
+                    <option value="Monthly">Monthly</option>
+                    <option value="Yearly">Yearly</option>
+                </select>
+            </div>
 
-        <input type="button" id="submitButton" name="submitButton" value="Submit" form="subscription-details">
-    </form>
-    <a href="../templates/index.html" id="back-button">Back</a>
+            <input type="button" id="submitButton" name="submitButton" value="Submit" form="subscription-details">
+        </form>
+    </main>
 </body>
 
 </html>
