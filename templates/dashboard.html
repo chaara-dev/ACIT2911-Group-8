@@ -1,46 +1,45 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../static/css/index.css" />
     <script src="../static/js/index.js" defer></script>
     <title>Dashboard</title>
-  </head>
+</head>
 
-  <body>
-    <div class="container">
-      <header class="header">
-        <h2 class="sub">Subscription Manager</h2>
+<body>
+    <header>
+        <h1>Dashboard</h1>
         <div id="buttons">
-          <a
-            href="../templates/subscription-create.html"
-            class="new-subscription"
-            >New Subscription</a
-          >
-          <button class="account">Log Out</button>
+            <a href="../templates/subscription-create.html" class="new-subscription">New Subscription</a>
+            <button class="account">Log Out</button>
         </div>
-      </header>
-      <div class="stats">
-        <div class="stat-box">
-          <p class="stat-text">Active Subscription(s)</p>
-          <p class="stat-value" id="active-sub">4</p>
+    </header>
+    <main>
+        <div class="stats">
+            <div class="stat-box">
+                <p class="stat-text">Active Subscription(s)</p>
+                <p class="stat-value" id="active-sub">4</p>
+            </div>
+            <div class="stat-box">
+                <p class="stat-text">Next Renewal</p>
+                <p class="stat-value" id="next-renew">8 days</p>
+            </div>
+            <div class="stat-box">
+                <p class="stat-text">Total</p>
+                <p class="stat-value" id="total-price">$99/m</p>
+            </div>
         </div>
-        <div class="stat-box">
-          <p class="stat-text">Next Renewal</p>
-          <p class="stat-value" id="next-renew">8 days</p>
+        <div class="action">
+            <button id="filter-button">Filter</button>
+            <button id="search-button">Search</button>
         </div>
-        <div class="stat-box">
-          <p class="stat-text">Total</p>
-          <p class="stat-value" id="total-price">$99/m</p>
+        <div class="cards"></div>
         </div>
-      </div>
-      <div class="action">
-        <button id="filter-button">Filter</button>
-        <button id="search-button">Search</button>
-        <button class="reminder" id="reminder-button">Reminder</button>
-      </div>
-      <div class="cards"></div>
-    </div>
-  </body>
+    </main>
+
+</body>
+
 </html>
