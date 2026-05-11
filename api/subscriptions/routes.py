@@ -1,13 +1,32 @@
 from flask import request, jsonify
 
-from database.models import User , Subscription
+from database.models import Subscription , Payment
+
+import datetime
 
 from . import subscriptions_bp
 
 # Subscription CRUD (Leon's code)
+def process_subscriptions():
+    now = datetime.datetime.now()
+    for sub in Subscription.select():
+        while sub.renewal_date <= now:
+            Payment.create(
+                subscription=sub.id,
+                amount=sub.cost,
+                date_paid=sub.renewal_date
+            )
+            if sub.billing_type == "Monthly":
+                sub.renewal_date = sub.renewal_date + datetime.timedelta(days=30)
+            else:
+                sub.renewal_date = sub.renewal_date + datetime.timedelta(days=365)
+        sub.save()
+
 
 @subscriptions_bp.route("/subscriptions", methods=["GET"])
 def list_subscriptions():
+    process_subscriptions()
+
     search = request.args.get("search")
     billing_type = request.args.get("billing_type")
     sort = request.args.get("sort", "renewal_date")
