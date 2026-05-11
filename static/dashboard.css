@@ -82,9 +82,6 @@ main {
     background-color: var(--primary-colour);
     border-radius: 10px;
     cursor: pointer;
-}
-
-.new-subscription {
     text-decoration: none;
     color: black;
 }
