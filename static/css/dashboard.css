@@ -1,6 +1,8 @@
 :root {
     --primary-colour: #32c077;
+    --hover-primary-colour: #2aa164;
     --secondary-colour: #32afc0;
+    --hover-secondary-colour: #2c8c98;
 
     --primary-font: monospace;
 
@@ -86,6 +88,11 @@ main {
     color: black;
 }
 
+.account:hover,
+.new-subscription:hover {
+    background-color: var(--hover-primary-colour);
+}
+
 .action {
     display: flex;
     flex-direction: row;
@@ -100,6 +107,10 @@ main {
     background-color: var(--primary-colour);
     border-radius: 10px;
     cursor: pointer;
+}
+
+.action button:hover {
+    background-color: var(--hover-primary-colour);
 }
 
 .cards {

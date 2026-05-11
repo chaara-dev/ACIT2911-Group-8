@@ -65,6 +65,11 @@ main {
     color: black;
 }
 
+.account:hover,
+.to-dashboard:hover {
+    background-color: var(--hover-primary-colour);
+}
+
 #subscription-details>div {
     display: flex;
     flex-direction: row;
@@ -97,7 +102,7 @@ main {
 }
 
 .submitButton {
-    margin: 1em 0 1em 0;
+    margin: 1.5em 0 1em 0;
 }
 
 div:has(> .submitButton) {
