@@ -16,7 +16,7 @@ def process_subscriptions():
                 amount=sub.cost,
                 date_paid=sub.renewal_date
             )
-            if sub.billing_type == "Monthly":
+            if sub.billing_type.lower == "monthly":
                 sub.renewal_date = sub.renewal_date + datetime.timedelta(days=30)
             else:
                 sub.renewal_date = sub.renewal_date + datetime.timedelta(days=365)
@@ -79,11 +79,11 @@ def create_subscription():
     user_id = data.get("user_id")
     name = data.get("name")
     cost = data.get("cost")
-    billing_type = data.get("billing_type", "unknown")
+    billing_type = data.get("billing_type")
     renewal_date = data.get("renewal_date")
 
-    if not user_id or not name or cost is None or not renewal_date:
-        return jsonify({"error": "user_id, name, and cost are required"}), 400
+    if not user_id or not name or cost is None or not billing_type or not renewal_date:
+        return jsonify({"error": "user_id, name, cost, billing_type, and renewal_date are required"}), 400
  
     new_sub = Subscription.create(
         user=user_id,
@@ -114,7 +114,7 @@ def update_subscription(sub_id):
     renewal_date = data.get("renewal_date")
 
     if not name or cost is None or not billing_type or not renewal_date:
-        return jsonify({"error": "name, cost, and billing_type are required"}), 400
+        return jsonify({"error": "name, cost, billing_type, renewal_date are required"}), 400
  
     sub.name = name
     sub.cost = cost
