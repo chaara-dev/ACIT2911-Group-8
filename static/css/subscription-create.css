@@ -1,6 +1,8 @@
 :root {
     --primary-colour: #32c077;
+    --hover-primary-colour: #2aa164;
     --secondary-colour: #32afc0;
+    --hover-secondary-colour: #2c8c98;
 
     --primary-font: monospace;
 
@@ -36,12 +38,12 @@ header>h1 {
     display: inline-block;
     padding: 5px 7px;
     background-color: var(--primary-colour);
-    border-radius: 12px;
+    border-radius: 8px;
 }
 
 main {
     background-color: var(--inner-background-colour);
-    padding: 20px;
+    padding: 20px 20px 0px;
     border: 3px solid var(--primary-colour);
     border-radius: 12px;
     display: flex;
@@ -69,29 +71,49 @@ main {
     align-items: center;
 }
 
-
 #subscription-details>div>label {
     display: block;
     width: 120px;
     text-align: center;
-    font-size: large;
+    font-size: larger;
 }
 
-
 #subscription-details>div>input,
-#submitButton,
+.submitButton,
 #subscriptionPeriodSelect {
     font-size: large;
     width: 250px;
     margin-left: 15px;
     height: 30px;
+    background-color: var(--secondary-colour);
+    border: 1px solid black;
+    border-radius: 4px;
 }
 
-#submitButton {
-    margin-top: 12px;
-    margin-left: 0px;
+#subscription-details>div>input:hover,
+.submitButton:hover,
+#subscriptionPeriodSelect:hover {
+    background-color: var(--hover-secondary-colour);
+}
+
+.submitButton {
+    margin: 1em 0 1em 0;
+}
+
+div:has(> .submitButton) {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
 }
 
 #subscriptionPeriod {
     width: 250px;
+}
+
+.missing-fields-error {
+    color: red;
+    font-weight: bold;
+    text-align: center;
+    margin: 0px;
 }
