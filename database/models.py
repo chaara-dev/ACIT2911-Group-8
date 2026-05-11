@@ -30,7 +30,7 @@ class Subscription(BaseModel):
     name = CharField()
     cost = FloatField()
     billing_type = CharField(max_length=20, default="unknown")
-    renewal_date = DateTimeField(default=datetime.datetime.now)
+    renewal_date = DateTimeField()
     created_at = DateTimeField(default=datetime.datetime.now)
 
     def to_dict(self):
