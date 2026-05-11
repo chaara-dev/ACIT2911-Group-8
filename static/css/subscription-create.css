@@ -37,7 +37,6 @@ header>h1 {
     padding: 5px 7px;
     background-color: var(--primary-colour);
     border-radius: 12px;
-
 }
 
 main {
@@ -45,6 +44,11 @@ main {
     padding: 20px;
     border: 3px solid var(--primary-colour);
     border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.75em;
+    align-items: center;
+    zoom: 110%;
 }
 
 .account,
@@ -59,40 +63,20 @@ main {
     color: black;
 }
 
-/* 
-.title {
-    text-align: center;
-    text-decoration: underline;
-}
-
-#subscription-details {
-    display: flex;
-    flex-direction: column;
-    line-height: 3em;
-    align-items: center;
-    zoom: 150%;
-    border: 3px solid lightblue;
-    border-radius: 12px;
-    width: 50%;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 12px;
-    padding-bottom: 12px;
-    margin-top: 65px;
-}
-
 #subscription-details>div {
     display: flex;
     flex-direction: row;
     align-items: center;
 }
 
+
 #subscription-details>div>label {
     display: block;
-    width: 90px;
+    width: 120px;
     text-align: center;
     font-size: large;
 }
+
 
 #subscription-details>div>input,
 #submitButton,
@@ -103,7 +87,6 @@ main {
     height: 30px;
 }
 
-
 #submitButton {
     margin-top: 12px;
     margin-left: 0px;
@@ -112,114 +95,3 @@ main {
 #subscriptionPeriod {
     width: 250px;
 }
-
-#back-button {
-    background-color: lightblue;
-    border: 3px solid lightblue;
-    border-radius: 12px;
-    text-align: center;
-    padding: 12px 20px;
-    position: absolute;
-    right: 80px;
-    bottom: 100px;
-    text-decoration: none;
-    color: black;
-    font-size: larger;
-}
-
-#back-button:hover {
-    background-color: rgb(128, 174, 189);
-    border: 3px solid lightblue;
-    cursor: pointer;
-}
-
-.stats {
-    display: flex;
-    gap: 10px;
-}
-
-.stat-box {
-    flex: 1;
-    background: var(--secondary-colour);
-    border-radius: 12px;
-    padding: 10px 15px;
-    text-align: center;
-    border: 1px solid;
-    margin: 10px 0px;
-}
-
-.stat-text {
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: 6px;
-}
-
-.stat-value {
-    font-size: 20px;
-    font-weight: 200;
-}
-
-.account,
-.new-subscription {
-    font-size: 15px;
-    padding: 8px 14px;
-    border: none;
-    background-color: var(--primary-colour);
-    border-radius: 10px;
-    cursor: pointer;
-}
-
-.new-subscription {
-    text-decoration: none;
-    color: black;
-}
-
-.action {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin: 10px 0px;
-}
-
-.action button {
-    font: 15px;
-    padding: 10px 15px;
-    border: none;
-    background-color: var(--primary-colour);
-    border-radius: 10px;
-    cursor: pointer;
-}
-
-.cards {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.card {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 16px 20px;
-    border-radius: 15px;
-    background: var(--secondary-colour);
-    color: black;
-    font-size: 15px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.08)
-}
-
-.date {
-    padding: 1px 3px;
-    width: 70px;
-    text-align: center;
-    border-radius: 6px;
-}
-
-.close {
-    background-color: var(--green-text-colour);
-}
-
-.far {
-    background-color: var(--red-text-colour);
-} */
