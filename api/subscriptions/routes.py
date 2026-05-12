@@ -1,6 +1,6 @@
 from flask import request, jsonify
 
-from flask_login import login_required
+from flask_login import login_required, current_user
 
 from database.models import Subscription , Payment
 
@@ -11,7 +11,7 @@ from . import subscriptions_bp
 # Subscription CRUD (Leon's code)
 def process_subscriptions():
     now = datetime.datetime.now()
-    for sub in Subscription.select():
+    for sub in Subscription.select().where(Subscription.user == current_user.id):
         while sub.renewal_date <= now:
             Payment.create(
                 subscription=sub.id,
@@ -35,7 +35,7 @@ def list_subscriptions():
     sort = request.args.get("sort", "renewal_date")
     order = request.args.get("order", "desc")
 
-    query = Subscription.select()
+    query = Subscription.select().where(Subscription.user == current_user.id)
 
     if search:
         query = query.where(Subscription.name ** f"%{search}%")
@@ -65,7 +65,9 @@ def list_subscriptions():
 @subscriptions_bp.route("/subscriptions/<int:sub_id>", methods=["GET"])
 @login_required
 def get_subscription(sub_id):
-    sub = Subscription.get_or_none(Subscription.id == sub_id)
+    sub = Subscription.get_or_none(
+        (Subscription.id == sub_id) & (Subscription.user == current_user.id)
+    )
  
     if sub is None:
         return jsonify({"error": f"Subscription {sub_id} not found"}), 404
@@ -81,7 +83,7 @@ def create_subscription():
     if not data:
         return jsonify({"error": "Request body must be JSON"}), 400
  
-    user_id = data.get("user_id")
+    user_id = current_user.id
     name = data.get("name")
     cost = data.get("cost")
     billing_type = data.get("billing_type")
@@ -104,7 +106,9 @@ def create_subscription():
 @subscriptions_bp.route("/subscriptions/<int:sub_id>", methods=["PUT"])
 @login_required
 def update_subscription(sub_id):
-    sub = Subscription.get_or_none(Subscription.id == sub_id)
+    sub = Subscription.get_or_none(
+        (Subscription.id == sub_id) & (Subscription.user == current_user.id)
+    )
  
     if sub is None:
         return jsonify({"error": f"Subscription {sub_id} not found"}), 404
@@ -133,7 +137,9 @@ def update_subscription(sub_id):
 @subscriptions_bp.route("/subscriptions/<int:sub_id>", methods=["DELETE"])
 @login_required
 def delete_subscription(sub_id):
-    sub = Subscription.get_or_none(Subscription.id == sub_id)
+    sub = Subscription.get_or_none(
+        (Subscription.id == sub_id) & (Subscription.user == current_user.id)
+    )
  
     if sub is None:
         return jsonify({"error": f"Subscription {sub_id} not found"}), 404
