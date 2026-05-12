@@ -3,7 +3,7 @@ const displayError = (errorMessage) => {
 
   if (!document.querySelector(".missing-fields-error")) {
     const error = document.createElement("p");
-    error.textContent = "All fields must be filled in";
+    error.textContent = errorMessage;
     error.classList.add("missing-fields-error");
     pageTitle.after(error);
   }
@@ -22,7 +22,7 @@ const createNewSubscription = () => {
       name: subName,
       cost: parseFloat(subPrice),
       billing_type: subPeriod,
-      renewal_date: subRenewalDate,
+      renewal_date: "2026-12-31",
     };
 
     try {

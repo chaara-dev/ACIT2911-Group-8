@@ -89,8 +89,8 @@ def create_subscription():
     billing_type = data.get("billing_type")
     renewal_date = data.get("renewal_date")
 
-    if not user_id or not name or cost is None or not billing_type or not renewal_date:
-        return jsonify({"error": "user_id, name, cost, billing_type, and renewal_date are required"}), 400
+    if not name or cost is None or not billing_type or not renewal_date:
+        return jsonify({"error": "name, cost, billing_type, and renewal_date are required"}), 400
  
     new_sub = Subscription.create(
         user=user_id,

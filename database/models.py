@@ -37,7 +37,7 @@ class Subscription(BaseModel):
             "name": self.name,
             "cost": self.cost,
             "billing_type": self.billing_type,
-            "renewal_date": self.renewal_date.isoformat(),
+            "renewal_date": self.renewal_date,
         }
 
 
