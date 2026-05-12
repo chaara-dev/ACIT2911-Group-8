@@ -9,7 +9,7 @@ const displayError = (errorMessage) => {
   }
 };
 
-const createNewAccount = async () => {
+const createNewAccount = () => {
   const signupButton = document.querySelector("button");
 
   signupButton.addEventListener("click", async () => {
@@ -42,7 +42,7 @@ const createNewAccount = async () => {
   });
 };
 
-const main = async () => {
+const main = () => {
   createNewAccount();
 };
 

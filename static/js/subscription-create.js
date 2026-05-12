@@ -1,15 +1,15 @@
 const displayError = () => {
   const pageTitle = document.querySelector(".submitButtonDiv");
+
   if (!document.querySelector(".missing-fields-error")) {
     const error = document.createElement("p");
     error.textContent = "All fields must be filled in";
     error.classList.add("missing-fields-error");
-
     pageTitle.after(error);
   }
 };
 
-const createNewSubscription = async () => {
+const createNewSubscription = () => {
   const createSub = document.getElementById("submitButton");
 
   createSub.addEventListener("click", async () => {
@@ -42,8 +42,11 @@ const createNewSubscription = async () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newSubscription),
       });
+
+      const data = await res.json();
+
       if (!res.ok) {
-        throw new Error("Could not fetch POST request");
+        throw new Error(data["error"]);
       }
     } catch (error) {
       console.log(error);
@@ -51,12 +54,8 @@ const createNewSubscription = async () => {
   });
 };
 
-const main = async () => {
-  try {
-    await createNewSubscription();
-  } catch (error) {
-    console.log(error);
-  }
+const main = () => {
+  createNewSubscription();
 };
 
 main();
