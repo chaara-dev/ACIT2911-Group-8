@@ -1,5 +1,7 @@
 from flask import Flask
 
+from flask_login import LoginManager
+
 from database.database import db
 from database.models import User, Subscription, Payment
 
