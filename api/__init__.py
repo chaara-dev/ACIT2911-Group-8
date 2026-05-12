@@ -5,6 +5,10 @@ from flask_login import LoginManager
 from database.database import db
 from database.models import User, Subscription, Payment
 
+import os
+from dotenv import load_dotenv
+load_dotenv()
+
 
 def create_app():
     app = Flask(
@@ -12,6 +16,12 @@ def create_app():
         template_folder="../templates",
         static_folder="../static"
     )
+
+    app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
+
+    login_manager = LoginManager()
+    login_manager.login_view = "views.login"
+    login_manager.init_app(app)
 
     @app.before_request
     def before_request():
@@ -25,6 +35,10 @@ def create_app():
     db.connect()
     db.create_tables([User, Subscription, Payment])
     db.close()
+
+    @login_manager.user_loader
+    def load_user(user_id):
+        return User.get_by_id(int(user_id))
 
     from api.views import views_bp
     app.register_blueprint(views_bp)
