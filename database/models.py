@@ -13,16 +13,12 @@ from peewee import (
 
 class User(UserMixin, BaseModel):
     id = AutoField()
-    username = CharField(unique=True, max_length=255)
     email = CharField(unique=True)
     password_hash = CharField()
-    created_at = DateTimeField(default=datetime.datetime.now)
 
     def to_dict(self):
         return {
             "id": self.id,
-            "username": self.username,
-            "created_at": self.created_at.isoformat()
         }
     
 

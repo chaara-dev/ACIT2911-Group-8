@@ -17,16 +17,14 @@ def register():
     if not data:
         return jsonify({"error": "Missing JSON body"}), 400
 
-    username = data.get("username")
     email = data.get("email")
     password = data.get("password")
 
-    if not username or not email or not password:
-        return jsonify({"error": "username, email, and password are required"}), 400
+    if not email or not password:
+        return jsonify({"error": "email and password are required"}), 400
 
     try:
         user = User.create(
-            username=username,
             email=email,
             password_hash=generate_password_hash(password)
         )
