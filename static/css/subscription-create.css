@@ -80,6 +80,7 @@ main {
     display: block;
     width: 120px;
     text-align: center;
+    margin-right: 15px;
     font-size: larger;
 }
 
@@ -88,7 +89,6 @@ main {
 #subscriptionPeriodSelect {
     font-size: large;
     width: 250px;
-    margin-left: 15px;
     height: 30px;
     background-color: var(--secondary-colour);
     border: 1px solid black;
