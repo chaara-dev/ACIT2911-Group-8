@@ -1,5 +1,7 @@
 from flask import request, jsonify
 
+from flask_login import login_required
+
 from database.models import Subscription , Payment
 
 import datetime
@@ -24,6 +26,7 @@ def process_subscriptions():
 
 
 @subscriptions_bp.route("/subscriptions", methods=["GET"])
+@login_required
 def list_subscriptions():
     process_subscriptions()
 
@@ -60,6 +63,7 @@ def list_subscriptions():
  
  
 @subscriptions_bp.route("/subscriptions/<int:sub_id>", methods=["GET"])
+@login_required
 def get_subscription(sub_id):
     sub = Subscription.get_or_none(Subscription.id == sub_id)
  
@@ -70,6 +74,7 @@ def get_subscription(sub_id):
 
 
 @subscriptions_bp.route("/subscriptions", methods=["POST"])
+@login_required
 def create_subscription():
     data = request.get_json()
  
@@ -97,6 +102,7 @@ def create_subscription():
 
 
 @subscriptions_bp.route("/subscriptions/<int:sub_id>", methods=["PUT"])
+@login_required
 def update_subscription(sub_id):
     sub = Subscription.get_or_none(Subscription.id == sub_id)
  
@@ -125,6 +131,7 @@ def update_subscription(sub_id):
     return jsonify(sub.to_dict())
 
 @subscriptions_bp.route("/subscriptions/<int:sub_id>", methods=["DELETE"])
+@login_required
 def delete_subscription(sub_id):
     sub = Subscription.get_or_none(Subscription.id == sub_id)
  
