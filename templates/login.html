@@ -13,15 +13,23 @@
       <form>
         <div class="input">
           <label>Email</label>
-          <input type="email" placeholder="Enter your email" />
+          <input id="email" type="email" placeholder="Enter your email" />
         </div>
 
         <div class="input">
           <label>Password</label>
-          <input type="password" placeholder="Enter your password" />
+          <input
+            id="password"
+            type="password"
+            placeholder="Enter your password"
+          />
         </div>
-        <button class="log-button">Login</button>
-        <button><a class="log-button" href="/sign-up">Sign Up</a></button>
+        <button type="button" id="login-button" class="log-button">
+          Login
+        </button>
+        <button type="button" id="signup-button">
+          <a class="log-button" href="/signup">Sign Up</a>
+        </button>
       </form>
     </div>
   </body>

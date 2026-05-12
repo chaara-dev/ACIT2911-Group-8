@@ -1,20 +1,20 @@
 const displayError = (errorMessage) => {
-  const loginButton = document.querySelector(".log-button");
+  const signupButton = document.getElementById("signup-button");
 
   if (!document.querySelector(".login-error")) {
     const error = document.createElement("p");
     error.textContent = errorMessage;
     error.classList.add("login-error"); // edit this class in signup.css
-    loginButton.after(error);
+    signupButton.after(error);
   }
 };
 
 const login = () => {
-  const loginButton = document.querySelector(".log-button");
+  const loginButton = document.getElementById("login-button");
 
   loginButton.addEventListener("click", async () => {
-    const email = document.querySelector(`[type="email"]`).value;
-    const password = document.querySelector(`[type="password"]`).value;
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
 
     const userAccount = { email: email, password: password };
 
