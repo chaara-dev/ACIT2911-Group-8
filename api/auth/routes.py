@@ -1,6 +1,6 @@
 from flask import request, jsonify
 
-from flask_login import login_user
+from flask_login import login_user, logout_user, login_required
 
 from werkzeug.security import generate_password_hash, check_password_hash
 
@@ -69,5 +69,7 @@ def login():
         return jsonify({"error": "Invalid email or password"}), 401
     
 @auth_bp.route("/logout", methods=["POST"])
+@login_required
 def logout():
+    logout_user()
     return jsonify({"message": "Logout successful"}), 200
