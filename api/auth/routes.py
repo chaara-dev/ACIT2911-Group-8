@@ -1,9 +1,11 @@
 from flask import request, jsonify
 
+from flask_login import login_user, logout_user, login_required
+
 from werkzeug.security import generate_password_hash, check_password_hash
 
 from peewee import IntegrityError, DoesNotExist
-from database.models import User , Subscription
+from database.models import User
 
 from . import auth_bp
 
@@ -15,16 +17,14 @@ def register():
     if not data:
         return jsonify({"error": "Missing JSON body"}), 400
 
-    username = data.get("username")
     email = data.get("email")
     password = data.get("password")
 
-    if not username or not email or not password:
-        return jsonify({"error": "username, email, and password are required"}), 400
+    if not email or not password:
+        return jsonify({"error": "email and password are required"}), 400
 
     try:
         user = User.create(
-            username=username,
             email=email,
             password_hash=generate_password_hash(password)
         )
@@ -57,6 +57,7 @@ def login():
         if not check_password_hash(user.password_hash, password):
             return jsonify({"error": "Invalid email or password"}), 401
 
+        login_user(user)
         return jsonify({
             "message": "Login successful",
             "user": user.to_dict()
@@ -66,5 +67,7 @@ def login():
         return jsonify({"error": "Invalid email or password"}), 401
     
 @auth_bp.route("/logout", methods=["POST"])
+@login_required
 def logout():
+    logout_user()
     return jsonify({"message": "Logout successful"}), 200

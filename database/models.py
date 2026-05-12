@@ -1,4 +1,6 @@
 from .database import BaseModel
+from flask_login import UserMixin
+
 import datetime
 
 from peewee import (
@@ -9,18 +11,14 @@ from peewee import (
     ForeignKeyField
 )
 
-class User(BaseModel):
+class User(UserMixin, BaseModel):
     id = AutoField()
-    username = CharField(unique=True, max_length=255)
     email = CharField(unique=True)
     password_hash = CharField()
-    created_at = DateTimeField(default=datetime.datetime.now)
 
     def to_dict(self):
         return {
             "id": self.id,
-            "username": self.username,
-            "created_at": self.created_at.isoformat()
         }
     
 
@@ -31,7 +29,6 @@ class Subscription(BaseModel):
     cost = FloatField()
     billing_type = CharField(max_length=20, default="unknown")
     renewal_date = DateTimeField()
-    created_at = DateTimeField(default=datetime.datetime.now)
 
     def to_dict(self):
         return {
@@ -40,8 +37,7 @@ class Subscription(BaseModel):
             "name": self.name,
             "cost": self.cost,
             "billing_type": self.billing_type,
-            "renewal_date": self.renewal_date.isoformat(),
-            "created_at": self.created_at.isoformat()
+            "renewal_date": self.renewal_date,
         }
 
 

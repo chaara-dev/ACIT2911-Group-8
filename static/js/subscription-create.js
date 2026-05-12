@@ -1,62 +1,52 @@
-const displayError = () => {
+const displayError = (errorMessage) => {
   const pageTitle = document.querySelector(".submitButtonDiv");
+
   if (!document.querySelector(".missing-fields-error")) {
     const error = document.createElement("p");
-    error.textContent = "All fields must be filled in";
+    error.textContent = errorMessage;
     error.classList.add("missing-fields-error");
-
     pageTitle.after(error);
   }
 };
 
-const createNewSubscription = async () => {
+const createNewSubscription = () => {
   const createSub = document.getElementById("submitButton");
 
   createSub.addEventListener("click", async () => {
-    const subNameValue = document.getElementById("subscriptionName").value;
-    const subPriceValue = document.getElementById("subscriptionPrice").value;
-    const subDateValue = document.getElementById("subscriptionDate").value;
-    const subscriptionPeriodValue = document.getElementById(
-      "subscriptionPeriodSelect",
-    ).value;
+    const subName = document.getElementById("subscriptionName").value;
+    const subPrice = document.getElementById("subscriptionPrice").value;
+    const subPeriod = document.getElementById("subscriptionPeriodSelect").value;
+    const subRenewalDate = document.getElementById("subscriptionDate").value;
 
-    if (
-      !subNameValue ||
-      !subPriceValue ||
-      !subDateValue ||
-      !subscriptionPeriodValue
-    ) {
-      return displayError();
-    }
-
-    const newSubscription = {
-      user_id: 14, // change after adding sessions
-      name: subNameValue,
-      cost: parseFloat(subPriceValue),
-      billing_type: subscriptionPeriodValue,
+    const newSub = {
+      name: subName,
+      cost: parseFloat(subPrice),
+      billing_type: subPeriod,
+      renewal_date: "2026-12-31",
     };
 
     try {
       const res = await fetch(`/api/subscriptions`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(newSubscription),
+        body: JSON.stringify(newSub),
       });
+
+      const data = await res.json();
+
       if (!res.ok) {
-        throw new Error("Could not fetch POST request");
+        throw new Error(data["error"]);
       }
+      window.location.href = "/";
     } catch (error) {
       console.log(error);
+      return displayError(error.message);
     }
   });
 };
 
-const main = async () => {
-  try {
-    await createNewSubscription();
-  } catch (error) {
-    console.log(error);
-  }
+const main = () => {
+  createNewSubscription();
 };
 
 main();
