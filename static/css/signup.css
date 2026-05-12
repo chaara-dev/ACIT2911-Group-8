@@ -54,10 +54,21 @@ main {
     zoom: 110%;
 }
 
-#sign-up>div {
+.value-div {
     display: flex;
     flex-direction: row;
     align-items: center;
+}
+
+#login-button-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#login-button-div>p {
+    margin: 0px;
+    font-size: medium;
 }
 
 #sign-up>div>label {
@@ -87,7 +98,7 @@ main {
     text-decoration: none;
     color: black;
     text-align: center;
-    margin: 0 auto 1em auto;
+    margin: 0px auto 1em auto;
 }
 
 #sign-up>div>input:hover,

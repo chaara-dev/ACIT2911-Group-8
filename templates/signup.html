@@ -16,14 +16,14 @@
     </header>
     <main>
         <form id="sign-up">
-            <div id="email-div">
+            <div class="value-div">
                 <label for="sign-up">Email:</label>
                 <input type="email" id="email-input" name="email-input" form="sign-up" placeholder="Enter your email">
             </div>
 
             </br>
 
-            <div class="password-div">
+            <div class="value-div">
                 <label for="sign-up">Password:</label>
                 <input type="password" id="password-input" name="password-input" form="sign-up"
                     placeholder="Enter your password">
@@ -31,12 +31,13 @@
 
             </br>
 
-            <div class="signupButtonDiv">
+            <div class="value-div" id="signup-button-div">
                 <input type="button" id="signupButton" name="signupButton" value="Sign Up" form="sign-up"
                     class="signupButton">
             </div>
 
-            <div class="loginPageButtonDiv">
+            <div class="value-div" id="login-button-div">
+                <p>Already have an account?</p>
                 <a href="/login" id="login-page-button">Log In</a>
             </div>
         </form>
