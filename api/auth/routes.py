@@ -1,9 +1,11 @@
 from flask import request, jsonify
 
+from flask_login import login_user
+
 from werkzeug.security import generate_password_hash, check_password_hash
 
 from peewee import IntegrityError, DoesNotExist
-from database.models import User , Subscription
+from database.models import User
 
 from . import auth_bp
 
@@ -57,6 +59,7 @@ def login():
         if not check_password_hash(user.password_hash, password):
             return jsonify({"error": "Invalid email or password"}), 401
 
+        login_user(user)
         return jsonify({
             "message": "Login successful",
             "user": user.to_dict()
