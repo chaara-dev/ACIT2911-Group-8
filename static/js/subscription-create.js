@@ -1,15 +1,8 @@
 const displayError = () => {
-  const pageTitle = document.querySelector(".title");
+  const pageTitle = document.querySelector(".submitButtonDiv");
   if (!document.querySelector(".missing-fields-error")) {
     const error = document.createElement("p");
     error.textContent = "All fields must be filled in";
-    // placeholder style, can delete these style lines and edit with
-    // subscription-create.css with .missing-fields-error claass
-    error.style.color = "red";
-    error.style.fontWeight = "bold";
-    error.style.fontSize = "1.5rem";
-    error.style.display = "flex";
-    error.style.justifyContent = "center";
     error.classList.add("missing-fields-error");
 
     pageTitle.after(error);

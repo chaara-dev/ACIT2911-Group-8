@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/css/dashboard.css" />
+    <script src="../static/js/index.js" defer></script>
+    <title>Dashboard</title>
+</head>
+
+<body>
+    <header>
+        <h1>Dashboard</h1>
+        <div id="buttons">
+            <a href="../templates/subscription-create.html" class="new-subscription">New Subscription</a>
+            <button class="account">Log Out</button>
+        </div>
+    </header>
+    <main>
+        <div class="stats">
+            <div class="stat-box">
+                <p class="stat-text">Active Subscription(s)</p>
+                <p class="stat-value"><span id="active-sub">[4]</span></p>
+            </div>
+            <div class="stat-box">
+                <p class="stat-text">Next Renewal</p>
+                <p class="stat-value"><span id="next-renew">[8]</span> days</p>
+            </div>
+            <div class="stat-box">
+                <p class="stat-text">Total</p>
+                <p class="stat-value">$<span id="total-price">[99]</span>/m</p>
+            </div>
+        </div>
+        <div class="action">
+            <button id="filter-button">Filter</button>
+            <button id="search-button">Search</button>
+        </div>
+        <div class="cards"></div>
+        </div>
+    </main>
+
+</body>
+
+</html>
