@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,20 +8,34 @@
     <link rel="stylesheet" href="../static/css/signup.css" />
     <script src="../static/js/signup.js" defer></script>
 </head>
-<h1>Subscription Manager</h1>
+
 <body>
-    <div class="login">
-        <h2>Sign Up</h2>
-        <form>
-            <div class="input">
-                <label>Email</label>
-                <input id="email" type="email" placeholder="Enter your email">
+    <header>
+        <h1>Sign Up</h1>
+    </header>
+    <main>
+        <form id="sign-up">
+            <div id="email-div">
+                <label for="sign-up">Email:</label>
+                <input type="email" id="email-input" name="email-input" form="sign-up" placeholder="Enter your email">
             </div>
 
-            <div class="input">
-                <label>Password</label>
-                <input id="password" type="password" placeholder="Enter your password">
+            </br>
+
+            <div class="password-div">
+                <label for="sign-up">Password:</label>
+                <input type="password" id="password-input" name="password-input" form="sign-up"
+                    placeholder="Enter your password">
             </div>
-            <button type="button" id="signup-button">Sign Up</button>
+
+            </br>
+
+            <div class="submitButtonDiv">
+                <input type="button" id="submitButton" name="submitButton" value="Submit" form="sign-up"
+                    class="submitButton">
+            </div>
+        </form>
+    </main>
 </body>
+
 </html>

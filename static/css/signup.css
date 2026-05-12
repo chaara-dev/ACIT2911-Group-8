@@ -1,10 +1,100 @@
-html {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Monospace', Times, serif;
+:root {
+    --primary-colour: #32c077;
+    --hover-primary-colour: #2aa164;
+    --secondary-colour: #32afc0;
+    --hover-secondary-colour: #2c8c98;
+
+    --primary-font: monospace;
+
+    --outer-background-colour: #282a36;
+    --inner-background-colour: #515466;
+
+    --primary-text-colour: black;
+    --green-text-colour: green;
+    --red-text-colour: darkred;
 }
-body{
-    background:whitesmoke;
-    color:black;
+
+* {
+    font-family: var(--primary-font);
+}
+
+html {
+    background-color: var(--outer-background-colour);
+    zoom: 110%;
+}
+
+body {
+    max-width: 700px;
+    margin: auto;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header>h1 {
+    display: inline-block;
+    padding: 5px 7px;
+    background-color: var(--primary-colour);
+    border-radius: 8px;
+}
+
+main {
+    background-color: var(--inner-background-colour);
+    padding: 20px 20px 0px;
+    border: 3px solid var(--primary-colour);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.75em;
+    align-items: center;
+    zoom: 110%;
+}
+
+#sign-up>div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#sign-up>div>label {
+    display: block;
+    width: 120px;
+    text-align: center;
+    font-size: larger;
+}
+
+#sign-up>div>input,
+.submitButton {
+    font-size: large;
+    width: 250px;
+    margin-left: 15px;
+    height: 30px;
+    background-color: var(--secondary-colour);
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
+#sign-up>div>input:hover,
+.submitButton:hover,
+#subscriptionPeriodSelect:hover {
+    background-color: var(--hover-secondary-colour);
+}
+
+.submitButton {
+    margin: 1.5em 0 1em 0;
+}
+
+div:has(> .submitButton) {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+#email-input::placeholder,
+#password-input::placeholder {
+    text-align: center;
 }
