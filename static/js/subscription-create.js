@@ -1,4 +1,4 @@
-const displayError = () => {
+const displayError = (errorMessage) => {
   const pageTitle = document.querySelector(".submitButtonDiv");
 
   if (!document.querySelector(".missing-fields-error")) {
@@ -19,15 +19,6 @@ const createNewSubscription = () => {
     const subscriptionPeriodValue = document.getElementById(
       "subscriptionPeriodSelect",
     ).value;
-
-    if (
-      !subNameValue ||
-      !subPriceValue ||
-      !subDateValue ||
-      !subscriptionPeriodValue
-    ) {
-      return displayError();
-    }
 
     const newSubscription = {
       user_id: 14, // change after adding sessions
@@ -50,6 +41,7 @@ const createNewSubscription = () => {
       }
     } catch (error) {
       console.log(error);
+      return displayError(error.message);
     }
   });
 };

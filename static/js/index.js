@@ -1,12 +1,12 @@
 const getSubscriptions = async () => {
   try {
     const res = await fetch(`/api/subscriptions`);
+    const data = await res.json();
 
     if (!res.ok) {
-      throw new Error("Could not fetch resource");
+      throw new Error(data["error"]);
     }
 
-    const data = await res.json();
     return data.subscriptions;
   } catch (error) {
     console.log(error);

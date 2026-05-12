@@ -15,11 +15,6 @@ const createNewAccount = () => {
   signupButton.addEventListener("click", async () => {
     const email = document.querySelector(`[type="email"]`).value;
     const password = document.querySelector(`[type="password"]`).value;
-
-    if (!email || !password) {
-      return displayError("Missing email or password");
-    }
-
     const newAccount = { email: email, password: password };
 
     try {
@@ -37,7 +32,7 @@ const createNewAccount = () => {
       window.location.href = "/login";
     } catch (error) {
       console.log(error);
-      return displayError(error);
+      return displayError(error.message);
     }
   });
 };
