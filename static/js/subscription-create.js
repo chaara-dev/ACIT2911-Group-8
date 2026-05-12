@@ -13,25 +13,23 @@ const createNewSubscription = () => {
   const createSub = document.getElementById("submitButton");
 
   createSub.addEventListener("click", async () => {
-    const subNameValue = document.getElementById("subscriptionName").value;
-    const subPriceValue = document.getElementById("subscriptionPrice").value;
-    const subDateValue = document.getElementById("subscriptionDate").value;
-    const subscriptionPeriodValue = document.getElementById(
-      "subscriptionPeriodSelect",
-    ).value;
+    const subName = document.getElementById("subscriptionName").value;
+    const subPrice = document.getElementById("subscriptionPrice").value;
+    const subPeriod = document.getElementById("subscriptionPeriodSelect").value;
+    const subRenewalDate = document.getElementById("subscriptionDate").value;
 
-    const newSubscription = {
-      user_id: 14, // change after adding sessions
-      name: subNameValue,
-      cost: parseFloat(subPriceValue),
-      billing_type: subscriptionPeriodValue,
+    const newSub = {
+      name: subName,
+      cost: parseFloat(subPrice),
+      billing_type: subPeriod,
+      renewal_date: subRenewalDate,
     };
 
     try {
       const res = await fetch(`/api/subscriptions`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(newSubscription),
+        body: JSON.stringify(newSub),
       });
 
       const data = await res.json();
