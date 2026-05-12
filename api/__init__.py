@@ -20,7 +20,7 @@ def create_app():
     app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
 
     login_manager = LoginManager()
-    login_manager.login_view = "views.login"
+    login_manager.login_view = "views_bp.login"
     login_manager.init_app(app)
 
     @app.before_request
