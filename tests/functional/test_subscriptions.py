@@ -1,4 +1,7 @@
 import pytest
+
+from flask_login import current_user
+
 from api import create_app
 from database.models import User, Subscription
 
@@ -10,9 +13,9 @@ def test_client():
     with flask_app.test_client() as testing_client:
         testing_client.post(
             "/api/register",
-            json={"username": "test", "email": "test@something.com", "password": "test"}
+            json={"email": "test@something.com", "password": "test"}
         )
-        test_user = User.get(User.username == "test")
+        test_user = User.get(User.email == "test@something.com")
         testing_client.post(
             "/api/login",
             json={"email": test_user.email, "password": "test"}
@@ -23,10 +26,11 @@ def test_client():
                 "user_id": test_user.id,
                 "name": "test_subscription",
                 "cost": 15.99,
-                "billing_type": "monthly"
+                "billing_type": "monthly",
+                "renewal_date": "12-05-2026"
             }
         )
-        test_subscription = Subscription.get_or_none(Subscription.name == "test_subscription")
+        test_subscription = Subscription.get(Subscription.name == "test_subscription")
         yield testing_client
         if test_subscription:
             test_subscription.delete_instance()
@@ -57,14 +61,15 @@ def test_get_subscription(test_client):
 
 
 def test_create_subscription(test_client):
-    test_user = User.get(User.username == "test")
+    test_user = User.get(User.email == "test@something.com")
     response = test_client.post(
         "/api/subscriptions",
         json={
             "user_id": test_user.id,
             "name": "test_add_subscription",
             "cost": 10.99,
-            "billing_type": "yearly"
+            "billing_type": "yearly",
+            "renewal_date": "12-05-2026"
         }
     )
     assert response.status_code == 201
@@ -84,7 +89,8 @@ def test_update_subscription(test_client):
         json={
             "name": "test_update_subscription",
             "cost": 26.00,
-            "billing_type": "yearly"
+            "billing_type": "yearly",
+            "renewal_date": "12-05-2026"
         }
     )
     assert response.status_code == 200
