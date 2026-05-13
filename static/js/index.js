@@ -21,9 +21,16 @@ const calculateTotalCost = (subs) => {
   return "pass";
 };
 
-// filter ?
+const filterSubscriptions = (subs, billing_type) => {
+  if (!billing_type) return subs;
+  return subs.filter((sub) => sub.billing_type === billing_type);
+};
 
-// search ?
+const searchSubscriptions = (subs, search) => {
+  if (!search) return subs;
+  const needle = search.toLowerCase();
+  return subs.filter((sub) => String(sub.name).toLowerCase().includes(needle));
+};
 
 const displayDashboard = (subs) => {
   const activeSubsValue = document.getElementById("active-sub");
@@ -60,6 +67,18 @@ const displaySubscriptions = (subs) => {
   });
 };
 
+let allSubscriptions = [];
+let activeSearch = "";
+let activeBillingFilter = "";
+
+const applySubscriptionView = () => {
+  let shown = allSubscriptions;
+  shown = searchSubscriptions(shown, activeSearch);
+  shown = filterSubscriptions(shown, activeBillingFilter);
+  displayDashboard(shown);
+  displaySubscriptions(shown);
+};
+
 const main = async () => {
   try {
     const subs = await getSubscriptions();
@@ -68,8 +87,35 @@ const main = async () => {
       throw new Error("Could not get subscriptions");
     }
 
-    displayDashboard(subs);
-    displaySubscriptions(subs);
+    allSubscriptions = subs;
+    applySubscriptionView();
+
+    const filterButton = document.getElementById("filter-button");
+    const searchButton = document.getElementById("search-button");
+
+    if (filterButton) {
+      filterButton.addEventListener("click", () => {
+        const value = window.prompt(
+          "Filter by billing type (Monthly, Yearly), or leave empty to show all:",
+          activeBillingFilter
+        );
+        if (value === null) return;
+        activeBillingFilter = value.trim();
+        applySubscriptionView();
+      });
+    }
+
+    if (searchButton) {
+      searchButton.addEventListener("click", () => {
+        const value = window.prompt(
+          "Search subscriptions by name, or leave empty to clear:",
+          activeSearch
+        );
+        if (value === null) return;
+        activeSearch = value.trim();
+        applySubscriptionView();
+      });
+    }
   } catch (error) {
     console.log(error);
   }
