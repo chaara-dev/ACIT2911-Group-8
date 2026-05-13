@@ -3,23 +3,23 @@ name: Test Python Application
 
 on:
   push:
-    branches: [ "dev" ]
+    branches: ["*"]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    - name: Set up Python 3.13
-      uses: actions/setup-python@v3
-      with:
-        python-version: "3.13"
-    - name: Install dependencies
-      run: |
-        curl -LsSf https://astral.sh/uv/install.sh | sh && uv sync --frozen
-    - name: Test with pytest
-      run: |
-        uv run pytest
+      - uses: actions/checkout@v4
+      - name: Set up Python 3.13
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.13"
+      - name: Install dependencies
+        run: |
+          curl -LsSf https://astral.sh/uv/install.sh | sh && uv sync --frozen
+      - name: Test with pytest
+        run: |
+          uv run pytest
   create-pull-request:
     needs: build
     runs-on: ubuntu-latest
