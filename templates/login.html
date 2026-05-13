@@ -1,36 +1,46 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../static/css/login.css" />
     <script src="../static/js/login.js" defer></script>
-  </head>
-  <h1>Subscription Manager</h1>
-  <body>
-    <div class="login">
-      <h2>Login</h2>
-      <form>
-        <div class="input">
-          <label>Email</label>
-          <input id="email" type="email" placeholder="Enter your email" />
-        </div>
+</head>
 
-        <div class="input">
-          <label>Password</label>
-          <input
-            id="password"
-            type="password"
-            placeholder="Enter your password"
-          />
-        </div>
-        <button type="button" id="login-button" class="log-button">
-          Login
-        </button>
-        <button type="button" id="signup-button">
-          <a class="log-button" href="/signup">Sign Up</a>
-        </button>
-      </form>
-    </div>
-  </body>
+<body>
+    <header>
+        <h1>Log In</h1>
+        <h3>Subscription Manager</h3>
+    </header>
+    <main>
+        <form id="log-in">
+            <div class="value-div">
+                <label for="log-in">Email:</label>
+                <input type="email" id="email-input" name="email-input" form="log-in" placeholder="Enter your email">
+            </div>
+
+            </br>
+
+            <div class="value-div">
+                <label for="log-in">Password:</label>
+                <input type="password" id="password-input" name="password-input" form="log-in"
+                    placeholder="Enter your password">
+            </div>
+
+            </br>
+
+            <div class="value-div" id="login-button-div">
+                <input type="button" id="loginButton" name="loginButton" value="Log In" form="log-in"
+                    class=" loginButton">
+            </div>
+
+            <div class="value-div" id="signup-button-div">
+                <p>Don't have an account?</p>
+                <a href="/signup" id="signup-page-button">Sign Up</a>
+            </div>
+        </form>
+    </main>
+</body>
+
 </html>
