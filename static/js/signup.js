@@ -1,5 +1,5 @@
 const displayError = (errorMessage) => {
-  const signupButton = document.getElementById("signup-button");
+  const signupButton = document.getElementById("signupButton");
 
   if (!document.querySelector(".signup-error")) {
     const error = document.createElement("p");
@@ -10,11 +10,11 @@ const displayError = (errorMessage) => {
 };
 
 const createNewAccount = () => {
-  const signupButton = document.getElementById("signup-button");
+  const signupButton = document.getElementById("signupButton");
 
   signupButton.addEventListener("click", async () => {
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
+    const email = document.getElementById("email-input").value;
+    const password = document.getElementById("password-input").value;
     const newAccount = { email: email, password: password };
 
     try {
