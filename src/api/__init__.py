@@ -2,8 +2,8 @@ from flask import Flask
 
 from flask_login import LoginManager
 
-from database.database import db
-from database.models import User, Subscription, Payment
+from src.database.database import db
+from src.database.models import User, Subscription, Payment
 
 import os
 from dotenv import load_dotenv
@@ -40,13 +40,13 @@ def create_app():
     def load_user(user_id):
         return User.get_by_id(int(user_id))
 
-    from api.views import views_bp
+    from src.api.views import views_bp
     app.register_blueprint(views_bp)
 
-    from api.subscriptions import subscriptions_bp
+    from src.api.subscriptions import subscriptions_bp
     app.register_blueprint(subscriptions_bp, url_prefix="/api")
 
-    from api.auth import auth_bp
+    from src.api.auth import auth_bp
     app.register_blueprint(auth_bp, url_prefix="/api")
 
     return app
