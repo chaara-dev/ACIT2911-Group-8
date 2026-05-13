@@ -2,8 +2,8 @@ import pytest
 
 from flask_login import current_user
 
-from api import create_app
-from database.models import User, Subscription
+from src.api import create_app
+from src.database.models import User, Subscription
 
 
 @pytest.fixture()

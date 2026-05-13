@@ -2,7 +2,7 @@ from flask import request, jsonify
 
 from flask_login import login_required, current_user
 
-from database.models import Subscription , Payment
+from src.database.models import Subscription , Payment
 
 import datetime
 
