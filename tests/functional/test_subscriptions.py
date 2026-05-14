@@ -122,10 +122,29 @@ def test_search_subscription(test_client):
 
 # Filter
 def test_filter_subscription(test_client):
-    response = test_client.get("/api/subscriptions?billing_type=monthly")
+    response = test_client.get("/api/subscriptions?billing_type=yearly")
     assert response.status_code == 200
     data = response.get_json()
     assert all(
         sub["billing_type"] == "yearly"
         for sub in data["subscriptions"]
     )
+
+# Sort
+def test_sort_subscriptions(test_client):
+    test_user = User.get(User.email == "test@something.com")
+    test_client.post("/api/subscriptions", json={
+        "user_id": test_user.id,
+        "name": "cheap_sub",
+        "cost": 5.00,
+        "billing_type": "monthly",
+        "renewal_date": "12-05-2026"
+    })
+
+    response = test_client.get("/api/subscriptions?sort=cost&order=asc")
+    assert response.status_code == 200
+    data = response.get_json()
+    costs = [sub["cost"] for sub in data["subscriptions"]]
+    assert costs == sorted(costs)
+
+    Subscription.get(Subscription.name == "cheap_sub").delete_instance()
