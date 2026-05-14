@@ -31,10 +31,18 @@ const createNewSubscription = () => {
       return displayError("All fields must be entered.");
     }
     // Validate renewal date is within limit
-    if (subRenewalDate < dateInput.min || subRenewalDate > dateInput.max) {
+    const maxDate = new Date();
+    if (subPeriod === "Monthly") {
+      maxDate.setMonth(maxDate.getMonth() + 1);
+    } else if (subPeriod === "Yearly") {
+      maxDate.setFullYear(maxDate.getFullYear() + 1);
+    }
+    const maxDateString = `${maxDate.getFullYear()}-${String(maxDate.getMonth() + 1).padStart(2, "0")}-${String(maxDate.getDate()).padStart(2, "0")}`;
+
+    if (subRenewalDate > maxDateString) {
       dateInput.value = "";
       return displayError("Renewal date must be within a month/year from today.");
-    }  
+    }
   
     const newSub = {
       name: subName,
