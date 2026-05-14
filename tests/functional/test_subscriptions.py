@@ -119,3 +119,13 @@ def test_search_subscription(test_client):
         "test_sub" in sub["name"].lower()
         for sub in data["subscriptions"]
     )
+
+# Filter
+def test_filter_subscription(test_client):
+    response = test_client.get("/api/subscriptions?billing_type=monthly")
+    assert response.status_code == 200
+    data = response.get_json()
+    assert all(
+        sub["billing_type"] == "yearly"
+        for sub in data["subscriptions"]
+    )
