@@ -40,7 +40,7 @@ const createNewSubscription = () => {
       name: subName,
       cost: parseFloat(subPrice),
       billing_type: subPeriod,
-      renewal_date: "2026-12-31",
+      renewal_date: subRenewalDate,
     };
 
     try {
