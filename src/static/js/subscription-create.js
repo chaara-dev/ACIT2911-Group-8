@@ -41,9 +41,13 @@ const createNewSubscription = () => {
 
     if (subRenewalDate > maxDateString) {
       dateInput.value = "";
-      return displayError("Renewal date must be within a month/year from today.");
+      if (subPeriod === "Monthly") {
+        return displayError("Renewal date must be within a month from today.");
+      } else {
+        return displayError("Renewal date must be within a year from today.");
+      }
     }
-  
+
     const newSub = {
       name: subName,
       cost: parseFloat(subPrice),
