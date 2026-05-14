@@ -109,6 +109,29 @@ def test_delete_subscription(test_client):
 
 # Sprint 2 tests
 
+# Required fields
+def test_create_subscription_without_renewal_date(test_client):
+    response = test_client.post("/api/subscriptions", json={
+        "name": "bad_sub",
+        "cost": 10.00,
+        "billing_type": "monthly",
+        # missing renewal_date
+    })
+    assert response.status_code == 400
+
+def test_update_subscription_without_renewal_date(test_client):
+    test_subscription = Subscription.get(Subscription.name == "test_subscription")
+    response = test_client.put(
+        f"/api/subscriptions/{test_subscription.id}",
+        json={
+            "name": "updated_name",
+            "cost": 20.00,
+            "billing_type": "monthly",
+            # missing renewal_date
+        }
+    )
+    assert response.status_code == 400
+
 # Search
 def test_search_subscription(test_client):
     response = test_client.get("/api/subscriptions?search=test_sub")
