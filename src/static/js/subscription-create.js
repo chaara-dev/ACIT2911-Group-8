@@ -18,6 +18,10 @@ const createNewSubscription = () => {
     const subPeriod = document.getElementById("subscriptionPeriodSelect").value;
     const subRenewalDate = document.getElementById("subscriptionDate").value;
 
+    if (!subName || !subPrice || !subPeriod || !subRenewalDate) {
+      return displayError("All fields must be entered.");
+    }
+
     const newSub = {
       name: subName,
       cost: parseFloat(subPrice),
@@ -40,13 +44,8 @@ const createNewSubscription = () => {
       window.location.href = "/";
     } catch (error) {
       console.log(error);
-      return displayError(error.message);
     }
   });
 };
 
-const main = () => {
-  createNewSubscription();
-};
-
-main();
+createNewSubscription();
