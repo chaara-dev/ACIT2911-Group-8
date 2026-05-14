@@ -30,7 +30,12 @@ const createNewSubscription = () => {
     if (!subName || !subPrice || !subPeriod || !subRenewalDate) {
       return displayError("All fields must be entered.");
     }
-
+    // Validate renewal date is within limit
+    if (subRenewalDate < dateInput.min || subRenewalDate > dateInput.max) {
+      dateInput.value = "";
+      return displayError("Renewal date must be within a month/year from today.");
+    }  
+  
     const newSub = {
       name: subName,
       cost: parseFloat(subPrice),
