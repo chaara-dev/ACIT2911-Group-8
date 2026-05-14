@@ -106,3 +106,16 @@ def test_delete_subscription(test_client):
     assert response.status_code == 200
     data = response.get_json()
     assert data["message"] == f"Subscription {test_subscription_id} deleted successfully"
+
+# Sprint 2 tests
+
+# Search
+def test_search_subscription(test_client):
+    response = test_client.get("/api/subscriptions?search=test_sub")
+    assert response.status_code == 200
+    data = response.get_json()
+    assert len(data["subscriptions"]) != 0
+    assert all(
+        "test_sub" in sub["name"].lower()
+        for sub in data["subscriptions"]
+    )
