@@ -10,6 +10,15 @@ const displayError = (errorMessage) => {
 };
 
 const createNewSubscription = () => {
+  // Set date input limits
+  const dateInput = document.getElementById("subscriptionDate");
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  const nextYear = new Date();
+  nextYear.setFullYear(nextYear.getFullYear() + 1);
+  dateInput.min = tomorrow.toISOString().split("T")[0];
+  dateInput.max = nextYear.toISOString().split("T")[0];
+  
   const createSub = document.getElementById("submitButton");
 
   createSub.addEventListener("click", async () => {
