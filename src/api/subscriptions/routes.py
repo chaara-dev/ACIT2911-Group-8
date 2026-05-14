@@ -18,7 +18,7 @@ def process_subscriptions():
                 amount=sub.cost,
                 date_paid=sub.renewal_date
             )
-            if sub.billing_type.lower == "monthly":
+            if sub.billing_type.lower() == "monthly":
                 sub.renewal_date = sub.renewal_date + datetime.timedelta(days=30)
             else:
                 sub.renewal_date = sub.renewal_date + datetime.timedelta(days=365)
