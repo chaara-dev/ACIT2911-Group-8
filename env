@@ -1,0 +1,6 @@
+PGHOST="subscription-manager-db.postgres.database.azure.com"
+PGUSER="group8"
+PGPORT=5432
+PGDATABASE="postgres"
+PGPASSWORD="5uFpa+,U~:gi7>T"
+SECRET_KEY="5d380f3ccf38baed8f85bda2e3521532f2c7f263173b3c46d177b55dbb46db0e"
