@@ -40,6 +40,18 @@ const filterSubscriptions = (subs, billing_type) => {
   return subs.filter((sub) => sub.billing_type === billing_type);
 };
 
+const filterSubscriptionsByPrice = (subs) => {
+  return subs.sort((a, b) => b.cost - a.cost);
+};
+
+const filterSubscriptionsByRenewalDate = (subs) => {
+  return subs.sort((a, b) => b.renewal_date - a.renewal_date);
+};
+
+const filterSubscriptionsAlpha = (subs) => {
+  return subs.sort((a, b) => a.name - b.name);
+};
+
 const searchSubscriptions = (subs, search) => {
   if (!search) return subs;
   const needle = search.toLowerCase();
@@ -108,29 +120,108 @@ const main = async () => {
     const filterButton = document.getElementById("filter-button");
     const searchButton = document.getElementById("search-button");
 
-    if (filterButton) {
-      filterButton.addEventListener("click", () => {
-        const value = window.prompt(
-          "Filter by billing type (Monthly, Yearly), or leave empty to show all:",
-          activeBillingFilter,
-        );
-        if (value === null) return;
-        activeBillingFilter = value.trim();
-        applySubscriptionView();
-      });
-    }
+    filterButton.addEventListener("click", () => {
+      const filterOptions = document.querySelector(".filters");
+      filterOptions.replaceChildren();
 
-    if (searchButton) {
-      searchButton.addEventListener("click", () => {
-        const value = window.prompt(
-          "Search subscriptions by name, or leave empty to clear:",
-          activeSearch,
-        );
-        if (value === null) return;
-        activeSearch = value.trim();
+      const monthly = document.createElement("button");
+      monthly.textContent = "Monthly";
+      monthly.classList.add("monthly");
+      filterOptions.appendChild(monthly);
+
+      const yearly = document.createElement("button");
+      yearly.textContent = "Yearly";
+      yearly.classList.add("yearly");
+      filterOptions.appendChild(yearly);
+
+      const price = document.createElement("button");
+      price.textContent = "Price";
+      price.classList.add("price");
+      filterOptions.appendChild(price);
+
+      const renewalDate = document.createElement("button");
+      renewalDate.textContent = "Renewal Date";
+      monthly.classList.add("renewal-date");
+      filterOptions.appendChild(renewalDate);
+
+      const name = document.createElement("button");
+      name.textContent = "Name";
+      name.classList.add("by-name");
+      filterOptions.appendChild(name);
+
+      monthly.addEventListener("click", () => {
+        const value = "Monthly";
+        activeBillingFilter = value;
         applySubscriptionView();
       });
-    }
+
+      yearly.addEventListener("click", () => {
+        const value = "Yearly";
+        activeBillingFilter = value;
+        applySubscriptionView();
+      });
+
+      price.addEventListener("click", () => {
+        shown = filterSubscriptionsByPrice(allSubscriptions);
+        shown = searchSubscriptions(shown, activeSearch);
+        displayDashboard(shown);
+        displaySubscriptions(shown);
+      });
+
+      renewalDate.addEventListener("click", () => {
+        shown = filterSubscriptionsByRenewalDate(allSubscriptions);
+        shown = searchSubscriptions(shown, activeSearch);
+        displayDashboard(shown);
+        displaySubscriptions(shown);
+      });
+
+      name.addEventListener("click", () => {
+        shown = filterSubscriptionsAlpha(allSubscriptions);
+        shown = searchSubscriptions(shown, activeSearch);
+        displayDashboard(shown);
+        displaySubscriptions(shown);
+      });
+    });
+
+    searchButton.addEventListener("click", () => {
+      if (document.querySelector(".search")) return;
+
+      const searchBox = document.createElement("input");
+      searchBox.type = "text";
+      searchBox.classList.add("search");
+      searchButton.appendChild(searchBox);
+
+      searchBox.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+          activeSearch = searchBox.value.trim();
+          applySubscriptionView();
+        }
+      });
+    });
+
+    // if (filterButton) {
+    //   filterButton.addEventListener("click", () => {
+    //     const value = window.prompt(
+    //       "Filter by billing type (Monthly, Yearly), or leave empty to show all:",
+    //       activeBillingFilter,
+    //     );
+    //     if (value === null) return;
+    //     activeBillingFilter = value.trim();
+    //     applySubscriptionView();
+    //   });
+    // }
+
+    // if (searchButton) {
+    //   searchButton.addEventListener("click", () => {
+    //     const value = window.prompt(
+    //       "Search subscriptions by name, or leave empty to clear:",
+    //       activeSearch,
+    //     );
+    //     if (value === null) return;
+    //     activeSearch = value.trim();
+    //     applySubscriptionView();
+    //   });
+    // }
   } catch (error) {
     console.log(error);
   }
