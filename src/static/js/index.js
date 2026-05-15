@@ -13,12 +13,26 @@ const getSubscriptions = async () => {
   }
 };
 
+const calculateRenewalDays = (renewalDate) => {
+  const difference = new Date(renewalDate) - new Date();
+  return Math.ceil(difference / (24 * 60 * 60 * 1000));
+};
+
 const calculateNextRenewal = (subs) => {
-  return "pass";
+  if (subs.length === 0) {
+    return "N/A";
+  }
+  return calculateRenewalDays(subs[0]["renewal_date"]);
 };
 
 const calculateTotalCost = (subs) => {
-  return "pass";
+  let total = 0;
+  for (const sub of subs) {
+    if (sub["billing_type"] === "Monthly") {
+      total += sub["cost"];
+    }
+  }
+  return total.toFixed(2);
 };
 
 const filterSubscriptions = (subs, billing_type) => {
@@ -52,7 +66,7 @@ const displaySubscriptions = (subs) => {
     card.classList.add("card");
 
     const cost = document.createElement("span");
-    cost.textContent = sub.cost;
+    cost.textContent = `$${sub.cost}`;
     card.appendChild(cost);
 
     const name = document.createElement("span");
@@ -60,7 +74,8 @@ const displaySubscriptions = (subs) => {
     card.appendChild(name);
 
     const renewal = document.createElement("span");
-    renewal.textContent = "?";
+    const renewalDays = calculateRenewalDays(sub.renewal_date);
+    renewal.textContent = `${renewalDays} days`;
     card.appendChild(renewal);
 
     subCards.appendChild(card);
@@ -97,7 +112,7 @@ const main = async () => {
       filterButton.addEventListener("click", () => {
         const value = window.prompt(
           "Filter by billing type (Monthly, Yearly), or leave empty to show all:",
-          activeBillingFilter
+          activeBillingFilter,
         );
         if (value === null) return;
         activeBillingFilter = value.trim();
@@ -109,7 +124,7 @@ const main = async () => {
       searchButton.addEventListener("click", () => {
         const value = window.prompt(
           "Search subscriptions by name, or leave empty to clear:",
-          activeSearch
+          activeSearch,
         );
         if (value === null) return;
         activeSearch = value.trim();
