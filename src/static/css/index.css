@@ -177,3 +177,33 @@ footer>div.left {
     text-align: end;
     padding-top: 20px;
 }
+.monthly {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 2px 0px;
+}
+.yearly {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 2px 0px;
+}
+.price{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 2px 0px;
+}
+.renewal-date{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 2px 0px;
+}
+.name {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 2px 0px;
+}
