@@ -20,8 +20,4 @@ const logout = () => {
   });
 };
 
-const main = () => {
-  logout();
-};
-
-main();
+logout();

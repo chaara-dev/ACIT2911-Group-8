@@ -38,4 +38,8 @@ const login = () => {
   });
 };
 
-login();
+const main = () => {
+  login();
+};
+
+main();
