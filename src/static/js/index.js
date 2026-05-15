@@ -18,9 +18,11 @@ const calculateNextRenewal = (subs) => {};
 const calculateTotalCost = (subs) => {
   let total = 0;
   for (const sub of subs) {
-    total += sub["cost"];
+    if (sub["billing_type"] === "Monthly") {
+      total += sub["cost"];
+    }
   }
-  return total;
+  return total.toFixed(2);
 };
 
 const filterSubscriptions = (subs, billing_type) => {
