@@ -3,7 +3,7 @@ from flask import Flask
 from flask_login import LoginManager
 
 from src.database.database import db
-from src.database.models import User, Subscription, Payment
+from src.database.models import User, Subscription, Payment, RenewalReminder
 
 import os
 from dotenv import load_dotenv
@@ -33,7 +33,7 @@ def create_app():
             db.close()
     
     db.connect()
-    db.create_tables([User, Subscription, Payment])
+    db.create_tables([User, Subscription, Payment, RenewalReminder])
     db.close()
 
     @login_manager.user_loader
