@@ -5,7 +5,7 @@ from flask_login import login_user, logout_user, login_required
 from werkzeug.security import generate_password_hash, check_password_hash
 
 from peewee import IntegrityError, DoesNotExist
-from database.models import User
+from src.database.models import User
 
 from . import auth_bp
 

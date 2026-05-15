@@ -34,8 +34,7 @@ header {
     align-items: center;
 }
 
-header>h1,
-header>h3 {
+header>h1 {
     display: inline-block;
     padding: 5px 7px;
     background-color: var(--primary-colour);
@@ -54,32 +53,40 @@ main {
     zoom: 110%;
 }
 
-.value-div {
+.account,
+.to-dashboard {
+    font-size: 15px;
+    padding: 8px 14px;
+    border: none;
+    background-color: var(--primary-colour);
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
+
+.account:hover,
+.to-dashboard:hover {
+    background-color: var(--hover-primary-colour);
+}
+
+#subscription-details>div {
     display: flex;
     flex-direction: row;
     align-items: center;
 }
 
-#login-button-div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#login-button-div>p {
-    margin: 0px;
-    font-size: medium;
-}
-
-#sign-up>div>label {
+#subscription-details>div>label {
     display: block;
     width: 120px;
     text-align: center;
+    margin-right: 15px;
     font-size: larger;
 }
 
-#sign-up>div>input,
-.signupButton {
+#subscription-details>div>input,
+.submitButton,
+#subscriptionPeriodSelect {
     font-size: large;
     width: 250px;
     height: 30px;
@@ -88,39 +95,56 @@ main {
     border-radius: 4px;
 }
 
-#login-page-button {
-    font-size: large;
-    width: 200px;
-    height: 30px;
-    background-color: var(--secondary-colour);
-    border: 1px solid black;
-    border-radius: 4px;
-    text-decoration: none;
-    color: black;
-    text-align: center;
-    margin: 0px auto 1em auto;
-}
-
-#sign-up>div>input:hover,
-.signupButton:hover,
-#subscriptionPeriodSelect:hover,
-#login-page-button:hover {
+#subscription-details>div>input:hover,
+.submitButton:hover,
+#subscriptionPeriodSelect:hover {
     background-color: var(--hover-secondary-colour);
 }
 
-.signupButton {
+.submitButton {
     margin: 1.5em 0 1em 0;
-    cursor: pointer;
 }
 
-div:has(> .signupButton) {
+div:has(> .submitButton) {
     display: flex;
     justify-content: center;
     flex-direction: column;
     flex-wrap: wrap;
 }
 
-#email-input::placeholder,
-#password-input::placeholder {
+#subscriptionPeriod {
+    width: 250px;
+}
+
+.missing-fields-error {
+    color: red;
+    font-weight: bold;
     text-align: center;
+    margin: 0px;
+}
+
+footer {
+    background-color: var(--inner-background-colour);
+    padding: 20px;
+    border: 3px solid var(--primary-colour);
+    border-radius: 12px;
+    margin-top: 3em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+footer>div.left {
+    margin-left: 3em;
+    list-style: none;
+}
+
+.left a {
+    color: black;
+    text-decoration: underline;
+}
+
+.right {
+    text-align: end;
+    padding-top: 20px;
 }

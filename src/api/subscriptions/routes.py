@@ -2,7 +2,7 @@ from flask import request, jsonify
 
 from flask_login import login_required, current_user
 
-from database.models import Subscription , Payment
+from src.database.models import Subscription , Payment
 
 import datetime
 
@@ -18,7 +18,7 @@ def process_subscriptions():
                 amount=sub.cost,
                 date_paid=sub.renewal_date
             )
-            if sub.billing_type.lower == "monthly":
+            if sub.billing_type.lower() == "monthly":
                 sub.renewal_date = sub.renewal_date + datetime.timedelta(days=30)
             else:
                 sub.renewal_date = sub.renewal_date + datetime.timedelta(days=365)
@@ -33,7 +33,7 @@ def list_subscriptions():
     search = request.args.get("search")
     billing_type = request.args.get("billing_type")
     sort = request.args.get("sort", "renewal_date")
-    order = request.args.get("order", "desc")
+    order = request.args.get("order", "asc")
 
     query = Subscription.select().where(Subscription.user == current_user.id)
 

@@ -54,32 +54,32 @@ main {
     zoom: 110%;
 }
 
-#signup-button-div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#signup-button-div>p {
-    margin: 0px;
-    font-size: medium;
-}
-
 .value-div {
     display: flex;
     flex-direction: row;
     align-items: center;
 }
 
-#log-in>div>label {
+#login-button-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#login-button-div>p {
+    margin: 0px;
+    font-size: medium;
+}
+
+#sign-up>div>label {
     display: block;
     width: 120px;
     text-align: center;
     font-size: larger;
 }
 
-#log-in>div>input,
-.loginButton {
+#sign-up>div>input,
+.signupButton {
     font-size: large;
     width: 250px;
     height: 30px;
@@ -88,7 +88,7 @@ main {
     border-radius: 4px;
 }
 
-#signup-page-button {
+#login-page-button {
     font-size: large;
     width: 200px;
     height: 30px;
@@ -101,17 +101,19 @@ main {
     margin: 0px auto 1em auto;
 }
 
-#log-in>div>input:hover,
-.loginButton:hover,
-#subscriptionPeriodSelect:hover {
+#sign-up>div>input:hover,
+.signupButton:hover,
+#subscriptionPeriodSelect:hover,
+#login-page-button:hover {
     background-color: var(--hover-secondary-colour);
 }
 
-.loginButton {
+.signupButton {
     margin: 1.5em 0 1em 0;
+    cursor: pointer;
 }
 
-div:has(> .loginButton) {
+div:has(> .signupButton) {
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -121,4 +123,30 @@ div:has(> .loginButton) {
 #email-input::placeholder,
 #password-input::placeholder {
     text-align: center;
+}
+
+footer {
+    background-color: var(--inner-background-colour);
+    padding: 20px;
+    border: 3px solid var(--primary-colour);
+    border-radius: 12px;
+    margin-top: 3em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+footer>div.left {
+    margin-left: 3em;
+    list-style: none;
+}
+
+.left a {
+    color: black;
+    text-decoration: underline;
+}
+
+.right {
+    text-align: end;
+    padding-top: 20px;
 }

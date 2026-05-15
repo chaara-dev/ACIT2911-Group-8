@@ -2,8 +2,8 @@ import pytest
 
 from flask_login import current_user
 
-from api import create_app
-from database.models import User, Subscription
+from src.api import create_app
+from src.database.models import User, Subscription
 
 
 @pytest.fixture()
@@ -106,3 +106,68 @@ def test_delete_subscription(test_client):
     assert response.status_code == 200
     data = response.get_json()
     assert data["message"] == f"Subscription {test_subscription_id} deleted successfully"
+
+# Sprint 2 tests
+
+# Required fields
+def test_create_subscription_without_renewal_date(test_client):
+    response = test_client.post("/api/subscriptions", json={
+        "name": "bad_sub",
+        "cost": 10.00,
+        "billing_type": "monthly",
+        # missing renewal_date
+    })
+    assert response.status_code == 400
+
+def test_update_subscription_without_renewal_date(test_client):
+    test_subscription = Subscription.get(Subscription.name == "test_subscription")
+    response = test_client.put(
+        f"/api/subscriptions/{test_subscription.id}",
+        json={
+            "name": "updated_name",
+            "cost": 20.00,
+            "billing_type": "monthly",
+            # missing renewal_date
+        }
+    )
+    assert response.status_code == 400
+
+# Search
+def test_search_subscription(test_client):
+    response = test_client.get("/api/subscriptions?search=test_sub")
+    assert response.status_code == 200
+    data = response.get_json()
+    assert len(data["subscriptions"]) != 0
+    assert all(
+        "test_sub" in sub["name"].lower()
+        for sub in data["subscriptions"]
+    )
+
+# Filter
+def test_filter_subscription(test_client):
+    response = test_client.get("/api/subscriptions?billing_type=yearly")
+    assert response.status_code == 200
+    data = response.get_json()
+    assert all(
+        sub["billing_type"] == "yearly"
+        for sub in data["subscriptions"]
+    )
+
+# Sort
+def test_sort_subscriptions(test_client):
+    test_user = User.get(User.email == "test@something.com")
+    test_client.post("/api/subscriptions", json={
+        "user_id": test_user.id,
+        "name": "cheap_sub",
+        "cost": 5.00,
+        "billing_type": "monthly",
+        "renewal_date": "12-05-2026"
+    })
+
+    response = test_client.get("/api/subscriptions?sort=cost&order=asc")
+    assert response.status_code == 200
+    data = response.get_json()
+    costs = [sub["cost"] for sub in data["subscriptions"]]
+    assert costs == sorted(costs)
+
+    Subscription.get(Subscription.name == "cheap_sub").delete_instance()
