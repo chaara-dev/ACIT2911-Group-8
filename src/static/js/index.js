@@ -13,12 +13,14 @@ const getSubscriptions = async () => {
   }
 };
 
-const calculateNextRenewal = (subs) => {
-  return "pass";
-};
+const calculateNextRenewal = (subs) => {};
 
 const calculateTotalCost = (subs) => {
-  return "pass";
+  let total = 0;
+  for (const sub of subs) {
+    total += sub["cost"];
+  }
+  return total;
 };
 
 const filterSubscriptions = (subs, billing_type) => {
@@ -97,7 +99,7 @@ const main = async () => {
       filterButton.addEventListener("click", () => {
         const value = window.prompt(
           "Filter by billing type (Monthly, Yearly), or leave empty to show all:",
-          activeBillingFilter
+          activeBillingFilter,
         );
         if (value === null) return;
         activeBillingFilter = value.trim();
@@ -109,7 +111,7 @@ const main = async () => {
       searchButton.addEventListener("click", () => {
         const value = window.prompt(
           "Search subscriptions by name, or leave empty to clear:",
-          activeSearch
+          activeSearch,
         );
         if (value === null) return;
         activeSearch = value.trim();
