@@ -124,3 +124,29 @@ div:has(> .signupButton) {
 #password-input::placeholder {
     text-align: center;
 }
+
+footer {
+    background-color: var(--inner-background-colour);
+    padding: 20px;
+    border: 3px solid var(--primary-colour);
+    border-radius: 12px;
+    margin-top: 3em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+footer>div.left {
+    margin-left: 3em;
+    list-style: none;
+}
+
+.left a {
+    color: black;
+    text-decoration: underline;
+}
+
+.right {
+    text-align: end;
+    padding-top: 20px;
+}
