@@ -33,7 +33,7 @@ def list_subscriptions():
     search = request.args.get("search")
     billing_type = request.args.get("billing_type")
     sort = request.args.get("sort", "renewal_date")
-    order = request.args.get("order", "desc")
+    order = request.args.get("order", "asc")
 
     query = Subscription.select().where(Subscription.user == current_user.id)
 
