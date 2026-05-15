@@ -54,3 +54,25 @@ class Payment(BaseModel):
             "date_paid": self.date_paid.isoformat(),
             "amount": self.amount
         }
+
+
+class RenewalReminder(BaseModel):
+    id = AutoField()
+    subscription = ForeignKeyField(Subscription, backref="renewal_reminders")
+    reminder_type = CharField(max_length=20)
+    renewal_date = DateTimeField()
+    sent_on = DateTimeField(default=datetime.datetime.now)
+
+    class Meta:
+        indexes = (
+            (("subscription", "reminder_type", "renewal_date"), True),
+        )
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "subscription": self.subscription_id,
+            "reminder_type": self.reminder_type,
+            "renewal_date": self.renewal_date,
+            "sent_on": self.sent_on.isoformat(),
+        }
