@@ -1,0 +1,1798 @@
+[
+  {
+    "name": "Netflix",
+    "logo": "https://img.logo.dev/netflix.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Spotify",
+    "logo": "https://img.logo.dev/spotify.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Disney+",
+    "logo": "https://img.logo.dev/disneyplus.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Amazon Prime Video",
+    "logo": "https://img.logo.dev/primevideo.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "YouTube Premium",
+    "logo": "https://img.logo.dev/youtube.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Apple Music",
+    "logo": "https://img.logo.dev/music.apple.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Hulu",
+    "logo": "https://img.logo.dev/hulu.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Apple TV+",
+    "logo": "https://img.logo.dev/tv.apple.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "HBO Max",
+    "logo": "https://img.logo.dev/max.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Paramount+",
+    "logo": "https://img.logo.dev/paramountplus.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Peacock",
+    "logo": "https://img.logo.dev/peacocktv.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Amazon Music",
+    "logo": "https://img.logo.dev/music.amazon.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Tidal",
+    "logo": "https://img.logo.dev/tidal.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Deezer",
+    "logo": "https://img.logo.dev/deezer.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Pandora",
+    "logo": "https://img.logo.dev/pandora.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "SiriusXM",
+    "logo": "https://img.logo.dev/siriusxm.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "iHeartRadio",
+    "logo": "https://img.logo.dev/iheart.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Audible",
+    "logo": "https://img.logo.dev/audible.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Kindle Unlimited",
+    "logo": "https://img.logo.dev/amazon.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Scribd",
+    "logo": "https://img.logo.dev/scribd.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Storytel",
+    "logo": "https://img.logo.dev/storytel.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Libby / OverDrive",
+    "logo": "https://img.logo.dev/overdrive.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Crunchyroll",
+    "logo": "https://img.logo.dev/crunchyroll.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Funimation",
+    "logo": "https://img.logo.dev/funimation.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "HIDIVE",
+    "logo": "https://img.logo.dev/hidive.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Shudder",
+    "logo": "https://img.logo.dev/shudder.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "BritBox",
+    "logo": "https://img.logo.dev/britbox.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Acorn TV",
+    "logo": "https://img.logo.dev/acorn.tv?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "AMC+",
+    "logo": "https://img.logo.dev/amcplus.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Showtime",
+    "logo": "https://img.logo.dev/showtime.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Starz",
+    "logo": "https://img.logo.dev/starz.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Crave",
+    "logo": "https://img.logo.dev/crave.ca?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "CBC Gem",
+    "logo": "https://img.logo.dev/gem.cbc.ca?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Tubi",
+    "logo": "https://img.logo.dev/tubitv.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Pluto TV",
+    "logo": "https://img.logo.dev/pluto.tv?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Plex",
+    "logo": "https://img.logo.dev/plex.tv?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Mubi",
+    "logo": "https://img.logo.dev/mubi.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Criterion Channel",
+    "logo": "https://img.logo.dev/criterionchannel.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Kanopy",
+    "logo": "https://img.logo.dev/kanopy.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Curiosity Stream",
+    "logo": "https://img.logo.dev/curiositystream.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Discovery+",
+    "logo": "https://img.logo.dev/discoveryplus.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "ESPN+",
+    "logo": "https://img.logo.dev/espnplus.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "DAZN",
+    "logo": "https://img.logo.dev/dazn.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "FloSports",
+    "logo": "https://img.logo.dev/flosports.tv?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "fuboTV",
+    "logo": "https://img.logo.dev/fubo.tv?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Sling TV",
+    "logo": "https://img.logo.dev/sling.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "YouTube TV",
+    "logo": "https://img.logo.dev/tv.youtube.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Philo",
+    "logo": "https://img.logo.dev/philo.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "DirecTV Stream",
+    "logo": "https://img.logo.dev/directv.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Vidgo",
+    "logo": "https://img.logo.dev/vidgo.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Teletoon+",
+    "logo": "https://img.logo.dev/teletoon.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Illico",
+    "logo": "https://img.logo.dev/illico.tv?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Club illico",
+    "logo": "https://img.logo.dev/clubillico.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Noovo",
+    "logo": "https://img.logo.dev/noovo.ca?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "ICI TOU.TV",
+    "logo": "https://img.logo.dev/tou.tv?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Stack TV",
+    "logo": "https://img.logo.dev/stacktv.ca?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Super Channel",
+    "logo": "https://img.logo.dev/superchannel.ca?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Knowledge Network",
+    "logo": "https://img.logo.dev/knowledge.ca?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Hayu",
+    "logo": "https://img.logo.dev/hayu.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "NOW TV",
+    "logo": "https://img.logo.dev/nowtv.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "ITVX",
+    "logo": "https://img.logo.dev/itv.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Channel 4",
+    "logo": "https://img.logo.dev/channel4.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "BBC iPlayer",
+    "logo": "https://img.logo.dev/bbc.co.uk?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "SkyShowtime",
+    "logo": "https://img.logo.dev/skyshowtime.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Stan",
+    "logo": "https://img.logo.dev/stan.com.au?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Binge",
+    "logo": "https://img.logo.dev/binge.com.au?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Kayo Sports",
+    "logo": "https://img.logo.dev/kayosports.com.au?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "7plus",
+    "logo": "https://img.logo.dev/7plus.com.au?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "9Now",
+    "logo": "https://img.logo.dev/9now.com.au?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "10 Play",
+    "logo": "https://img.logo.dev/10play.com.au?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Foxtel Now",
+    "logo": "https://img.logo.dev/foxtel.com.au?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "SBS On Demand",
+    "logo": "https://img.logo.dev/sbs.com.au?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Shahid",
+    "logo": "https://img.logo.dev/shahid.net?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Viu",
+    "logo": "https://img.logo.dev/viu.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "WeTV",
+    "logo": "https://img.logo.dev/wetv.vip?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "iQIYI",
+    "logo": "https://img.logo.dev/iqiyi.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Viki",
+    "logo": "https://img.logo.dev/viki.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Hotstar",
+    "logo": "https://img.logo.dev/hotstar.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "SonyLIV",
+    "logo": "https://img.logo.dev/sonyliv.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "ZEE5",
+    "logo": "https://img.logo.dev/zee5.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "MX Player",
+    "logo": "https://img.logo.dev/mxplayer.in?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Eros Now",
+    "logo": "https://img.logo.dev/erosnow.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Lionsgate Play",
+    "logo": "https://img.logo.dev/lionsgateplay.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Xbox Game Pass",
+    "logo": "https://img.logo.dev/xbox.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "PlayStation Now / PS Plus",
+    "logo": "https://img.logo.dev/playstation.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Nintendo Switch Online",
+    "logo": "https://img.logo.dev/nintendo.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "EA Play",
+    "logo": "https://img.logo.dev/ea.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Ubisoft+",
+    "logo": "https://img.logo.dev/ubisoft.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "GeForce NOW",
+    "logo": "https://img.logo.dev/nvidia.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Shadow",
+    "logo": "https://img.logo.dev/shadow.tech?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Boosteroid",
+    "logo": "https://img.logo.dev/boosteroid.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Google Play Pass",
+    "logo": "https://img.logo.dev/play.google.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Apple Arcade",
+    "logo": "https://img.logo.dev/apple.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Twitch",
+    "logo": "https://img.logo.dev/twitch.tv?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Discord Nitro",
+    "logo": "https://img.logo.dev/discord.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Adobe Creative Cloud",
+    "logo": "https://img.logo.dev/adobe.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Microsoft 365",
+    "logo": "https://img.logo.dev/microsoft.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Google One",
+    "logo": "https://img.logo.dev/one.google.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "iCloud+",
+    "logo": "https://img.logo.dev/icloud.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Dropbox",
+    "logo": "https://img.logo.dev/dropbox.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Box",
+    "logo": "https://img.logo.dev/box.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Notion",
+    "logo": "https://img.logo.dev/notion.so?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Evernote",
+    "logo": "https://img.logo.dev/evernote.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Obsidian Sync",
+    "logo": "https://img.logo.dev/obsidian.md?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Roam Research",
+    "logo": "https://img.logo.dev/roamresearch.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Bear",
+    "logo": "https://img.logo.dev/bear.app?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Canva Pro",
+    "logo": "https://img.logo.dev/canva.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Figma",
+    "logo": "https://img.logo.dev/figma.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Sketch",
+    "logo": "https://img.logo.dev/sketch.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "InVision",
+    "logo": "https://img.logo.dev/invisionapp.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Miro",
+    "logo": "https://img.logo.dev/miro.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Loom",
+    "logo": "https://img.logo.dev/loom.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Zoom",
+    "logo": "https://img.logo.dev/zoom.us?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Slack",
+    "logo": "https://img.logo.dev/slack.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Monday.com",
+    "logo": "https://img.logo.dev/monday.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Asana",
+    "logo": "https://img.logo.dev/asana.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Trello",
+    "logo": "https://img.logo.dev/trello.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Jira",
+    "logo": "https://img.logo.dev/atlassian.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "ClickUp",
+    "logo": "https://img.logo.dev/clickup.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Linear",
+    "logo": "https://img.logo.dev/linear.app?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Basecamp",
+    "logo": "https://img.logo.dev/basecamp.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Airtable",
+    "logo": "https://img.logo.dev/airtable.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Smartsheet",
+    "logo": "https://img.logo.dev/smartsheet.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "HubSpot",
+    "logo": "https://img.logo.dev/hubspot.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Salesforce",
+    "logo": "https://img.logo.dev/salesforce.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Zendesk",
+    "logo": "https://img.logo.dev/zendesk.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Intercom",
+    "logo": "https://img.logo.dev/intercom.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Freshdesk",
+    "logo": "https://img.logo.dev/freshdesk.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Mailchimp",
+    "logo": "https://img.logo.dev/mailchimp.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "ConvertKit",
+    "logo": "https://img.logo.dev/convertkit.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Substack",
+    "logo": "https://img.logo.dev/substack.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Beehiiv",
+    "logo": "https://img.logo.dev/beehiiv.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Ghost",
+    "logo": "https://img.logo.dev/ghost.org?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Medium",
+    "logo": "https://img.logo.dev/medium.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Patreon",
+    "logo": "https://img.logo.dev/patreon.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "OnlyFans",
+    "logo": "https://img.logo.dev/onlyfans.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Fansly",
+    "logo": "https://img.logo.dev/fansly.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Buy Me a Coffee",
+    "logo": "https://img.logo.dev/buymeacoffee.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Ko-fi",
+    "logo": "https://img.logo.dev/ko-fi.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Memberful",
+    "logo": "https://img.logo.dev/memberful.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "LinkedIn Premium",
+    "logo": "https://img.logo.dev/linkedin.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Twitter / X Premium",
+    "logo": "https://img.logo.dev/x.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Reddit Premium",
+    "logo": "https://img.logo.dev/reddit.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Duolingo Plus",
+    "logo": "https://img.logo.dev/duolingo.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Babbel",
+    "logo": "https://img.logo.dev/babbel.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Rosetta Stone",
+    "logo": "https://img.logo.dev/rosettastone.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Pimsleur",
+    "logo": "https://img.logo.dev/pimsleur.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "italki",
+    "logo": "https://img.logo.dev/italki.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Preply",
+    "logo": "https://img.logo.dev/preply.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "MasterClass",
+    "logo": "https://img.logo.dev/masterclass.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Skillshare",
+    "logo": "https://img.logo.dev/skillshare.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Coursera",
+    "logo": "https://img.logo.dev/coursera.org?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Udemy",
+    "logo": "https://img.logo.dev/udemy.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "LinkedIn Learning",
+    "logo": "https://img.logo.dev/linkedin.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Pluralsight",
+    "logo": "https://img.logo.dev/pluralsight.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Brilliant",
+    "logo": "https://img.logo.dev/brilliant.org?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Khan Academy",
+    "logo": "https://img.logo.dev/khanacademy.org?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Codecademy",
+    "logo": "https://img.logo.dev/codecademy.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Frontend Masters",
+    "logo": "https://img.logo.dev/frontendmasters.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Egghead",
+    "logo": "https://img.logo.dev/egghead.io?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "DataCamp",
+    "logo": "https://img.logo.dev/datacamp.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Calm",
+    "logo": "https://img.logo.dev/calm.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Headspace",
+    "logo": "https://img.logo.dev/headspace.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Ten Percent Happier",
+    "logo": "https://img.logo.dev/tenpercent.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Waking Up",
+    "logo": "https://img.logo.dev/wakingup.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Noom",
+    "logo": "https://img.logo.dev/noom.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Weight Watchers (WW)",
+    "logo": "https://img.logo.dev/weightwatchers.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "MyFitnessPal",
+    "logo": "https://img.logo.dev/myfitnesspal.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Peloton",
+    "logo": "https://img.logo.dev/onepeloton.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Whoop",
+    "logo": "https://img.logo.dev/whoop.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Strava",
+    "logo": "https://img.logo.dev/strava.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Garmin Connect",
+    "logo": "https://img.logo.dev/garmin.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Fitbit Premium",
+    "logo": "https://img.logo.dev/fitbit.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "ClassPass",
+    "logo": "https://img.logo.dev/classpass.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "iFIT",
+    "logo": "https://img.logo.dev/ifit.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Future",
+    "logo": "https://img.logo.dev/future.co?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Apple Fitness+",
+    "logo": "https://img.logo.dev/apple.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Nike Training Club",
+    "logo": "https://img.logo.dev/nike.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Grammarly",
+    "logo": "https://img.logo.dev/grammarly.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Claude (Anthropic)",
+    "logo": "https://img.logo.dev/anthropic.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "ChatGPT Plus",
+    "logo": "https://img.logo.dev/openai.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Gemini Advanced",
+    "logo": "https://img.logo.dev/gemini.google.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Perplexity Pro",
+    "logo": "https://img.logo.dev/perplexity.ai?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Copilot Pro",
+    "logo": "https://img.logo.dev/microsoft.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Midjourney",
+    "logo": "https://img.logo.dev/midjourney.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "GitHub Copilot",
+    "logo": "https://img.logo.dev/github.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "GitHub",
+    "logo": "https://img.logo.dev/github.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "GitLab",
+    "logo": "https://img.logo.dev/gitlab.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Vercel",
+    "logo": "https://img.logo.dev/vercel.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Netlify",
+    "logo": "https://img.logo.dev/netlify.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Heroku",
+    "logo": "https://img.logo.dev/heroku.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "DigitalOcean",
+    "logo": "https://img.logo.dev/digitalocean.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "AWS",
+    "logo": "https://img.logo.dev/aws.amazon.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Google Cloud",
+    "logo": "https://img.logo.dev/cloud.google.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Microsoft Azure",
+    "logo": "https://img.logo.dev/azure.microsoft.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Cloudflare",
+    "logo": "https://img.logo.dev/cloudflare.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Fastly",
+    "logo": "https://img.logo.dev/fastly.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Webflow",
+    "logo": "https://img.logo.dev/webflow.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Squarespace",
+    "logo": "https://img.logo.dev/squarespace.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Wix",
+    "logo": "https://img.logo.dev/wix.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Shopify",
+    "logo": "https://img.logo.dev/shopify.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "WooCommerce",
+    "logo": "https://img.logo.dev/woocommerce.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "BigCommerce",
+    "logo": "https://img.logo.dev/bigcommerce.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Ecwid",
+    "logo": "https://img.logo.dev/ecwid.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Gumroad",
+    "logo": "https://img.logo.dev/gumroad.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "SendGrid",
+    "logo": "https://img.logo.dev/sendgrid.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Twilio",
+    "logo": "https://img.logo.dev/twilio.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Zapier",
+    "logo": "https://img.logo.dev/zapier.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Make (Integromat)",
+    "logo": "https://img.logo.dev/make.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "n8n",
+    "logo": "https://img.logo.dev/n8n.io?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "LastPass",
+    "logo": "https://img.logo.dev/lastpass.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "1Password",
+    "logo": "https://img.logo.dev/1password.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Bitwarden",
+    "logo": "https://img.logo.dev/bitwarden.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Dashlane",
+    "logo": "https://img.logo.dev/dashlane.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Keeper",
+    "logo": "https://img.logo.dev/keepersecurity.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "NordVPN",
+    "logo": "https://img.logo.dev/nordvpn.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "ExpressVPN",
+    "logo": "https://img.logo.dev/expressvpn.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Surfshark",
+    "logo": "https://img.logo.dev/surfshark.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "ProtonVPN",
+    "logo": "https://img.logo.dev/protonvpn.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Private Internet Access",
+    "logo": "https://img.logo.dev/privateinternetaccess.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Mullvad",
+    "logo": "https://img.logo.dev/mullvad.net?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "ProtonMail",
+    "logo": "https://img.logo.dev/proton.me?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Tutanota",
+    "logo": "https://img.logo.dev/tutanota.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Fastmail",
+    "logo": "https://img.logo.dev/fastmail.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Hey",
+    "logo": "https://img.logo.dev/hey.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Superhuman",
+    "logo": "https://img.logo.dev/superhuman.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "SaneBox",
+    "logo": "https://img.logo.dev/sanebox.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Dashlane",
+    "logo": "https://img.logo.dev/dashlane.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Pocket",
+    "logo": "https://img.logo.dev/getpocket.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Readwise",
+    "logo": "https://img.logo.dev/readwise.io?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Instapaper",
+    "logo": "https://img.logo.dev/instapaper.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Feedly",
+    "logo": "https://img.logo.dev/feedly.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Inoreader",
+    "logo": "https://img.logo.dev/inoreader.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "The Athletic",
+    "logo": "https://img.logo.dev/theathletic.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "New York Times",
+    "logo": "https://img.logo.dev/nytimes.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Washington Post",
+    "logo": "https://img.logo.dev/washingtonpost.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "The Wall Street Journal",
+    "logo": "https://img.logo.dev/wsj.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "The Economist",
+    "logo": "https://img.logo.dev/economist.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Bloomberg",
+    "logo": "https://img.logo.dev/bloomberg.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "The Guardian",
+    "logo": "https://img.logo.dev/theguardian.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Financial Times",
+    "logo": "https://img.logo.dev/ft.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "The Globe and Mail",
+    "logo": "https://img.logo.dev/theglobeandmail.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Toronto Star",
+    "logo": "https://img.logo.dev/thestar.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Wired",
+    "logo": "https://img.logo.dev/wired.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Ars Technica",
+    "logo": "https://img.logo.dev/arstechnica.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "The Verge",
+    "logo": "https://img.logo.dev/theverge.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Hacker News (YC)",
+    "logo": "https://img.logo.dev/ycombinator.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Spotify for Podcasters",
+    "logo": "https://img.logo.dev/spotify.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Stitcher Premium",
+    "logo": "https://img.logo.dev/stitcher.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Luminary",
+    "logo": "https://img.logo.dev/luminarypodcasts.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "iHeartRadio",
+    "logo": "https://img.logo.dev/iheart.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Pocket Casts Plus",
+    "logo": "https://img.logo.dev/pocketcasts.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Overcast",
+    "logo": "https://img.logo.dev/overcast.fm?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Bumble Premium",
+    "logo": "https://img.logo.dev/bumble.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Tinder Gold / Platinum",
+    "logo": "https://img.logo.dev/tinder.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Hinge+",
+    "logo": "https://img.logo.dev/hinge.co?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Match",
+    "logo": "https://img.logo.dev/match.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "eHarmony",
+    "logo": "https://img.logo.dev/eharmony.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Plenty of Fish",
+    "logo": "https://img.logo.dev/pof.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "OkCupid",
+    "logo": "https://img.logo.dev/okcupid.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Ancestry",
+    "logo": "https://img.logo.dev/ancestry.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "23andMe",
+    "logo": "https://img.logo.dev/23andme.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Mint / Credit Karma",
+    "logo": "https://img.logo.dev/creditkarma.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "YNAB (You Need A Budget)",
+    "logo": "https://img.logo.dev/ynab.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Personal Capital / Empower",
+    "logo": "https://img.logo.dev/empower.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Copilot Money",
+    "logo": "https://img.logo.dev/copilot.money?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Monarch Money",
+    "logo": "https://img.logo.dev/monarchmoney.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Robinhood Gold",
+    "logo": "https://img.logo.dev/robinhood.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Acorns",
+    "logo": "https://img.logo.dev/acorns.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Webull",
+    "logo": "https://img.logo.dev/webull.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Amazon Prime",
+    "logo": "https://img.logo.dev/amazon.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Walmart+",
+    "logo": "https://img.logo.dev/walmart.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Costco Membership",
+    "logo": "https://img.logo.dev/costco.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Sam's Club",
+    "logo": "https://img.logo.dev/samsclub.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "DoorDash DashPass",
+    "logo": "https://img.logo.dev/doordash.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Uber One",
+    "logo": "https://img.logo.dev/uber.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Grubhub+",
+    "logo": "https://img.logo.dev/grubhub.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Instacart+",
+    "logo": "https://img.logo.dev/instacart.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Shipt",
+    "logo": "https://img.logo.dev/shipt.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "HelloFresh",
+    "logo": "https://img.logo.dev/hellofresh.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Blue Apron",
+    "logo": "https://img.logo.dev/blueapron.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Freshly",
+    "logo": "https://img.logo.dev/freshly.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "EveryPlate",
+    "logo": "https://img.logo.dev/everyplate.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Marley Spoon",
+    "logo": "https://img.logo.dev/marleyspoon.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Sunbasket",
+    "logo": "https://img.logo.dev/sunbasket.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Factor",
+    "logo": "https://img.logo.dev/factor75.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "BarkBox",
+    "logo": "https://img.logo.dev/barkbox.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Chewy Autoship",
+    "logo": "https://img.logo.dev/chewy.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Bark",
+    "logo": "https://img.logo.dev/bark.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Dollar Shave Club",
+    "logo": "https://img.logo.dev/dollarshaveclub.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Billie",
+    "logo": "https://img.logo.dev/mybillie.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Harry's",
+    "logo": "https://img.logo.dev/harrys.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Birchbox",
+    "logo": "https://img.logo.dev/birchbox.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Ipsy",
+    "logo": "https://img.logo.dev/ipsy.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "FabFitFun",
+    "logo": "https://img.logo.dev/fabfitfun.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Stitch Fix",
+    "logo": "https://img.logo.dev/stitchfix.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Trunk Club",
+    "logo": "https://img.logo.dev/trunkclub.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Rent the Runway",
+    "logo": "https://img.logo.dev/renttherunway.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Nuuly",
+    "logo": "https://img.logo.dev/nuuly.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Savage X Fenty",
+    "logo": "https://img.logo.dev/savagex.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Fabletics",
+    "logo": "https://img.logo.dev/fabletics.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Cricut Access",
+    "logo": "https://img.logo.dev/cricut.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Ancestry DNA",
+    "logo": "https://img.logo.dev/ancestry.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Ring Protect",
+    "logo": "https://img.logo.dev/ring.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Nest Aware",
+    "logo": "https://img.logo.dev/nest.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "SimpliSafe",
+    "logo": "https://img.logo.dev/simplisafe.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "ADT",
+    "logo": "https://img.logo.dev/adt.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Wyze Cam Plus",
+    "logo": "https://img.logo.dev/wyze.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Arlo Secure",
+    "logo": "https://img.logo.dev/arlo.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Tesla Premium Connectivity",
+    "logo": "https://img.logo.dev/tesla.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "OnStar",
+    "logo": "https://img.logo.dev/onstar.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "SiriusXM Guardian",
+    "logo": "https://img.logo.dev/siriusxm.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "AAA",
+    "logo": "https://img.logo.dev/aaa.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Nord Account",
+    "logo": "https://img.logo.dev/nordaccount.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Malwarebytes Premium",
+    "logo": "https://img.logo.dev/malwarebytes.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Norton 360",
+    "logo": "https://img.logo.dev/norton.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "McAfee Total Protection",
+    "logo": "https://img.logo.dev/mcafee.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Bitdefender",
+    "logo": "https://img.logo.dev/bitdefender.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Kaspersky",
+    "logo": "https://img.logo.dev/kaspersky.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Avast Premium",
+    "logo": "https://img.logo.dev/avast.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Calm Business",
+    "logo": "https://img.logo.dev/calm.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Todoist Pro",
+    "logo": "https://img.logo.dev/todoist.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Things 3",
+    "logo": "https://img.logo.dev/culturedcode.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "OmniFocus",
+    "logo": "https://img.logo.dev/omnigroup.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Fantastical",
+    "logo": "https://img.logo.dev/flexibits.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Calendly",
+    "logo": "https://img.logo.dev/calendly.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Cron",
+    "logo": "https://img.logo.dev/cron.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Reclaim AI",
+    "logo": "https://img.logo.dev/reclaim.ai?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "CleanMyMac",
+    "logo": "https://img.logo.dev/macpaw.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Setapp",
+    "logo": "https://img.logo.dev/setapp.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Alfred Powerpack",
+    "logo": "https://img.logo.dev/alfredapp.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "iStat Menus",
+    "logo": "https://img.logo.dev/bjango.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Bartender",
+    "logo": "https://img.logo.dev/macbartender.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "TextExpander",
+    "logo": "https://img.logo.dev/textexpander.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Typeform",
+    "logo": "https://img.logo.dev/typeform.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "SurveyMonkey",
+    "logo": "https://img.logo.dev/surveymonkey.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Google Workspace",
+    "logo": "https://img.logo.dev/workspace.google.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Zoho One",
+    "logo": "https://img.logo.dev/zoho.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Pipedrive",
+    "logo": "https://img.logo.dev/pipedrive.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Keap",
+    "logo": "https://img.logo.dev/keap.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "ActiveCampaign",
+    "logo": "https://img.logo.dev/activecampaign.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Klaviyo",
+    "logo": "https://img.logo.dev/klaviyo.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Constant Contact",
+    "logo": "https://img.logo.dev/constantcontact.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Campaign Monitor",
+    "logo": "https://img.logo.dev/campaignmonitor.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "DocuSign",
+    "logo": "https://img.logo.dev/docusign.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Adobe Sign",
+    "logo": "https://img.logo.dev/adobe.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "PandaDoc",
+    "logo": "https://img.logo.dev/pandadoc.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "HelloSign",
+    "logo": "https://img.logo.dev/hellosign.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Expensify",
+    "logo": "https://img.logo.dev/expensify.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "QuickBooks",
+    "logo": "https://img.logo.dev/quickbooks.intuit.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "FreshBooks",
+    "logo": "https://img.logo.dev/freshbooks.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Wave",
+    "logo": "https://img.logo.dev/waveapps.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Xero",
+    "logo": "https://img.logo.dev/xero.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Bench",
+    "logo": "https://img.logo.dev/bench.co?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Gusto",
+    "logo": "https://img.logo.dev/gusto.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Rippling",
+    "logo": "https://img.logo.dev/rippling.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "BambooHR",
+    "logo": "https://img.logo.dev/bamboohr.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Greenhouse",
+    "logo": "https://img.logo.dev/greenhouse.io?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Workday",
+    "logo": "https://img.logo.dev/workday.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Semrush",
+    "logo": "https://img.logo.dev/semrush.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Ahrefs",
+    "logo": "https://img.logo.dev/ahrefs.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Moz Pro",
+    "logo": "https://img.logo.dev/moz.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Hotjar",
+    "logo": "https://img.logo.dev/hotjar.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Mixpanel",
+    "logo": "https://img.logo.dev/mixpanel.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Amplitude",
+    "logo": "https://img.logo.dev/amplitude.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Segment",
+    "logo": "https://img.logo.dev/segment.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Datadog",
+    "logo": "https://img.logo.dev/datadoghq.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "New Relic",
+    "logo": "https://img.logo.dev/newrelic.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "PagerDuty",
+    "logo": "https://img.logo.dev/pagerduty.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Sentry",
+    "logo": "https://img.logo.dev/sentry.io?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "LogRocket",
+    "logo": "https://img.logo.dev/logrocket.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Cursor",
+    "logo": "https://img.logo.dev/cursor.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Replit",
+    "logo": "https://img.logo.dev/replit.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Codeium",
+    "logo": "https://img.logo.dev/codeium.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Tabnine",
+    "logo": "https://img.logo.dev/tabnine.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Weights & Biases",
+    "logo": "https://img.logo.dev/wandb.ai?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "RunwayML",
+    "logo": "https://img.logo.dev/runwayml.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "ElevenLabs",
+    "logo": "https://img.logo.dev/elevenlabs.io?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Descript",
+    "logo": "https://img.logo.dev/descript.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Otter.ai",
+    "logo": "https://img.logo.dev/otter.ai?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Riverside.fm",
+    "logo": "https://img.logo.dev/riverside.fm?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Cleanfeed",
+    "logo": "https://img.logo.dev/cleanfeed.net?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Buzzsprout",
+    "logo": "https://img.logo.dev/buzzsprout.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Transistor",
+    "logo": "https://img.logo.dev/transistor.fm?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Anchor (Spotify)",
+    "logo": "https://img.logo.dev/anchor.fm?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "StreamYard",
+    "logo": "https://img.logo.dev/streamyard.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Restream",
+    "logo": "https://img.logo.dev/restream.io?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Vimeo",
+    "logo": "https://img.logo.dev/vimeo.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Wistia",
+    "logo": "https://img.logo.dev/wistia.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Kajabi",
+    "logo": "https://img.logo.dev/kajabi.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Teachable",
+    "logo": "https://img.logo.dev/teachable.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Thinkific",
+    "logo": "https://img.logo.dev/thinkific.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Podia",
+    "logo": "https://img.logo.dev/podia.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Circle",
+    "logo": "https://img.logo.dev/circle.so?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Mighty Networks",
+    "logo": "https://img.logo.dev/mightynetworks.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Sora (OpenAI)",
+    "logo": "https://img.logo.dev/openai.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Pika",
+    "logo": "https://img.logo.dev/pika.art?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Adobe Firefly",
+    "logo": "https://img.logo.dev/adobe.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Jasper AI",
+    "logo": "https://img.logo.dev/jasper.ai?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Copy.ai",
+    "logo": "https://img.logo.dev/copy.ai?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Writesonic",
+    "logo": "https://img.logo.dev/writesonic.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "SaneBox",
+    "logo": "https://img.logo.dev/sanebox.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Pinwheel",
+    "logo": "https://img.logo.dev/pinwheel.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Apple One",
+    "logo": "https://img.logo.dev/apple.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Google Play",
+    "logo": "https://img.logo.dev/play.google.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Microsoft Store",
+    "logo": "https://img.logo.dev/microsoft.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Steam",
+    "logo": "https://img.logo.dev/steampowered.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Epic Games Store",
+    "logo": "https://img.logo.dev/epicgames.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "GOG",
+    "logo": "https://img.logo.dev/gog.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Humble Bundle",
+    "logo": "https://img.logo.dev/humblebundle.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Roblox Premium",
+    "logo": "https://img.logo.dev/roblox.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Minecraft Realms",
+    "logo": "https://img.logo.dev/minecraft.net?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "World of Warcraft",
+    "logo": "https://img.logo.dev/worldofwarcraft.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Final Fantasy XIV",
+    "logo": "https://img.logo.dev/finalfantasyxiv.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Elder Scrolls Online",
+    "logo": "https://img.logo.dev/elderscrollsonline.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Adobe Acrobat",
+    "logo": "https://img.logo.dev/acrobat.adobe.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Nuance Dragon",
+    "logo": "https://img.logo.dev/nuance.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Otter.ai",
+    "logo": "https://img.logo.dev/otter.ai?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "MindNode",
+    "logo": "https://img.logo.dev/mindnode.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Scrivener",
+    "logo": "https://img.logo.dev/literatureandlatte.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Ulysses",
+    "logo": "https://img.logo.dev/ulysses.app?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Day One",
+    "logo": "https://img.logo.dev/dayoneapp.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Reflectly",
+    "logo": "https://img.logo.dev/reflectly.app?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Stoic.",
+    "logo": "https://img.logo.dev/getstoic.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Finch",
+    "logo": "https://img.logo.dev/finchcare.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Bearable",
+    "logo": "https://img.logo.dev/bearable.health?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Oura Ring",
+    "logo": "https://img.logo.dev/ouraring.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Eight Sleep",
+    "logo": "https://img.logo.dev/eightsleep.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Sleep Cycle",
+    "logo": "https://img.logo.dev/sleepcycle.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Woebot",
+    "logo": "https://img.logo.dev/woebothealth.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "BetterHelp",
+    "logo": "https://img.logo.dev/betterhelp.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Talkspace",
+    "logo": "https://img.logo.dev/talkspace.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Cerebral",
+    "logo": "https://img.logo.dev/cerebral.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Hims & Hers",
+    "logo": "https://img.logo.dev/forhims.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Ro Health",
+    "logo": "https://img.logo.dev/ro.co?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Teladoc",
+    "logo": "https://img.logo.dev/teladoc.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "MDLive",
+    "logo": "https://img.logo.dev/mdlive.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Hinge Health",
+    "logo": "https://img.logo.dev/hingehealth.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Nerd Fitness",
+    "logo": "https://img.logo.dev/nerdfitness.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Zwift",
+    "logo": "https://img.logo.dev/zwift.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "TrainerRoad",
+    "logo": "https://img.logo.dev/trainerroad.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Sufferfest",
+    "logo": "https://img.logo.dev/thesufferfest.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Centr",
+    "logo": "https://img.logo.dev/centr.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Down Dog",
+    "logo": "https://img.logo.dev/downdogapp.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Glo Yoga",
+    "logo": "https://img.logo.dev/glo.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "YogaGlo",
+    "logo": "https://img.logo.dev/glo.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Aaptiv",
+    "logo": "https://img.logo.dev/aaptiv.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Beachbody On Demand",
+    "logo": "https://img.logo.dev/beachbodyondemand.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  },
+  {
+    "name": "Openfit",
+    "logo": "https://img.logo.dev/openfit.com?token=pk_fAEcKYjxQVK50ymDdK6Z0w&format=png"
+  }
+]
