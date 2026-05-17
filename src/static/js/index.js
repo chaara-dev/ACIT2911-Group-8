@@ -94,6 +94,22 @@ const displaySubscriptions = (subs) => {
   });
 };
 
+const displaySubscription = () => {
+  const viewSubPage = document.getElementById("viewSubscription");
+  const subCard = document.querySelectorAll(".card");
+  const closeSubButton = document.getElementById("closeSubButton");
+
+  subCard.forEach((card) => {
+    card.addEventListener("click", () => {
+      viewSubPage.showModal();
+    });
+  });
+
+  closeSubButton.addEventListener("click", () => {
+    viewSubPage.close();
+  });
+};
+
 let allSubscriptions = [];
 let activeSearch = "";
 let activeBillingFilter = "";
@@ -116,6 +132,7 @@ const main = async () => {
 
     allSubscriptions = subs;
     applySubscriptionView();
+    displaySubscription();
 
     const filterButton = document.getElementById("filter-button");
     const searchButton = document.getElementById("search-button");
