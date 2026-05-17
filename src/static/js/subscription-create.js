@@ -10,41 +10,45 @@ const displayError = (errorMessage) => {
 };
 
 const displaySubDropdown = async () => {
-  const res = await fetch("/static/data/subscription_services.json");
-  const subscriptions = await res.json();
+  try {
+    const res = await fetch("/static/data/subscription_services.json");
+    const subscriptions = await res.json();
 
-  const subName = document.getElementById("subscriptionName");
-  const dropdown = document.getElementById("subscriptionDropdown");
+    const subName = document.getElementById("subscriptionName");
+    const dropdown = document.getElementById("subscriptionDropdown");
 
-  const filterDropdown = (filter = "") => {
-    const filtered = subscriptions.filter((o) =>
-      o["name"].toLowerCase().includes(filter.toLowerCase()),
-    );
-    dropdown.replaceChildren();
-    if (filtered.length === 0) {
-      dropdown.style.display = "none";
-      return;
-    }
-    filtered.forEach((sub) => {
-      const li = document.createElement("li");
-      li.textContent = sub["name"];
-      li.addEventListener("click", () => {
-        subName.value = sub["name"];
+    const filterDropdown = (filter = "") => {
+      const filtered = subscriptions.filter((sub) =>
+        sub["name"].toLowerCase().includes(filter.toLowerCase()),
+      );
+      dropdown.replaceChildren();
+      if (filtered.length === 0) {
         dropdown.style.display = "none";
+        return;
+      }
+      filtered.forEach((sub) => {
+        const li = document.createElement("li");
+        li.textContent = sub["name"];
+        li.addEventListener("click", () => {
+          subName.value = sub["name"];
+          dropdown.style.display = "none";
+        });
+        dropdown.appendChild(li);
       });
-      dropdown.appendChild(li);
+      dropdown.style.display = "block";
+    };
+
+    subName.addEventListener("focus", () => filterDropdown(subName.value));
+    subName.addEventListener("input", () => filterDropdown(subName.value));
+
+    document.addEventListener("click", (e) => {
+      if (!e.target.closest(".dropdown-wrapper")) {
+        dropdown.style.display = "none";
+      }
     });
-    dropdown.style.display = "block";
-  };
-
-  subName.addEventListener("focus", () => filterDropdown(subName.value));
-  subName.addEventListener("input", () => filterDropdown(subName.value));
-
-  document.addEventListener("click", (e) => {
-    if (!e.target.closest(".dropdown-wrapper")) {
-      dropdown.style.display = "none";
-    }
-  });
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 const createNewSubscription = () => {
