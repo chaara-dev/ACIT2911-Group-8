@@ -1,150 +1,185 @@
 :root {
-    --primary-colour: #32c077;
-    --hover-primary-colour: #2aa164;
-    --secondary-colour: #32afc0;
-    --hover-secondary-colour: #2c8c98;
+  --primary-colour: #32c077;
+  --hover-primary-colour: #2aa164;
+  --secondary-colour: #32afc0;
+  --hover-secondary-colour: #2c8c98;
 
-    --primary-font: monospace;
+  --primary-font: monospace;
 
-    --outer-background-colour: #282a36;
-    --inner-background-colour: #515466;
+  --outer-background-colour: #282a36;
+  --inner-background-colour: #515466;
 
-    --primary-text-colour: black;
-    --green-text-colour: green;
-    --red-text-colour: darkred;
+  --primary-text-colour: black;
+  --green-text-colour: green;
+  --red-text-colour: darkred;
 }
 
 * {
-    font-family: var(--primary-font);
+  font-family: var(--primary-font);
 }
 
 html {
-    background-color: var(--outer-background-colour);
-    zoom: 110%;
+  background-color: var(--outer-background-colour);
+  zoom: 110%;
 }
 
 body {
-    max-width: 700px;
-    margin: auto;
+  max-width: 700px;
+  margin: auto;
 }
 
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-header>h1 {
-    display: inline-block;
-    padding: 5px 7px;
-    background-color: var(--primary-colour);
-    border-radius: 8px;
+header > h1 {
+  display: inline-block;
+  padding: 5px 7px;
+  background-color: var(--primary-colour);
+  border-radius: 8px;
 }
 
 main {
-    background-color: var(--inner-background-colour);
-    padding: 20px 20px 0px;
-    border: 3px solid var(--primary-colour);
-    border-radius: 12px;
-    display: flex;
-    flex-direction: column;
-    line-height: 1.75em;
-    align-items: center;
-    zoom: 110%;
+  background-color: var(--inner-background-colour);
+  padding: 20px 20px 0px;
+  border: 3px solid var(--primary-colour);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.75em;
+  align-items: center;
+  zoom: 110%;
 }
 
 .account,
 .to-dashboard {
-    font-size: 15px;
-    padding: 8px 14px;
-    border: none;
-    background-color: var(--primary-colour);
-    border-radius: 10px;
-    cursor: pointer;
-    text-decoration: none;
-    color: black;
+  font-size: 15px;
+  padding: 8px 14px;
+  border: none;
+  background-color: var(--primary-colour);
+  border-radius: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
 }
 
 .account:hover,
 .to-dashboard:hover {
-    background-color: var(--hover-primary-colour);
+  background-color: var(--hover-primary-colour);
 }
 
-#subscription-details>div {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+#subscription-details > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
-#subscription-details>div>label {
-    display: block;
-    width: 120px;
-    text-align: center;
-    margin-right: 15px;
-    font-size: larger;
+#subscription-details > div > label {
+  display: block;
+  width: 120px;
+  text-align: center;
+  margin-right: 15px;
+  font-size: larger;
 }
 
-#subscription-details>div>input,
+.dropdown-wrapper {
+  position: relative;
+  width: 250px;
+}
+
+#subscriptionDropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: var(--secondary-colour);
+  border: 1px solid black;
+  border-radius: 4px;
+  max-height: 200px;
+  overflow-y: auto;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  z-index: 99;
+  display: none;
+}
+
+#subscriptionDropdown li {
+  padding: 6px 10px;
+  cursor: pointer;
+  font-family: var(--primary-font);
+  font-size: large;
+}
+
+#subscriptionDropdown li:hover {
+  background-color: var(--hover-secondary-colour);
+}
+
+#subscription-details > div > input,
+#subscription-details > div > .dropdown-wrapper input,
 .submitButton,
 #subscriptionPeriodSelect {
-    font-size: large;
-    width: 250px;
-    height: 30px;
-    background-color: var(--secondary-colour);
-    border: 1px solid black;
-    border-radius: 4px;
+  font-size: large;
+  width: 250px;
+  height: 30px;
+  background-color: var(--secondary-colour);
+  border: 1px solid black;
+  border-radius: 4px;
 }
 
-#subscription-details>div>input:hover,
+#subscription-details > div > input:hover,
+#subscription-details > div > .dropdown-wrapper input:hover,
 .submitButton:hover,
 #subscriptionPeriodSelect:hover {
-    background-color: var(--hover-secondary-colour);
+  background-color: var(--hover-secondary-colour);
 }
 
 .submitButton {
-    margin: 1.5em 0 1em 0;
+  margin: 1.5em 0 1em 0;
 }
 
 div:has(> .submitButton) {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
 
 #subscriptionPeriod {
-    width: 250px;
+  width: 250px;
 }
 
 .missing-fields-error {
-    color: red;
-    font-weight: bold;
-    text-align: center;
-    margin: 0px;
+  color: red;
+  font-weight: bold;
+  text-align: center;
+  margin: 0px;
 }
 
 footer {
-    background-color: var(--inner-background-colour);
-    padding: 20px;
-    border: 3px solid var(--primary-colour);
-    border-radius: 12px;
-    margin-top: 3em;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+  background-color: var(--inner-background-colour);
+  padding: 20px;
+  border: 3px solid var(--primary-colour);
+  border-radius: 12px;
+  margin-top: 3em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
-footer>div.left {
-    margin-left: 3em;
-    list-style: none;
+footer > div.left {
+  margin-left: 3em;
+  list-style: none;
 }
 
 .left a {
-    color: black;
-    text-decoration: underline;
+  color: black;
+  text-decoration: underline;
 }
 
 .right {
-    text-align: end;
-    padding-top: 20px;
+  text-align: end;
+  padding-top: 20px;
 }

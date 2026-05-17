@@ -19,9 +19,13 @@
         <form id="subscription-details">
             <div id="subscriptionNameDiv">
                 <label for="subscriptionName">Name:</label>
-                <input type="text" id="subscriptionName" name="subscriptionName" form="subscription-details" />
+                <div class="dropdown-wrapper">
+                    <input type="text" id="subscriptionName" name="subscriptionName" 
+                    placeholder="Search or enter" autocomplete="off"/>
+                    <ul id="subscriptionDropdown"></ul>
+                </div>
             </div>
-
+        
             </br>
 
             <div id="subscriptionPriceDiv">
