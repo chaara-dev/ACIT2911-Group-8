@@ -207,6 +207,65 @@ footer > div.left {
   margin: 2px 0px;
 }
 
+#viewSubscription {
+  width: 400px;
+  border-radius: 12px;
+  border: 2px solid var(--primary-colour);
+  padding: 20px;
+}
+
 #viewSubscription::backdrop {
   background: rgba(0, 0, 0, 0.5);
+}
+
+.payments-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 2px solid #4a90d9;
+}
+
+.payments-table th {
+  color: #888;
+  font-weight: 400;
+  text-align: left;
+  padding: 14px 16px;
+  border-bottom: 2px solid #4a90d9;
+  font-size: 13px;
+}
+
+.payments-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid #e0e0e0;
+  color: #222;
+  font-weight: 600;
+}
+
+.payments-table tr:last-child td {
+  border-bottom: none;
+}
+
+.payments-table tr:hover td {
+  background-color: #f9f9f9;
+}
+
+.payments-table thead tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.payments-table tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+#paymentsBody {
+  display: block;
+  max-height: 180px;
+  overflow-y: auto;
 }
