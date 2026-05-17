@@ -38,6 +38,7 @@ class Subscription(BaseModel):
             "cost": self.cost,
             "billing_type": self.billing_type,
             "renewal_date": self.renewal_date,
+            "payments": [payment.to_dict() for payment in self.payments]
         }
 
 
