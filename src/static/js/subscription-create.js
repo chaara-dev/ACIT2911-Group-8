@@ -18,7 +18,7 @@ const createNewSubscription = () => {
   nextYear.setFullYear(nextYear.getFullYear() + 1);
   dateInput.min = `${tomorrow.getFullYear()}-${String(tomorrow.getMonth() + 1).padStart(2, "0")}-${String(tomorrow.getDate()).padStart(2, "0")}`;
   dateInput.max = `${nextYear.getFullYear()}-${String(nextYear.getMonth() + 1).padStart(2, "0")}-${String(nextYear.getDate()).padStart(2, "0")}`;
-  
+
   const createSub = document.getElementById("submitButton");
 
   createSub.addEventListener("click", async () => {
