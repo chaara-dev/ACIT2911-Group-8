@@ -76,6 +76,7 @@ const displaySubscriptions = (subs) => {
   subs.forEach((sub) => {
     const card = document.createElement("div");
     card.classList.add("card");
+    card.dataset.id = sub.id;
 
     const cost = document.createElement("span");
     cost.textContent = `$${sub.cost}`;
@@ -94,13 +95,74 @@ const displaySubscriptions = (subs) => {
   });
 };
 
-const displaySubscription = () => {
+const displaySubscription = async () => {
   const viewSubPage = document.getElementById("viewSubscription");
   const subCard = document.querySelectorAll(".card");
   const closeSubButton = document.getElementById("closeSubButton");
 
+  const res = await fetch(`/static/data/subscription_services.json`);
+  const subscriptionsData = await res.json();
+
   subCard.forEach((card) => {
-    card.addEventListener("click", () => {
+    card.addEventListener("click", async () => {
+      const subId = card.dataset.id;
+
+      const res = await fetch(`/api/subscriptions/${subId}`);
+      const sub = await res.json();
+
+      // get logo picture
+      const subMatch = subscriptionsData.find((item) => item.name === sub.name);
+      const logo = subMatch
+        ? subMatch.logo
+        : "https://i.ibb.co/8DDDJ5y4/3674270-200.png";
+
+      // get total paid
+      const totalPaid = sub.payments.reduce(
+        (total, payment) => total + payment.amount,
+        0,
+      );
+
+      // get date formatted as ("day" "month" "year")
+      const formattedDate = new Date(sub.renewal_date).toLocaleDateString(
+        "en-GB",
+        {
+          day: "2-digit",
+          month: "short",
+          year: "numeric",
+        },
+      );
+
+      document.getElementById("subName").textContent = sub.name;
+      document.getElementById("subLogo").src = logo;
+      document.getElementById("subPrice").textContent = `Price: $${sub.cost}`;
+      document.getElementById("subTotalPaid").textContent =
+        `Total Paid: $${totalPaid}`;
+      document.getElementById("subPeriod").textContent =
+        `Billing type: ${sub.billing_type}`;
+      document.getElementById("subRenewalDate").textContent =
+        `Renewal date: ${formattedDate}`;
+
+      // const paymentTable = document.getElementById("paymentsBody");
+      // while (paymentTable.rows.length > 1) {
+      //   paymentTable.deleteRow(1);
+      // }
+      // const payments = sub.payments;
+
+      // payments.forEach((payment) => {
+      //   const row = document.createElement("tr");
+      //   row.classList.add("table-row");
+
+      //   const paid = document.createElement("td");
+      //   paid.textContent = payment.amount;
+      //   row.appendChild(paid);
+
+      //   const datePaid = document.createElement("td");
+      //   datePaid.textContent = payment.date_paid;
+      //   row.appendChild(datePaid);
+
+      //   paymentTable.appendChild(row);
+      // });
+
       viewSubPage.showModal();
     });
   });
@@ -132,7 +194,7 @@ const main = async () => {
 
     allSubscriptions = subs;
     applySubscriptionView();
-    displaySubscription();
+    await displaySubscription();
 
     const filterButton = document.getElementById("filter-button");
     const searchButton = document.getElementById("search-button");
