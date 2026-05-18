@@ -273,6 +273,7 @@ const applySubscriptionView = () => {
   } else if (activeSort === "name") {
     shown = filterSubscriptionsAlpha(shown);
   }
+
   displayDashboard(shown);
   displaySubscriptions(shown);
 };
@@ -291,7 +292,8 @@ const main = async () => {
 
     const filterButton = document.getElementById("filter-button");
     const searchButton = document.getElementById("search-button");
-
+    const sortButton = document.getElementById("sort-button");
+    
     filterButton.addEventListener("click", () => {
       const filterOptions = document.querySelector(".filters");
       filterOptions.replaceChildren();
