@@ -265,6 +265,14 @@ const applySubscriptionView = () => {
   let shown = allSubscriptions.slice();
   shown = searchSubscriptions(shown, activeSearch);
   shown = filterSubscriptions(shown, activeBillingFilter);
+  
+  if (activeSort === "price") {
+    shown = filterSubscriptionsByPrice(shown);
+  } else if (activeSort === "date") {
+    shown = filterSubscriptionsByRenewalDate(shown);
+  } else if (activeSort === "name") {
+    shown = filterSubscriptionsAlpha(shown);
+  }
   displayDashboard(shown);
   displaySubscriptions(shown);
 };
