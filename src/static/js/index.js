@@ -337,7 +337,48 @@ const main = async () => {
         const filterOptions = document.querySelector(".filters");
         filterOptions.replaceChildren();
 
-        
+        const price = document.createElement("button");
+        price.textContent = "Price";
+        price.classList.add("price");
+        filterOptions.appendChild(price);
+
+        const renewalDate = document.createElement("button");
+        renewalDate.textContent = "Renewal date";
+        renewalDate.classList.add("renewal-date");
+        filterOptions.appendChild(renewalDate);
+
+        const name = document.createElement("button");
+        name.textContent = "Name";
+        name.classList.add("name");
+        filterOptions.appendChild(name);
+
+        const clearFilter = document.createElement("button");
+        clearFilter.textContent = "X";
+        clearFilter.classList.add("clear-button");
+        filterOptions.appendChild(clearFilter);
+
+        price.addEventListener("click", () => {
+          activeSort = "price";
+          applySubscriptionView();
+        });
+
+        renewalDate.addEventListener("click", () => {
+          activeSort = "date";
+          applySubscriptionView();
+        });
+
+        name.addEventListener("click", () => {
+          activeSort = "name";
+          applySubscriptionView();
+        });
+
+        clearFilter.addEventListener("click", () => {
+          activeSort = "";
+          applySubscriptionView();
+        });
+      });
+    }
+
     searchButton.addEventListener("click", () => {
       if (document.querySelector(".search")) return;
 
