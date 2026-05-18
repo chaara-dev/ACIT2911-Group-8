@@ -293,7 +293,8 @@ const main = async () => {
     const filterButton = document.getElementById("filter-button");
     const searchButton = document.getElementById("search-button");
     const sortButton = document.getElementById("sort-button");
-    
+
+    if (filterButton) {
     filterButton.addEventListener("click", () => {
       const filterOptions = document.querySelector(".filters");
       filterOptions.replaceChildren();
@@ -308,20 +309,6 @@ const main = async () => {
       yearly.classList.add("yearly");
       filterOptions.appendChild(yearly);
 
-      const price = document.createElement("button");
-      price.textContent = "Price";
-      price.classList.add("price");
-      filterOptions.appendChild(price);
-
-      const renewalDate = document.createElement("button");
-      renewalDate.textContent = "Renewal Date";
-      monthly.classList.add("renewal-date");
-      filterOptions.appendChild(renewalDate);
-
-      const name = document.createElement("button");
-      name.textContent = "Name";
-      name.classList.add("by-name");
-      filterOptions.appendChild(name);
 
       monthly.addEventListener("click", () => {
         const value = "Monthly";
@@ -335,27 +322,6 @@ const main = async () => {
         applySubscriptionView();
       });
 
-      price.addEventListener("click", () => {
-        shown = filterSubscriptionsByPrice(allSubscriptions);
-        shown = searchSubscriptions(shown, activeSearch);
-        displayDashboard(shown);
-        displaySubscriptions(shown);
-      });
-
-      renewalDate.addEventListener("click", () => {
-        shown = filterSubscriptionsByRenewalDate(allSubscriptions);
-        shown = searchSubscriptions(shown, activeSearch);
-        displayDashboard(shown);
-        displaySubscriptions(shown);
-      });
-
-      name.addEventListener("click", () => {
-        shown = filterSubscriptionsAlpha(allSubscriptions);
-        shown = searchSubscriptions(shown, activeSearch);
-        displayDashboard(shown);
-        displaySubscriptions(shown);
-      });
-    });
 
     searchButton.addEventListener("click", () => {
       if (document.querySelector(".search")) return;
