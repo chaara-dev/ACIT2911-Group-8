@@ -332,7 +332,12 @@ const main = async () => {
         });
       });
     }
+    if (sortButton) {
+      sortButton.addEventListener("click", () => {
+        const filterOptions = document.querySelector(".filters");
+        filterOptions.replaceChildren();
 
+        
     searchButton.addEventListener("click", () => {
       if (document.querySelector(".search")) return;
 
