@@ -262,7 +262,7 @@ let activeBillingFilter = "";
 let activeSort = "";
 
 const applySubscriptionView = () => {
-  let shown = allSubscriptions;
+  let shown = allSubscriptions.slice();
   shown = searchSubscriptions(shown, activeSearch);
   shown = filterSubscriptions(shown, activeBillingFilter);
   displayDashboard(shown);
