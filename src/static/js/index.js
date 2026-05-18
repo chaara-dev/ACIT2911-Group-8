@@ -259,6 +259,7 @@ const displaySubscription = async () => {
 let allSubscriptions = [];
 let activeSearch = "";
 let activeBillingFilter = "";
+let activeSort = "";
 
 const applySubscriptionView = () => {
   let shown = allSubscriptions;
