@@ -209,6 +209,8 @@ footer > div.left {
 
 #viewSubscription {
   width: 400px;
+  height: 645px;
+  overflow: hidden;
   border-radius: 12px;
   border: 2px solid var(--primary-colour);
   padding: 20px;
