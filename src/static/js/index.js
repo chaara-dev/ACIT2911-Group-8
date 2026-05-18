@@ -265,7 +265,7 @@ const applySubscriptionView = () => {
   let shown = allSubscriptions.slice();
   shown = searchSubscriptions(shown, activeSearch);
   shown = filterSubscriptions(shown, activeBillingFilter);
-  
+
   if (activeSort === "price") {
     shown = filterSubscriptionsByPrice(shown);
   } else if (activeSort === "date") {
@@ -295,33 +295,43 @@ const main = async () => {
     const sortButton = document.getElementById("sort-button");
 
     if (filterButton) {
-    filterButton.addEventListener("click", () => {
-      const filterOptions = document.querySelector(".filters");
-      filterOptions.replaceChildren();
+      filterButton.addEventListener("click", () => {
+        const filterOptions = document.querySelector(".filters");
+        filterOptions.replaceChildren();
 
-      const monthly = document.createElement("button");
-      monthly.textContent = "Monthly";
-      monthly.classList.add("monthly");
-      filterOptions.appendChild(monthly);
+        const monthly = document.createElement("button");
+        monthly.textContent = "Monthly";
+        monthly.classList.add("monthly");
+        filterOptions.appendChild(monthly);
 
-      const yearly = document.createElement("button");
-      yearly.textContent = "Yearly";
-      yearly.classList.add("yearly");
-      filterOptions.appendChild(yearly);
+        const yearly = document.createElement("button");
+        yearly.textContent = "Yearly";
+        yearly.classList.add("yearly");
+        filterOptions.appendChild(yearly);
 
+        const clearFilter = document.createElement("button");
+        clearFilter.textContent = "X";
+        clearFilter.classList.add("clear-button");
+        filterOptions.appendChild(clearFilter);
 
-      monthly.addEventListener("click", () => {
-        const value = "Monthly";
-        activeBillingFilter = value;
-        applySubscriptionView();
+        monthly.addEventListener("click", () => {
+          const value = "Monthly";
+          activeBillingFilter = value;
+          applySubscriptionView();
+        });
+
+        yearly.addEventListener("click", () => {
+          const value = "Yearly";
+          activeBillingFilter = value;
+          applySubscriptionView();
+        });
+
+        clearFilter.addEventListener("click", () => {
+          activeBillingFilter = "";
+          applySubscriptionView();
+        });
       });
-
-      yearly.addEventListener("click", () => {
-        const value = "Yearly";
-        activeBillingFilter = value;
-        applySubscriptionView();
-      });
-
+    }
 
     searchButton.addEventListener("click", () => {
       if (document.querySelector(".search")) return;
