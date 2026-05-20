@@ -8,7 +8,6 @@ import datetime
 
 from . import subscriptions_bp
 
-# Subscription CRUD (Leon's code)
 def process_subscriptions():
     now = datetime.date.today()
     for sub in Subscription.select().where(Subscription.user == current_user.id):
@@ -25,7 +24,7 @@ def process_subscriptions():
         sub.save()
 
 
-@subscriptions_bp.route("/subscriptions", methods=["GET"])
+@subscriptions_bp.route("/subscriptions")
 @login_required
 def list_subscriptions():
     process_subscriptions()

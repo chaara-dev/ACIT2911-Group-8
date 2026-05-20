@@ -9,7 +9,7 @@ from src.database.models import User
 
 from . import auth_bp
 
-# Auth (Nathan's code)
+
 @auth_bp.route("/register", methods=["POST"])
 def register():
     data = request.get_json(silent=True)
@@ -66,8 +66,9 @@ def login():
     except DoesNotExist:
         return jsonify({"error": "Invalid email or password"}), 401
     
+
 @auth_bp.route("/logout", methods=["POST"])
 @login_required
 def logout():
-    logout_user()
+    logout_user() 
     return jsonify({"message": "Logout successful"}), 200
