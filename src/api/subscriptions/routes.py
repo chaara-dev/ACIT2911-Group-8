@@ -1,9 +1,9 @@
-from flask import request, jsonify
-from flask_login import login_required, current_user
-
 import datetime
 
-from src.database.models import Subscription , Payment
+from flask import request, jsonify
+from flask_login import current_user, login_required
+
+from src.database.models import Subscription, Payment
 from . import subscriptions_bp
 
 

@@ -1,16 +1,17 @@
-from .database import BaseModel
-from flask_login import UserMixin
-
 import datetime
 
+from flask_login import UserMixin
 from peewee import (
     AutoField,
     CharField,
-    FloatField,
     DateField,
     DateTimeField,
-    ForeignKeyField
+    ForeignKeyField,
+    FloatField
 )
+
+from .database import BaseModel
+
 
 class User(UserMixin, BaseModel):
     id = AutoField()
