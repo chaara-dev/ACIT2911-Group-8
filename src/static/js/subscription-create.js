@@ -98,6 +98,10 @@ const createNewSubscription = () => {
       return displayError("All fields must be entered.");
     }
 
+    if (parseFloat(subPrice) < 0) {
+      return displayError("Price cannot be less than $0.");
+    }
+
     if (!checkRenewalDateValid(subPeriod, subRenewalDate)) {
       return;
     }
