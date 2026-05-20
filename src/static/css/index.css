@@ -336,3 +336,15 @@ footer>div.left {
     text-align: center;
     margin-top: 1em;
 }
+
+#editSubButton {
+    background-color: var(--primary-colour);
+    border: 1px solid black;
+    border-radius: 6px;
+    padding: 0.5em 1em 0.5em;
+}
+
+#editSubButton:hover {
+    background-color: var(--hover-primary-colour);
+    cursor: pointer;
+}
