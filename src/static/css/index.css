@@ -1,273 +1,338 @@
 :root {
-  --primary-colour: #32c077;
-  --hover-primary-colour: #2aa164;
-  --secondary-colour: #32afc0;
-  --hover-secondary-colour: #2c8c98;
+    --primary-colour: #32c077;
+    --hover-primary-colour: #2aa164;
+    --secondary-colour: #32afc0;
+    --hover-secondary-colour: #2c8c98;
 
-  --primary-font: monospace;
+    --primary-font: monospace;
 
-  --outer-background-colour: #282a36;
-  --inner-background-colour: #515466;
+    --outer-background-colour: #282a36;
+    --inner-background-colour: #515466;
 
-  --primary-text-colour: black;
-  --green-text-colour: green;
-  --red-text-colour: darkred;
+    --primary-text-colour: black;
+    --green-text-colour: green;
+    --red-text-colour: darkred;
 }
 
 * {
-  font-family: var(--primary-font);
+    font-family: var(--primary-font);
 }
 
 html {
-  background-color: var(--outer-background-colour);
-  zoom: 110%;
+    background-color: var(--outer-background-colour);
+    zoom: 110%;
 }
 
 body {
-  max-width: 700px;
-  margin: auto;
+    max-width: 700px;
+    margin: auto;
 }
 
 header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-header > h1 {
-  display: inline-block;
-  padding: 5px 7px;
-  background-color: var(--primary-colour);
-  border-radius: 8px;
+header>h1 {
+    display: inline-block;
+    padding: 5px 7px;
+    background-color: var(--primary-colour);
+    border-radius: 8px;
 }
 
 main {
-  background-color: var(--inner-background-colour);
-  padding: 20px;
-  border: 3px solid var(--primary-colour);
-  border-radius: 12px;
+    background-color: var(--inner-background-colour);
+    padding: 20px;
+    border: 3px solid var(--primary-colour);
+    border-radius: 12px;
 }
 
 .stats {
-  display: flex;
-  gap: 10px;
+    display: flex;
+    gap: 10px;
 }
 
 .stat-box {
-  flex: 1;
-  background: var(--secondary-colour);
-  border-radius: 12px;
-  padding: 10px 15px;
-  text-align: center;
-  border: 1px solid;
-  margin: 10px 0px;
+    flex: 1;
+    background: var(--secondary-colour);
+    border-radius: 12px;
+    padding: 10px 15px;
+    text-align: center;
+    border: 1px solid;
+    margin: 10px 0px;
 }
 
 .stat-text {
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 6px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
 }
 
 .stat-value {
-  font-size: 20px;
-  font-weight: 200;
+    font-size: 20px;
+    font-weight: 200;
 }
 
 .account,
 .new-subscription {
-  font-size: 15px;
-  padding: 8px 14px;
-  border: none;
-  background-color: var(--primary-colour);
-  border-radius: 10px;
-  cursor: pointer;
-  text-decoration: none;
-  color: black;
+    font-size: 15px;
+    padding: 8px 14px;
+    border: none;
+    background-color: var(--primary-colour);
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
 }
 
 .account:hover,
 .new-subscription:hover {
-  background-color: var(--hover-primary-colour);
+    background-color: var(--hover-primary-colour);
 }
 
 .action {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin: 10px 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px 0px;
 }
 
 .action button {
-  font: 15px;
-  padding: 10px 15px;
-  border: none;
-  background-color: var(--primary-colour);
-  border-radius: 10px;
-  cursor: pointer;
+    font: 15px;
+    padding: 10px 15px;
+    border: none;
+    background-color: var(--primary-colour);
+    border-radius: 10px;
+    cursor: pointer;
 }
 
 .action button:hover {
-  background-color: var(--hover-primary-colour);
+    background-color: var(--hover-primary-colour);
 }
 
 .cards {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 .card {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 16px 20px;
-  border-radius: 15px;
-  background: var(--secondary-colour);
-  color: black;
-  font-size: 15px;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.08);
-  transition: box-shadow 0.3s ease-out;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    border-radius: 15px;
+    background: var(--secondary-colour);
+    color: black;
+    font-size: 15px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.3s ease-out;
 }
 
 .card:hover {
-  background-color: var(--hover-secondary-colour);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+    background-color: var(--hover-secondary-colour);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
 }
 
 .date {
-  padding: 1px 3px;
-  width: 70px;
-  text-align: center;
-  border-radius: 6px;
+    padding: 1px 3px;
+    width: 70px;
+    text-align: center;
+    border-radius: 6px;
 }
 
 .close {
-  background-color: var(--green-text-colour);
+    background-color: var(--green-text-colour);
 }
 
 .far {
-  background-color: var(--red-text-colour);
+    background-color: var(--red-text-colour);
 }
 
 footer {
-  background-color: var(--inner-background-colour);
-  padding: 20px;
-  border: 3px solid var(--primary-colour);
-  border-radius: 12px;
-  margin-top: 3em;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+    background-color: var(--inner-background-colour);
+    padding: 20px;
+    border: 3px solid var(--primary-colour);
+    border-radius: 12px;
+    margin-top: 3em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
-footer > div.left {
-  margin-left: 3em;
-  list-style: none;
+footer>div.left {
+    margin-left: 3em;
+    list-style: none;
 }
 
 .left a {
-  color: black;
-  text-decoration: underline;
+    color: black;
+    text-decoration: underline;
 }
 
 .right {
-  text-align: end;
-  padding-top: 20px;
+    text-align: end;
+    padding-top: 20px;
 }
+
 .monthly {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin: 2px 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 2px 0px;
 }
+
 .yearly {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin: 2px 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 2px 0px;
 }
+
 .price {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin: 2px 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 2px 0px;
 }
+
 .renewal-date {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin: 2px 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 2px 0px;
 }
+
 .name {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin: 2px 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 2px 0px;
 }
 
 #viewSubscription {
-  width: 400px;
-  height: 645px;
-  overflow: hidden;
-  border-radius: 12px;
-  border: 2px solid var(--primary-colour);
-  padding: 20px;
+    width: 400px;
+    height: 645px;
+    overflow: scroll;
+    border-radius: 12px;
+    border: 2px solid var(--primary-colour);
+    padding: 20px;
+    background-color: var(--inner-background-colour);
 }
 
 #viewSubscription::backdrop {
-  background: rgba(0, 0, 0, 0.5);
+    opacity: 0.5;
+    background-color: var(--outer-background-colour);
+}
+
+.view-page-content>div>p {
+    background-color: var(--secondary-colour);
+    border: 1px solid black;
+    border-radius: 4px;
+    width: 50%;
+    padding-left: 3em;
+    padding-right: 3em;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.closeSubButtonDiv {
+    text-align: right;
+}
+
+#closeSubButton {
+    background-color: var(--primary-colour);
+    border: 1px solid black;
+    border-radius: 4px;
+    font-size: larger;
+    width: 1.5em;
+    height: 1.5em;
+}
+
+#closeSubButton:hover {
+    background-color: var(--hover-primary-colour);
+    cursor: pointer;
+}
+
+#subName {
+    text-align: center;
+    font-size: larger;
+    font-weight: bold;
+    background-color: var(--primary-colour);
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    border: 1px solid black;
+    border-radius: 6px;
+    margin-bottom: 1em;
+}
+
+#subLogo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 12px;
+    width: 128px;
+    height: 128px;
 }
 
 .payments-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 14px;
-  background: white;
-  border-radius: 8px;
-  overflow: hidden;
-  border: 2px solid #4a90d9;
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 14px;
+    background: var(--outer-background-colour);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 2px solid var(--primary-colour);
 }
 
 .payments-table th {
-  color: #888;
-  font-weight: 400;
-  text-align: left;
-  padding: 14px 16px;
-  border-bottom: 2px solid #4a90d9;
-  font-size: 13px;
+    color: grey;
+    font-weight: 400;
+    text-align: left;
+    padding: 14px 16px;
+    border-bottom: 2px solid var(--primary-colour);
+    font-size: 13px;
 }
 
 .payments-table td {
-  padding: 14px 16px;
-  border-bottom: 1px solid #e0e0e0;
-  color: #222;
-  font-weight: 600;
+    padding: 14px 16px;
+    border-bottom: 1px solid #e0e0e0;
+    color: lightgrey;
+    font-weight: 600;
 }
 
 .payments-table tr:last-child td {
-  border-bottom: none;
+    border-bottom: none;
 }
 
 .payments-table tr:hover td {
-  background-color: #f9f9f9;
+    background-color: var(--outer-background-colour);
 }
 
 .payments-table thead tr {
-  display: table;
-  width: 100%;
-  table-layout: fixed;
+    display: table;
+    width: 100%;
+    table-layout: fixed;
 }
 
 .payments-table tbody tr {
-  display: table;
-  width: 100%;
-  table-layout: fixed;
+    display: table;
+    width: 100%;
+    table-layout: fixed;
 }
 
 #paymentsBody {
-  display: block;
-  max-height: 180px;
-  overflow-y: auto;
+    display: block;
+    max-height: 180px;
+    overflow-y: auto;
+}
+
+#editSubButtonDiv {
+    text-align: center;
+    margin-top: 1em;
 }
