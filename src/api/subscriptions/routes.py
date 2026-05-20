@@ -24,35 +24,13 @@ def process_subscriptions():
         sub.save()
 
 
-@subscriptions_bp.route("/subscriptions")
+@subscriptions_bp.route("/subscriptions", methods=["GET"])
 @login_required
 def list_subscriptions():
     process_subscriptions()
 
-    search = request.args.get("search")
-    billing_type = request.args.get("billing_type")
-    sort = request.args.get("sort", "renewal_date")
-    order = request.args.get("order", "asc")
-
     query = Subscription.select().where(Subscription.user == current_user.id)
-
-    if search:
-        query = query.where(Subscription.name ** f"%{search}%")
-
-    if billing_type:
-        query = query.where(Subscription.billing_type == billing_type)
-
-    sort_fields = {
-        "cost": Subscription.cost,
-        "name": Subscription.name,
-        "renewal_date": Subscription.renewal_date,
-    }
-    sort_field = sort_fields.get(sort, Subscription.renewal_date)
-
-    if order == "asc":
-        query = query.order_by(sort_field.asc())
-    else:
-        query = query.order_by(sort_field.desc())
+    query = query.order_by(Subscription.renewal_date.desc())
 
     results = []
     for result in query:
