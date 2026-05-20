@@ -10,7 +10,7 @@ from . import subscriptions_bp
 
 # Subscription CRUD (Leon's code)
 def process_subscriptions():
-    now = datetime.datetime.now()
+    now = datetime.date.today()
     for sub in Subscription.select().where(Subscription.user == current_user.id):
         while sub.renewal_date <= now:
             Payment.create(
@@ -87,7 +87,7 @@ def create_subscription():
     name = data.get("name")
     cost = data.get("cost")
     billing_type = data.get("billing_type")
-    renewal_date = data.get("renewal_date")
+    renewal_date = datetime.date.fromisoformat(data.get("renewal_date"))
 
     if not name or cost is None or not billing_type or not renewal_date:
         return jsonify({"error": "name, cost, billing_type, and renewal_date are required"}), 400
@@ -121,7 +121,7 @@ def update_subscription(sub_id):
     name = data.get("name")
     cost = data.get("cost")
     billing_type = data.get("billing_type")
-    renewal_date = data.get("renewal_date")
+    renewal_date = datetime.date.fromisoformat(data.get("renewal_date"))
 
     if not name or cost is None or not billing_type or not renewal_date:
         return jsonify({"error": "name, cost, billing_type, renewal_date are required"}), 400
