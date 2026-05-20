@@ -1,5 +1,8 @@
-const logout = () => {
+export const addLogoutListener = () => {
   const logoutButton = document.querySelector(".account");
+  if (!logoutButton) {
+    return;
+  }
 
   logoutButton.addEventListener("click", async () => {
     try {
@@ -13,11 +16,10 @@ const logout = () => {
       if (!res.ok) {
         throw new Error(data["error"]);
       }
+
       window.location.href = "/login";
     } catch (error) {
       console.log(error);
     }
   });
 };
-
-logout();

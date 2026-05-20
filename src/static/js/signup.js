@@ -29,6 +29,7 @@ const createNewAccount = () => {
       if (!res.ok) {
         throw new Error(data["error"]);
       }
+
       window.location.href = "/login";
     } catch (error) {
       console.log(error);

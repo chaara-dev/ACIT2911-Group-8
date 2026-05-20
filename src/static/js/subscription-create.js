@@ -1,3 +1,5 @@
+import { addLogoutListener } from "./shared.js";
+
 const displayError = (errorMessage) => {
   const pageTitle = document.querySelector(".submitButtonDiv");
 
@@ -51,7 +53,7 @@ const displaySubDropdown = async () => {
   }
 };
 
-const createNewSubscription = () => {
+const checkRenewalDateValid = (subPeriod, renewalDate) => {
   // Set date input limits
   const dateInput = document.getElementById("subscriptionDate");
   const tomorrow = new Date();
@@ -61,6 +63,29 @@ const createNewSubscription = () => {
   dateInput.min = `${tomorrow.getFullYear()}-${String(tomorrow.getMonth() + 1).padStart(2, "0")}-${String(tomorrow.getDate()).padStart(2, "0")}`;
   dateInput.max = `${nextYear.getFullYear()}-${String(nextYear.getMonth() + 1).padStart(2, "0")}-${String(nextYear.getDate()).padStart(2, "0")}`;
 
+  // Validate renewal date is within limit
+  const maxDate = new Date();
+  if (subPeriod === "Monthly") {
+    maxDate.setMonth(maxDate.getMonth() + 1);
+  } else if (subPeriod === "Yearly") {
+    maxDate.setFullYear(maxDate.getFullYear() + 1);
+  }
+  const maxDateString = `${maxDate.getFullYear()}-${String(maxDate.getMonth() + 1).padStart(2, "0")}-${String(maxDate.getDate()).padStart(2, "0")}`;
+
+  if (renewalDate > maxDateString) {
+    dateInput.value = "";
+    if (subPeriod === "Monthly") {
+      displayError("Renewal date must be within a month from today.");
+      return false;
+    } else {
+      displayError("Renewal date must be within a year from today.");
+      return false;
+    }
+  }
+  return true;
+};
+
+const createNewSubscription = () => {
   const createSub = document.getElementById("submitButton");
 
   createSub.addEventListener("click", async () => {
@@ -72,22 +97,13 @@ const createNewSubscription = () => {
     if (!subName || !subPrice || !subPeriod || !subRenewalDate) {
       return displayError("All fields must be entered.");
     }
-    // Validate renewal date is within limit
-    const maxDate = new Date();
-    if (subPeriod === "Monthly") {
-      maxDate.setMonth(maxDate.getMonth() + 1);
-    } else if (subPeriod === "Yearly") {
-      maxDate.setFullYear(maxDate.getFullYear() + 1);
-    }
-    const maxDateString = `${maxDate.getFullYear()}-${String(maxDate.getMonth() + 1).padStart(2, "0")}-${String(maxDate.getDate()).padStart(2, "0")}`;
 
-    if (subRenewalDate > maxDateString) {
-      dateInput.value = "";
-      if (subPeriod === "Monthly") {
-        return displayError("Renewal date must be within a month from today.");
-      } else {
-        return displayError("Renewal date must be within a year from today.");
-      }
+    if (parseFloat(subPrice) < 0) {
+      return displayError("Price cannot be less than $0.");
+    }
+
+    if (!checkRenewalDateValid(subPeriod, subRenewalDate)) {
+      return;
     }
 
     const newSub = {
@@ -109,6 +125,7 @@ const createNewSubscription = () => {
       if (!res.ok) {
         throw new Error(data["error"]);
       }
+
       window.location.href = "/";
     } catch (error) {
       console.log(error);
@@ -117,6 +134,7 @@ const createNewSubscription = () => {
 };
 
 const main = async () => {
+  addLogoutListener();
   await displaySubDropdown();
   createNewSubscription();
 };
