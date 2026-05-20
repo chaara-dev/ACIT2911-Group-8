@@ -259,11 +259,21 @@ const displaySubscription = async () => {
 let allSubscriptions = [];
 let activeSearch = "";
 let activeBillingFilter = "";
+let activeSort = "";
 
 const applySubscriptionView = () => {
-  let shown = allSubscriptions;
+  let shown = allSubscriptions.slice();
   shown = searchSubscriptions(shown, activeSearch);
   shown = filterSubscriptions(shown, activeBillingFilter);
+
+  if (activeSort === "price") {
+    shown = filterSubscriptionsByPrice(shown);
+  } else if (activeSort === "date") {
+    shown = filterSubscriptionsByRenewalDate(shown);
+  } else if (activeSort === "name") {
+    shown = filterSubscriptionsAlpha(shown);
+  }
+
   displayDashboard(shown);
   displaySubscriptions(shown);
 };
@@ -282,69 +292,92 @@ const main = async () => {
 
     const filterButton = document.getElementById("filter-button");
     const searchButton = document.getElementById("search-button");
+    const sortButton = document.getElementById("sort-button");
 
-    filterButton.addEventListener("click", () => {
-      const filterOptions = document.querySelector(".filters");
-      filterOptions.replaceChildren();
+    if (filterButton) {
+      filterButton.addEventListener("click", () => {
+        const filterOptions = document.querySelector(".filters");
+        filterOptions.replaceChildren();
 
-      const monthly = document.createElement("button");
-      monthly.textContent = "Monthly";
-      monthly.classList.add("monthly");
-      filterOptions.appendChild(monthly);
+        const monthly = document.createElement("button");
+        monthly.textContent = "Monthly";
+        monthly.classList.add("monthly");
+        filterOptions.appendChild(monthly);
 
-      const yearly = document.createElement("button");
-      yearly.textContent = "Yearly";
-      yearly.classList.add("yearly");
-      filterOptions.appendChild(yearly);
+        const yearly = document.createElement("button");
+        yearly.textContent = "Yearly";
+        yearly.classList.add("yearly");
+        filterOptions.appendChild(yearly);
 
-      const price = document.createElement("button");
-      price.textContent = "Price";
-      price.classList.add("price");
-      filterOptions.appendChild(price);
+        const clearFilter = document.createElement("button");
+        clearFilter.textContent = "X";
+        clearFilter.classList.add("clear-button");
+        filterOptions.appendChild(clearFilter);
 
-      const renewalDate = document.createElement("button");
-      renewalDate.textContent = "Renewal Date";
-      monthly.classList.add("renewal-date");
-      filterOptions.appendChild(renewalDate);
+        monthly.addEventListener("click", () => {
+          const value = "Monthly";
+          activeBillingFilter = value;
+          applySubscriptionView();
+        });
 
-      const name = document.createElement("button");
-      name.textContent = "Name";
-      name.classList.add("by-name");
-      filterOptions.appendChild(name);
+        yearly.addEventListener("click", () => {
+          const value = "Yearly";
+          activeBillingFilter = value;
+          applySubscriptionView();
+        });
 
-      monthly.addEventListener("click", () => {
-        const value = "Monthly";
-        activeBillingFilter = value;
-        applySubscriptionView();
+        clearFilter.addEventListener("click", () => {
+          activeBillingFilter = "";
+          applySubscriptionView();
+        });
       });
+    }
+    if (sortButton) {
+      sortButton.addEventListener("click", () => {
+        const filterOptions = document.querySelector(".filters");
+        filterOptions.replaceChildren();
 
-      yearly.addEventListener("click", () => {
-        const value = "Yearly";
-        activeBillingFilter = value;
-        applySubscriptionView();
-      });
+        const price = document.createElement("button");
+        price.textContent = "Price";
+        price.classList.add("price");
+        filterOptions.appendChild(price);
 
-      price.addEventListener("click", () => {
-        shown = filterSubscriptionsByPrice(allSubscriptions);
-        shown = searchSubscriptions(shown, activeSearch);
-        displayDashboard(shown);
-        displaySubscriptions(shown);
-      });
+        const renewalDate = document.createElement("button");
+        renewalDate.textContent = "Renewal date";
+        renewalDate.classList.add("renewal-date");
+        filterOptions.appendChild(renewalDate);
 
-      renewalDate.addEventListener("click", () => {
-        shown = filterSubscriptionsByRenewalDate(allSubscriptions);
-        shown = searchSubscriptions(shown, activeSearch);
-        displayDashboard(shown);
-        displaySubscriptions(shown);
-      });
+        const name = document.createElement("button");
+        name.textContent = "Name";
+        name.classList.add("name");
+        filterOptions.appendChild(name);
 
-      name.addEventListener("click", () => {
-        shown = filterSubscriptionsAlpha(allSubscriptions);
-        shown = searchSubscriptions(shown, activeSearch);
-        displayDashboard(shown);
-        displaySubscriptions(shown);
+        const clearFilter = document.createElement("button");
+        clearFilter.textContent = "X";
+        clearFilter.classList.add("clear-button");
+        filterOptions.appendChild(clearFilter);
+
+        price.addEventListener("click", () => {
+          activeSort = "price";
+          applySubscriptionView();
+        });
+
+        renewalDate.addEventListener("click", () => {
+          activeSort = "date";
+          applySubscriptionView();
+        });
+
+        name.addEventListener("click", () => {
+          activeSort = "name";
+          applySubscriptionView();
+        });
+
+        clearFilter.addEventListener("click", () => {
+          activeSort = "";
+          applySubscriptionView();
+        });
       });
-    });
+    }
 
     searchButton.addEventListener("click", () => {
       if (document.querySelector(".search")) return;
