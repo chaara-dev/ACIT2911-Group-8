@@ -191,6 +191,10 @@ const displaySubscription = async () => {
             document.querySelector(".sub-total-paid").hidden = true;
             document.querySelector(".sub-payments").hidden = true;
 
+            document.getElementById("subNameEdit").hidden = false;
+            const nameValue = document.getElementById("subNameEditInput");
+            nameValue.value = sub.name;
+
             document.getElementById("subPrice").hidden = true;
             document.getElementById("subPriceEdit").hidden = false;
             const priceValue = document.getElementById("subPriceEditInput");
@@ -221,7 +225,7 @@ const displaySubscription = async () => {
               "click",
               async () => {
                 const edits = {
-                  name: sub.name,
+                  name: nameValue.name,
                   cost: priceValue.value,
                   billing_type: periodValue.value,
                   renewal_date: renewalDateValue.value,
