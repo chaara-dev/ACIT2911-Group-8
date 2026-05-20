@@ -1,12 +1,11 @@
 from flask import request, jsonify
-
 from flask_login import login_required, current_user
-
-from src.database.models import Subscription , Payment
 
 import datetime
 
+from src.database.models import Subscription , Payment
 from . import subscriptions_bp
+
 
 def process_subscriptions():
     now = datetime.date.today()
@@ -76,7 +75,7 @@ def create_subscription():
         billing_type=billing_type,
         renewal_date=renewal_date,
     )
- 
+
     return jsonify(new_sub.to_dict()), 201
 
 
@@ -108,8 +107,9 @@ def update_subscription(sub_id):
     sub.billing_type = billing_type
     sub.renewal_date = renewal_date
     sub.save()
- 
+
     return jsonify(sub.to_dict())
+
 
 @subscriptions_bp.route("/subscriptions/<int:sub_id>", methods=["DELETE"])
 @login_required
@@ -122,5 +122,5 @@ def delete_subscription(sub_id):
         return jsonify({"error": f"Subscription {sub_id} not found"}), 404
  
     sub.delete_instance()
- 
+
     return jsonify({"message": f"Subscription {sub_id} deleted successfully"})
