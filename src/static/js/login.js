@@ -30,6 +30,7 @@ const login = () => {
       if (!res.ok) {
         throw new Error(data["error"]);
       }
+
       window.location.href = "/";
     } catch (error) {
       console.log(error);

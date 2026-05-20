@@ -1,3 +1,5 @@
+import { addLogoutListener } from "./shared.js";
+
 const getSubscriptions = async () => {
   try {
     const res = await fetch(`/api/subscriptions`);
@@ -279,6 +281,8 @@ const applySubscriptionView = () => {
 };
 
 const main = async () => {
+  addLogoutListener();
+
   try {
     const subs = await getSubscriptions();
 

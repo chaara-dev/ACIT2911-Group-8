@@ -1,3 +1,5 @@
+import { addLogoutListener } from "./shared.js";
+
 const displayError = (errorMessage) => {
   const pageTitle = document.querySelector(".submitButtonDiv");
 
@@ -117,6 +119,7 @@ const createNewSubscription = () => {
 };
 
 const main = async () => {
+  addLogoutListener();
   await displaySubDropdown();
   createNewSubscription();
 };
