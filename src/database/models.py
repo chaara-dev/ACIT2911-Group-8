@@ -7,6 +7,7 @@ from peewee import (
     AutoField,
     CharField,
     FloatField,
+    DateField,
     DateTimeField,
     ForeignKeyField
 )
@@ -28,7 +29,7 @@ class Subscription(BaseModel):
     name = CharField()
     cost = FloatField()
     billing_type = CharField(max_length=20, default="unknown")
-    renewal_date = DateTimeField()
+    renewal_date = DateField()
 
     def to_dict(self):
         return {
@@ -45,7 +46,7 @@ class Subscription(BaseModel):
 class Payment(BaseModel):
     id = AutoField()
     subscription = ForeignKeyField(Subscription, backref="payments")
-    date_paid = DateTimeField(default=datetime.datetime.now)
+    date_paid = DateField(default=datetime.date.today)
     amount = FloatField()
 
     def to_dict(self):
