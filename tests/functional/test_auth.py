@@ -47,3 +47,12 @@ def test_login(user_client):
     
     test_user = User.get(User.email == "new_user@test.com")
     test_user.delete_instance()
+
+def test_login_wrong(user_client):
+    
+    response = user_client.post(
+        "/api/login",
+        json={"email": "wrong@test.com", "password": "wrong123"}
+    )
+    assert response.status_code == 401 
+    
