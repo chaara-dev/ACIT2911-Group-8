@@ -7,3 +7,16 @@ def user_client():
     flask_app = create_app()
     with flask_app.test_client() as testing_client:
         yield testing_client
+
+def test_register(user_client):
+    response = user_client.post(
+        "/api/register",
+        json={"email": "new_user@test.com", "password": "password123"}
+    )
+    assert response.status_code == 201
+    
+    data = response.get_json()
+    assert data["message"] == "User registered successfully"
+
+    test_user = User.get(User.email == "new_user@test.com")
+    test_user.delete_instance()
