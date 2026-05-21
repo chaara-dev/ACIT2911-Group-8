@@ -29,7 +29,7 @@ def list_subscriptions():
     process_subscriptions()
 
     query = Subscription.select().where(Subscription.user == current_user.id)
-    query = query.order_by(Subscription.renewal_date.desc())
+    query = query.order_by(Subscription.renewal_date)
 
     results = []
     for result in query:

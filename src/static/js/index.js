@@ -1,23 +1,19 @@
 import { addLogoutListener } from "./shared.js";
+import { displaySubscription } from "./subscription-view.js";
 
 const getSubscriptions = async () => {
   try {
-    const res = await fetch(`/api/subscriptions`);
+    const res = await fetch("/api/subscriptions");
     const data = await res.json();
 
     if (!res.ok) {
-      throw new Error(data["error"]);
+      throw new Error(data.error);
     }
 
     return data.subscriptions;
   } catch (error) {
     console.log(error);
   }
-};
-
-const calculateRenewalDays = (renewalDate) => {
-  const difference = new Date(renewalDate) - new Date();
-  return Math.ceil(difference / (24 * 60 * 60 * 1000));
 };
 
 const calculateNextRenewal = (subs) => {
@@ -37,20 +33,25 @@ const calculateTotalCost = (subs) => {
   return total.toFixed(2);
 };
 
+const calculateRenewalDays = (renewalDate) => {
+  const difference = new Date(renewalDate) - new Date();
+  return Math.ceil(difference / (24 * 60 * 60 * 1000));
+};
+
 const filterSubscriptions = (subs, billing_type) => {
   if (!billing_type) return subs;
   return subs.filter((sub) => sub.billing_type === billing_type);
 };
 
-const filterSubscriptionsByPrice = (subs) => {
+const sortSubscriptionsByPrice = (subs) => {
   return subs.sort((a, b) => b.cost - a.cost);
 };
 
-const filterSubscriptionsByRenewalDate = (subs) => {
+const sortSubscriptionsByRenewalDate = (subs) => {
   return subs.sort((a, b) => b.renewal_date - a.renewal_date);
 };
 
-const filterSubscriptionsAlpha = (subs) => {
+const sortSubscriptionsAlpha = (subs) => {
   return subs.sort((a, b) => a.name - b.name);
 };
 
@@ -62,12 +63,11 @@ const searchSubscriptions = (subs, search) => {
 
 const displayDashboard = (subs) => {
   const activeSubsValue = document.getElementById("active-sub");
-  activeSubsValue.textContent = subs.length;
-
   const nextRenewalValue = document.getElementById("next-renew");
-  nextRenewalValue.textContent = calculateNextRenewal(subs);
-
   const totalCostValue = document.getElementById("total-price");
+
+  activeSubsValue.textContent = subs.length;
+  nextRenewalValue.textContent = calculateNextRenewal(subs);
   totalCostValue.textContent = calculateTotalCost(subs);
 };
 
@@ -81,184 +81,24 @@ const displaySubscriptions = (subs) => {
     card.dataset.id = sub.id;
 
     const cost = document.createElement("span");
-    cost.textContent = `$${sub.cost}`;
-    card.appendChild(cost);
-
     const name = document.createElement("span");
-    name.textContent = sub.name;
-    card.appendChild(name);
-
     const renewal = document.createElement("span");
+
     const renewalDays = calculateRenewalDays(sub.renewal_date);
+
+    cost.textContent = `$${sub.cost}`;
+    name.textContent = sub.name;
     renewal.textContent = `${renewalDays} days`;
+
+    card.appendChild(cost);
+    card.appendChild(name);
     card.appendChild(renewal);
 
-    subCards.appendChild(card);
-  });
-};
-
-const resetDialog = () => {
-  document.getElementById("subPrice").hidden = false;
-  document.getElementById("subPriceEdit").hidden = true;
-  document.getElementById("subPeriod").hidden = false;
-  document.getElementById("subPeriodEdit").hidden = true;
-  document.getElementById("subRenewalDate").hidden = false;
-  document.getElementById("subRenewalDateEdit").hidden = true;
-  document.getElementById("subscribedOn").hidden = false;
-  document.getElementById("subscribedOnDateEdit").hidden = true;
-  document.getElementById("editSubButtonDiv").hidden = false;
-  document.getElementById("saveEditButtonDiv").hidden = true;
-  document.getElementById("cancelEditButtonDiv").hidden = true;
-  document.querySelector(".sub-total-paid").hidden = false;
-  document.querySelector(".sub-payments").hidden = false;
-};
-
-const displaySubscription = async () => {
-  const viewSubPage = document.getElementById("viewSubscription");
-  const subCard = document.querySelectorAll(".card");
-  const closeSubButton = document.getElementById("closeSubButton");
-
-  const res = await fetch(`/static/data/subscription_services.json`);
-  const subscriptionsData = await res.json();
-
-  subCard.forEach((card) => {
     card.addEventListener("click", async () => {
-      const subId = card.dataset.id;
-
-      const res = await fetch(`/api/subscriptions/${subId}`);
-      const sub = await res.json();
-
-      // get logo picture
-      const subMatch = subscriptionsData.find((item) => item.name === sub.name);
-      const logo = subMatch
-        ? subMatch.logo
-        : "https://i.ibb.co/8DDDJ5y4/3674270-200.png";
-
-      // get total paid
-      const totalPaid = sub.payments.reduce(
-        (total, payment) => total + payment.amount,
-        0,
-      );
-
-      // get date formatted as ("day" "month" "year")
-      const formattedDate = new Date(sub.renewal_date).toLocaleDateString(
-        "en-GB",
-        {
-          day: "2-digit",
-          month: "short",
-          year: "numeric",
-        },
-      );
-
-      document.getElementById("subName").textContent = sub.name;
-      document.getElementById("subLogo").src = logo;
-      document.getElementById("subPrice").textContent = `Price: $${sub.cost}`;
-      document.getElementById("subTotalPaid").textContent =
-        `Total Paid: $${totalPaid}`;
-      document.getElementById("subPeriod").textContent =
-        `Billing type: ${sub.billing_type}`;
-      document.getElementById("subRenewalDate").textContent =
-        `Renewal date: ${formattedDate}`;
-
-      // const paymentTable = document.getElementById("paymentsBody");
-      // while (paymentTable.rows.length > 1) {
-      //   paymentTable.deleteRow(1);
-      // }
-      // const payments = sub.payments;
-
-      // payments.forEach((payment) => {
-      //   const row = document.createElement("tr");
-      //   row.classList.add("table-row");
-
-      //   const paid = document.createElement("td");
-      //   paid.textContent = payment.amount;
-      //   row.appendChild(paid);
-
-      //   const datePaid = document.createElement("td");
-      //   datePaid.textContent = payment.date_paid;
-      //   row.appendChild(datePaid);
-
-      //   paymentTable.appendChild(row);
-      // });
-
-      viewSubPage.showModal();
-
-      const displayEditSubscription = () => {
-        const editButton = document.getElementById("editSubButton");
-        editButton.addEventListener(
-          "click",
-          () => {
-            document.querySelector(".sub-total-paid").hidden = true;
-            document.querySelector(".sub-payments").hidden = true;
-
-            document.getElementById("subNameEdit").hidden = false;
-            const nameValue = document.getElementById("subNameEditInput");
-            nameValue.value = sub.name;
-
-            document.getElementById("subPrice").hidden = true;
-            document.getElementById("subPriceEdit").hidden = false;
-            const priceValue = document.getElementById("subPriceEditInput");
-            priceValue.value = sub.cost;
-
-            document.getElementById("subPeriod").hidden = true;
-            document.getElementById("subPeriodEdit").hidden = false;
-            const periodValue = document.getElementById("subPeriodEditInput");
-            periodValue.value = sub.billing_type;
-
-            document.getElementById("subRenewalDate").hidden = true;
-            document.getElementById("subRenewalDateEdit").hidden = false;
-            const renewalDateValue = document.getElementById(
-              "subRenewalDateInput",
-            );
-            renewalDateValue.value = sub.renewal_date.slice(0, 10);
-
-            document.getElementById("subscribedOn").hidden = true;
-            document.getElementById("subscribedOnDateEdit").hidden = false;
-
-            document.getElementById("editSubButtonDiv").hidden = true;
-            document.getElementById("saveEditButtonDiv").hidden = false;
-            const saveButton = document.getElementById("saveEditButton");
-            document.getElementById("cancelEditButtonDiv").hidden = false;
-            const cancelButton = document.getElementById("cancelEditButton");
-
-            saveButton.addEventListener(
-              "click",
-              async () => {
-                const edits = {
-                  name: nameValue.name,
-                  cost: priceValue.value,
-                  billing_type: periodValue.value,
-                  renewal_date: renewalDateValue.value,
-                };
-                const res = await fetch(`/api/subscriptions/${subId}`, {
-                  method: "PUT",
-                  headers: { "Content-Type": "application/json" },
-                  body: JSON.stringify(edits),
-                });
-                window.location.href = `/`;
-              },
-              { once: true },
-            );
-
-            cancelButton.addEventListener(
-              "click",
-              () => {
-                resetDialog();
-                displayEditSubscription();
-              },
-              { once: true },
-            );
-          },
-          { once: true },
-        );
-      };
-      displayEditSubscription();
+      await displaySubscription(sub.id);
     });
-  });
 
-  closeSubButton.addEventListener("click", () => {
-    resetDialog();
-    viewSubPage.close();
+    subCards.appendChild(card);
   });
 };
 
@@ -273,11 +113,11 @@ const applySubscriptionView = () => {
   shown = filterSubscriptions(shown, activeBillingFilter);
 
   if (activeSort === "price") {
-    shown = filterSubscriptionsByPrice(shown);
+    shown = sortSubscriptionsByPrice(shown);
   } else if (activeSort === "date") {
-    shown = filterSubscriptionsByRenewalDate(shown);
+    shown = sortSubscriptionsByRenewalDate(shown);
   } else if (activeSort === "name") {
-    shown = filterSubscriptionsAlpha(shown);
+    shown = sortSubscriptionsAlpha(shown);
   }
 
   displayDashboard(shown);
@@ -296,7 +136,6 @@ const main = async () => {
 
     allSubscriptions = subs;
     applySubscriptionView();
-    await displaySubscription();
 
     const filterButton = document.getElementById("filter-button");
     const searchButton = document.getElementById("search-button");
@@ -402,30 +241,6 @@ const main = async () => {
         }
       });
     });
-
-    // if (filterButton) {
-    //   filterButton.addEventListener("click", () => {
-    //     const value = window.prompt(
-    //       "Filter by billing type (Monthly, Yearly), or leave empty to show all:",
-    //       activeBillingFilter,
-    //     );
-    //     if (value === null) return;
-    //     activeBillingFilter = value.trim();
-    //     applySubscriptionView();
-    //   });
-    // }
-
-    // if (searchButton) {
-    //   searchButton.addEventListener("click", () => {
-    //     const value = window.prompt(
-    //       "Search subscriptions by name, or leave empty to clear:",
-    //       activeSearch,
-    //     );
-    //     if (value === null) return;
-    //     activeSearch = value.trim();
-    //     applySubscriptionView();
-    //   });
-    // }
   } catch (error) {
     console.log(error);
   }
