@@ -31,3 +31,14 @@ def test_payment(payment_client):
         amount=test_subscription.cost,
         date_paid=test_subscription.renewal_date
     )
+    
+    payment = Payment.get(Payment.id == test_payment.id)
+    
+    
+    assert payment.subscription.name == "Payment Test" 
+    assert payment.amount == 9.99
+    assert payment.date_paid.date() == date(2026, 5, 22)
+
+    test_payment.delete_instance()  
+    test_subscription.delete_instance()       
+    test_user.delete_instance()      
