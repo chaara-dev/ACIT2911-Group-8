@@ -27,7 +27,7 @@ def test_client():
                 "name": "test_subscription",
                 "cost": 15.99,
                 "billing_type": "monthly",
-                "renewal_date": "12-05-2026"
+                "renewal_date": "2026-05-12"
             }
         )
         test_subscription = Subscription.get(Subscription.name == "test_subscription")
@@ -69,7 +69,7 @@ def test_create_subscription(test_client):
             "name": "test_add_subscription",
             "cost": 10.99,
             "billing_type": "yearly",
-            "renewal_date": "12-05-2026"
+            "renewal_date": "2026-05-12"
         }
     )
     assert response.status_code == 201
@@ -90,7 +90,7 @@ def test_update_subscription(test_client):
             "name": "test_update_subscription",
             "cost": 26.00,
             "billing_type": "yearly",
-            "renewal_date": "12-05-2026"
+            "renewal_date": "2026-05-12"
         }
     )
     assert response.status_code == 200
@@ -161,7 +161,7 @@ def test_sort_subscriptions(test_client):
         "name": "cheap_sub",
         "cost": 5.00,
         "billing_type": "monthly",
-        "renewal_date": "12-05-2026"
+        "renewal_date": "2026-05-12"
     })
 
     response = test_client.get("/api/subscriptions?sort=cost&order=asc")
