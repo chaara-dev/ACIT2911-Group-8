@@ -33,10 +33,9 @@ def test_client():
         test_subscription = Subscription.get(Subscription.name == "test_subscription")
         yield testing_client
         if test_subscription:
-            test_subscription.delete_instance()
+            test_subscription.delete_instance(recursive=True)
         if test_user:
-            test_user.delete_instance()    
-
+            test_user.delete_instance(recursive=True)
 
 def test_list_subscriptions(test_client):
     response = test_client.get("/api/subscriptions")
@@ -79,7 +78,7 @@ def test_create_subscription(test_client):
     assert data["cost"] == 10.99
     assert data["billing_type"] == "yearly"
     test_subscription = Subscription.get(Subscription.name == "test_add_subscription")
-    test_subscription.delete_instance()
+    test_subscription.delete_instance(recursive=True)
 
 
 def test_update_subscription(test_client):
@@ -170,4 +169,4 @@ def test_sort_subscriptions(test_client):
     costs = [sub["cost"] for sub in data["subscriptions"]]
     assert costs == sorted(costs)
 
-    Subscription.get(Subscription.name == "cheap_sub").delete_instance()
+    Subscription.get(Subscription.name == "cheap_sub").delete_instance(recursive=True)
