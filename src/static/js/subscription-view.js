@@ -12,8 +12,9 @@ const getSubscriptionsList = async () => {
 };
 
 const getSubscriptionLogo = (sub, subsList) => {
+  const DEFAULT_LOGO = "/static/images/default-no-logo-subscription.png";
   const subMatch = subsList.find((item) => item.name === sub.name);
-  return subMatch?.logo ?? "https://i.ibb.co/8DDDJ5y4/3674270-200.png";
+  return subMatch?.logo ?? DEFAULT_LOGO;
 };
 
 const getTotalPaid = (sub) =>
