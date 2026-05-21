@@ -20,3 +20,15 @@ def test_register(user_client):
 
     test_user = User.get(User.email == "new_user@test.com")
     test_user.delete_instance()
+
+def test_register_without_password(user_client):
+    response = user_client.post(
+        "/api/register",
+        json={"email": "missing@test.com"}
+    )
+    assert response.status_code == 400
+    
+    data = response.get_json()
+    assert data["error"] == "email and password are required"
+
+    
