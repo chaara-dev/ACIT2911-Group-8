@@ -1,8 +1,5 @@
 export const addLogoutListener = () => {
   const logoutButton = document.querySelector(".account");
-  if (!logoutButton) {
-    return;
-  }
 
   logoutButton.addEventListener("click", async () => {
     try {
