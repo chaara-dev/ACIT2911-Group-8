@@ -43,15 +43,15 @@ const filterSubscriptions = (subs, billing_type) => {
   return subs.filter((sub) => sub.billing_type === billing_type);
 };
 
-const filterSubscriptionsByPrice = (subs) => {
+const sortSubscriptionsByPrice = (subs) => {
   return subs.sort((a, b) => b.cost - a.cost);
 };
 
-const filterSubscriptionsByRenewalDate = (subs) => {
+const sortSubscriptionsByRenewalDate = (subs) => {
   return subs.sort((a, b) => b.renewal_date - a.renewal_date);
 };
 
-const filterSubscriptionsAlpha = (subs) => {
+const sortSubscriptionsAlpha = (subs) => {
   return subs.sort((a, b) => a.name - b.name);
 };
 
@@ -113,11 +113,11 @@ const applySubscriptionView = () => {
   shown = filterSubscriptions(shown, activeBillingFilter);
 
   if (activeSort === "price") {
-    shown = filterSubscriptionsByPrice(shown);
+    shown = sortSubscriptionsByPrice(shown);
   } else if (activeSort === "date") {
-    shown = filterSubscriptionsByRenewalDate(shown);
+    shown = sortSubscriptionsByRenewalDate(shown);
   } else if (activeSort === "name") {
-    shown = filterSubscriptionsAlpha(shown);
+    shown = sortSubscriptionsAlpha(shown);
   }
 
   displayDashboard(shown);
