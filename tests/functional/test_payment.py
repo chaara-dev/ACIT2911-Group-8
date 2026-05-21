@@ -22,6 +22,12 @@ def test_payment(payment_client):
         name="Payment Test",
         cost=9.99,
         billing_type="monthly",
-        renewal_date=date(2026, 5, 20)
+        renewal_date=date(2026, 5, 22)
     )
 
+    #creat payment
+    test_payment = Payment.create(
+        subscription=test_subscription.id,
+        amount=test_subscription.cost,
+        date_paid=test_subscription.renewal_date
+    )
