@@ -1,3 +1,5 @@
+import { displayEditSubscription } from "./subscription-edit";
+
 const resetDialog = () => {
   document.getElementById("subNameEdit").hidden = true;
   document.getElementById("subPrice").hidden = false;
@@ -18,6 +20,7 @@ const resetDialog = () => {
 export const displaySubscription = async (subId) => {
   const viewPage = document.getElementById("viewSubscription");
   const closeButton = document.getElementById("closeSubButton");
+  const editButton = document.getElementById("editSubButton");
 
   const listRes = await fetch(`/static/data/subscription_services.json`);
   const subsList = await listRes.json();
@@ -76,74 +79,9 @@ export const displaySubscription = async (subId) => {
 
   viewPage.showModal();
 
-  const displayEditSubscription = () => {
-    const editButton = document.getElementById("editSubButton");
-    editButton.addEventListener(
-      "click",
-      () => {
-        document.querySelector(".sub-total-paid").hidden = true;
-        document.querySelector(".sub-payments").hidden = true;
-
-        document.getElementById("subNameEdit").hidden = false;
-        const nameValue = document.getElementById("subNameEditInput");
-        nameValue.value = sub.name;
-
-        document.getElementById("subPrice").hidden = true;
-        document.getElementById("subPriceEdit").hidden = false;
-        const priceValue = document.getElementById("subPriceEditInput");
-        priceValue.value = sub.cost;
-
-        document.getElementById("subPeriod").hidden = true;
-        document.getElementById("subPeriodEdit").hidden = false;
-        const periodValue = document.getElementById("subPeriodEditInput");
-        periodValue.value = sub.billing_type;
-
-        document.getElementById("subRenewalDate").hidden = true;
-        document.getElementById("subRenewalDateEdit").hidden = false;
-        const renewalDateValue = document.getElementById("subRenewalDateInput");
-        renewalDateValue.value = sub.renewal_date.slice(0, 10);
-
-        document.getElementById("subscribedOn").hidden = true;
-        document.getElementById("subscribedOnDateEdit").hidden = false;
-
-        document.getElementById("editSubButtonDiv").hidden = true;
-        document.getElementById("saveEditButtonDiv").hidden = false;
-        const saveButton = document.getElementById("saveEditButton");
-        document.getElementById("cancelEditButtonDiv").hidden = false;
-        const cancelButton = document.getElementById("cancelEditButton");
-
-        saveButton.addEventListener(
-          "click",
-          async () => {
-            const edits = {
-              name: nameValue.name,
-              cost: priceValue.value,
-              billing_type: periodValue.value,
-              renewal_date: renewalDateValue.value,
-            };
-            const res = await fetch(`/api/subscriptions/${subId}`, {
-              method: "PUT",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify(edits),
-            });
-            window.location.href = `/`;
-          },
-          { once: true },
-        );
-
-        cancelButton.addEventListener(
-          "click",
-          () => {
-            resetDialog();
-            displayEditSubscription();
-          },
-          { once: true },
-        );
-      },
-      { once: true },
-    );
-  };
-  displayEditSubscription();
+  editButton.addEventListener("click", () => {
+    displayEditSubscription(sub);
+  });
 
   closeButton.addEventListener("click", () => {
     resetDialog();
