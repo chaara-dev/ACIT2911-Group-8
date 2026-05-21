@@ -95,7 +95,7 @@ const displaySubscriptions = (subs) => {
     card.appendChild(renewal);
 
     card.addEventListener("click", async () => {
-      displaySubscription(sub.id);
+      await displaySubscription(sub.id);
     });
 
     subCards.appendChild(card);

@@ -27,13 +27,13 @@ const createNewAccount = () => {
       const data = await res.json();
 
       if (!res.ok) {
-        throw new Error(data["error"]);
+        throw new Error(data.error);
       }
 
       window.location.href = "/login";
     } catch (error) {
       console.log(error);
-      return displayError(error.message);
+      return displayError(error);
     }
   });
 };

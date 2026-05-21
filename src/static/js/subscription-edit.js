@@ -1,3 +1,5 @@
+import { resetSubscriptionDialog } from "./shared.js";
+
 const saveEdits = async (name, cost, billing_type, renewal_date, subId) => {
   const edits = {
     name: name,
@@ -74,7 +76,7 @@ export const displayEditSubscription = (sub) => {
   cancelButton.addEventListener(
     "click",
     () => {
-      resetDialog();
+      resetSubscriptionDialog();
     },
     { once: true },
   );

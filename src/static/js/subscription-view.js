@@ -1,4 +1,5 @@
-import { displayEditSubscription } from "./subscription-edit";
+import { resetSubscriptionDialog } from "./shared.js";
+import { displayEditSubscription } from "./subscription-edit.js";
 
 const getSubscriptionsList = async () => {
   const res = await fetch(`/static/data/subscription_services.json`);
@@ -51,24 +52,6 @@ const displayPaymentTable = (sub) => {
   // });
 };
 
-const resetDialog = () => {
-  document.getElementById("subNameEdit").hidden = true;
-  document.getElementById("subPriceEdit").hidden = true;
-  document.getElementById("subPeriodEdit").hidden = true;
-  document.getElementById("subRenewalDateEdit").hidden = true;
-  document.getElementById("subscribedOnDateEdit").hidden = true;
-  document.getElementById("saveEditButtonDiv").hidden = true;
-  document.getElementById("cancelEditButtonDiv").hidden = true;
-
-  document.getElementById("subPrice").hidden = false;
-  document.getElementById("subPeriod").hidden = false;
-  document.getElementById("subRenewalDate").hidden = false;
-  document.getElementById("subscribedOn").hidden = false;
-  document.getElementById("editSubButtonDiv").hidden = false;
-  document.querySelector(".sub-total-paid").hidden = false;
-  document.querySelector(".sub-payments").hidden = false;
-};
-
 export const displaySubscription = async (subId) => {
   const viewPage = document.getElementById("viewSubscription");
   const closeButton = document.getElementById("closeSubButton");
@@ -78,6 +61,10 @@ export const displaySubscription = async (subId) => {
 
   const res = await fetch(`/api/subscriptions/${subId}`);
   const sub = await res.json();
+
+  if (!res.ok) {
+    throw new Error(sub.error);
+  }
 
   const logo = getSubscriptionLogo(sub, subsList);
   const totalPaid = getTotalPaid(sub);
@@ -97,7 +84,7 @@ export const displaySubscription = async (subId) => {
   });
 
   closeButton.addEventListener("click", () => {
-    resetDialog();
+    resetSubscriptionDialog();
     viewPage.close();
   });
 };
