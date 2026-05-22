@@ -93,6 +93,17 @@ main {
   font-weight: 200;
 }
 
+.sub-name-wrapper {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.yearly-tag {
+  color: var(--red-text-colour);
+  font-weight: bold;
+}
+
 .account,
 .new-subscription {
   font-size: 15px;

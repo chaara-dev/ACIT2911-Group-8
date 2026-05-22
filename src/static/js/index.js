@@ -102,8 +102,19 @@ const displaySubscriptions = (subs) => {
     name.textContent = sub.name;
     renewal.textContent = `${renewalDays} days`;
 
+    const nameWrapper = document.createElement("div");
+    nameWrapper.classList.add("sub-name-wrapper");
+    nameWrapper.appendChild(name);
+
+    if (sub.billing_type === "Yearly") {
+      const yearlyTag = document.createElement("span");
+      yearlyTag.classList.add("yearly-tag");
+      yearlyTag.textContent = "[Yearly]";
+      nameWrapper.appendChild(yearlyTag);
+    }
+
     card.appendChild(cost);
-    card.appendChild(name);
+    card.appendChild(nameWrapper);
     card.appendChild(renewal);
 
     card.addEventListener("click", async () => {
