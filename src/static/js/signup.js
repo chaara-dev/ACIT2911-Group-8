@@ -36,6 +36,11 @@ const createNewAccount = () => {
       return displayError(error);
     }
   });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      signupButton.click();
+    }
+  });
 };
 
 const main = () => {

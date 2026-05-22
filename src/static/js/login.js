@@ -37,6 +37,11 @@ const login = () => {
       return displayError(error);
     }
   });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      loginButton.click();
+    }
+  });
 };
 
 const main = () => {
