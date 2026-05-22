@@ -123,7 +123,8 @@ def delete_subscription(sub_id):
  
     if sub is None:
         return jsonify({"error": f"Subscription {sub_id} not found"}), 404
- 
-    sub.delete_instance()
+
+    # Old subscriptions may have payments (auto-billing) and renewal reminders.
+    sub.delete_instance(recursive=True)
 
     return jsonify({"message": f"Subscription {sub_id} deleted successfully"})

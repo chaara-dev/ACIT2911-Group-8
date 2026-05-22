@@ -50,6 +50,7 @@ export const resetSubscriptionDialog = () => {
   document.getElementById("subRenewalDate").hidden = false;
   document.getElementById("subscribedOn").hidden = false;
   document.getElementById("editSubButtonDiv").hidden = false;
+  document.getElementById("deleteSubButtonDiv").hidden = false;
   document.querySelector(".sub-total-paid").hidden = false;
   document.querySelector(".sub-payments").hidden = false;
 };

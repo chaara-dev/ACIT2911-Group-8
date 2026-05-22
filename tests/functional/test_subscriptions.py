@@ -3,7 +3,7 @@ import pytest
 from flask_login import current_user
 
 from src.api import create_app
-from src.database.models import User, Subscription
+from src.database.models import User, Subscription, Payment
 
 
 @pytest.fixture()
@@ -105,6 +105,19 @@ def test_delete_subscription(test_client):
     assert response.status_code == 200
     data = response.get_json()
     assert data["message"] == f"Subscription {test_subscription_id} deleted successfully"
+
+
+def test_delete_subscription_with_payments(test_client):
+    """Old accounts often have payment rows from auto-billing; delete must cascade."""
+    test_subscription = Subscription.get(Subscription.name == "test_subscription")
+    Payment.create(
+        subscription=test_subscription.id,
+        amount=test_subscription.cost,
+        date_paid="2026-01-01",
+    )
+    response = test_client.delete(f"/api/subscriptions/{test_subscription.id}")
+    assert response.status_code == 200
+    assert Subscription.get_or_none(test_subscription.id) is None
 
 # Sprint 2 tests
 
