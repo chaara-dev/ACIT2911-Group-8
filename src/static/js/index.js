@@ -69,6 +69,11 @@ const sortSubscriptionsAlpha = (subs, direction) => {
   }
 };
 
+export const updateSubscriptionCard = (updatedSub) => {
+  const oldSub = allSubscriptions.findIndex((sub) => sub.id === updatedSub.id);
+  allSubscriptions[oldSub] = updatedSub;
+};
+
 const searchSubscriptions = (subs, search) => {
   if (!search) return subs;
   const needle = search.toLowerCase();
@@ -136,10 +141,13 @@ let activeBillingFilter = "";
 let activeSort = "";
 let activeSortDirection = "";
 
-const applySubscriptionView = () => {
+export const applySubscriptionView = () => {
   let shown = allSubscriptions.slice();
   shown = searchSubscriptions(shown, activeSearch);
   shown = filterSubscriptions(shown, activeBillingFilter);
+
+  // Default sort
+  shown = sortSubscriptionsByRenewalDate(shown, "asc");
 
   if (activeSort === "price") {
     shown = sortSubscriptionsByPrice(shown, activeSortDirection);
