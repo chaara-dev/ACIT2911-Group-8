@@ -4,7 +4,7 @@ const displayError = (errorMessage) => {
   if (!document.querySelector(".login-error")) {
     const error = document.createElement("p");
     error.textContent = errorMessage;
-    error.classList.add("login-error"); // edit this class in signup.css
+    error.classList.add("login-error");
     loginButton.after(error);
   }
 };
