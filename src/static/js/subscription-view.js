@@ -33,6 +33,23 @@ const fillSubscriptionInfo = (sub, logo, totalPaid, formattedDate) => {
     `Renewal date: ${formattedDate}`;
 };
 
+const deleteSubscription = async (subId) => {
+  try {
+    const res = await fetch(`/api/subscriptions/${subId}`, {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+    });
+
+    const data = await res.json();
+
+    if (!res.ok) {
+      throw new Error(data.error);
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 const displayPaymentTable = (sub) => {
   const paymentTable = document.getElementById("paymentsBody");
   while (paymentTable.rows.length > 1) {
@@ -56,6 +73,7 @@ export const displaySubscription = async (subId) => {
   const viewPage = document.getElementById("viewSubscription");
   const closeButton = document.getElementById("closeSubButton");
   const editButton = document.getElementById("editSubButton");
+  const deleteButton = document.getElementById("deleteSubButton");
 
   const subsList = await getSubscriptionsList();
 
@@ -86,5 +104,10 @@ export const displaySubscription = async (subId) => {
   closeButton.addEventListener("click", () => {
     resetSubscriptionDialog();
     viewPage.close();
+  });
+
+  deleteButton.addEventListener("click", async () => {
+    await deleteSubscription(subId);
+    window.location.href = "/";
   });
 };
