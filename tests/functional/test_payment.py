@@ -6,6 +6,7 @@ from datetime import date
 @pytest.fixture()
 def payment_client():
     flask_app = create_app()
+    flask_app.config["TESTING"] = True
     with flask_app.test_client() as testing_client:
         yield testing_client
 

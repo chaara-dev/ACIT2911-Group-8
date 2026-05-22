@@ -25,8 +25,12 @@ def _as_date(value) -> datetime.date:
     raise TypeError(f"Unsupported renewal_date type: {type(value)!r}")
 
 
+def _renewal_datetime(renewal_date) -> datetime.datetime:
+    return datetime.datetime.combine(_as_date(renewal_date), datetime.time.min)
+
+
 def _reminder_already_sent(subscription, reminder_type: str) -> bool:
-    renewal = _as_date(subscription.renewal_date)
+    renewal = _renewal_datetime(subscription.renewal_date)
     return (
         RenewalReminder.select()
         .where(
@@ -60,7 +64,7 @@ def _send_reminder(user: User, subscription, reminder_type: str) -> None:
     RenewalReminder.create(
         subscription=subscription.id,
         reminder_type=reminder_type,
-        renewal_date=_as_date(subscription.renewal_date),
+        renewal_date=_renewal_datetime(subscription.renewal_date),
     )
 
 
