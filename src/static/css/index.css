@@ -115,6 +115,16 @@ main {
   background-color: var(--hover-primary-colour);
 }
 
+.filter-sort-options {
+  display: flex;
+  gap: 1px;
+}
+
+.filters,
+.sort-options {
+  width: 82px;
+}
+
 .cards {
   display: flex;
   flex-direction: column;
