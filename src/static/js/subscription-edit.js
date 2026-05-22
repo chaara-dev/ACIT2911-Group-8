@@ -74,6 +74,7 @@ const setEditMode = () => {
   document.getElementById("subRenewalDate").hidden = true;
   document.getElementById("subscribedOn").hidden = true;
   document.getElementById("editSubButtonDiv").hidden = true;
+  document.getElementById("deleteSubButtonDiv").hidden = true;
 
   document.getElementById("subNameEdit").hidden = false;
   document.getElementById("subPriceEdit").hidden = false;
