@@ -5,8 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../static/css/index.css" />
-    <script src="../static/js/shared.js" defer></script>
-    <script src="../static/js/index.js" defer></script>
+    <script src="../static/js/index.js" type="module" defer></script>
     <title>Dashboard</title>
 </head>
 
@@ -70,6 +69,10 @@
             </div>
             <div class="sub-logo">
                 <img id="subLogo" src="">
+            </div>
+            <div id="subNameEdit" hidden>
+                    <label>Name:</label>
+                    <input id="subNameEditInput" />
             </div>
             <div class="sub-price">
                 <p id="subPrice"></p>

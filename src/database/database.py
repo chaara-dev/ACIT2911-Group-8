@@ -1,7 +1,7 @@
-from peewee import Model, PostgresqlDatabase
-
 import os
+
 from dotenv import load_dotenv
+from peewee import Model, PostgresqlDatabase
 
 load_dotenv()
 
@@ -13,6 +13,7 @@ db = PostgresqlDatabase(
     port=os.getenv("PGPORT"),
     sslmode="require"
 )
+
 
 class BaseModel(Model):
     class Meta:

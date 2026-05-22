@@ -1,16 +1,16 @@
-from flask import Flask
+import os
 
+from dotenv import load_dotenv
+from flask import Flask
 from flask_login import LoginManager
 
 from src.database.database import db
 from src.database.models import User, Subscription, Payment, RenewalReminder
 
-import os
-from dotenv import load_dotenv
-load_dotenv()
-
 
 def create_app():
+    load_dotenv()
+
     app = Flask(
         __name__,
         template_folder="../templates",
@@ -18,7 +18,8 @@ def create_app():
     )
 
     app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
-
+    
+    # Config flask-login
     login_manager = LoginManager()
     login_manager.login_view = "views.login"
     login_manager.init_app(app)
@@ -40,6 +41,7 @@ def create_app():
     def load_user(user_id):
         return User.get_by_id(int(user_id))
 
+    # Import Blueprints
     from src.api.views import views_bp
     app.register_blueprint(views_bp)
 
