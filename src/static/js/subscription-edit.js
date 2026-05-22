@@ -14,11 +14,10 @@ const displayError = (errorMessage) => {
 const checkRenewalDateValid = (subPeriod, renewalDate) => {
   // Set date input limits
   const dateInput = document.getElementById("subRenewalDateInput");
-  const tomorrow = new Date();
-  tomorrow.setDate(tomorrow.getDate() + 1);
+  const today = new Date();
   const nextYear = new Date();
   nextYear.setFullYear(nextYear.getFullYear() + 1);
-  dateInput.min = `${tomorrow.getFullYear()}-${String(tomorrow.getMonth() + 1).padStart(2, "0")}-${String(tomorrow.getDate()).padStart(2, "0")}`;
+  dateInput.min = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, "0")}-${String(today.getDate()).padStart(2, "0")}`;
   dateInput.max = `${nextYear.getFullYear()}-${String(nextYear.getMonth() + 1).padStart(2, "0")}-${String(nextYear.getDate()).padStart(2, "0")}`;
 
   // Validate renewal date is within limit

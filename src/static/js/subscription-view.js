@@ -1,4 +1,4 @@
-import { resetSubscriptionDialog } from "./shared.js";
+import { parseRenewalDateLocal, resetSubscriptionDialog } from "./shared.js";
 import { displayEditSubscription } from "./subscription-edit.js";
 
 const getSubscriptionsList = async () => {
@@ -68,7 +68,7 @@ export const displaySubscription = async (subId) => {
 
   const logo = getSubscriptionLogo(sub, subsList);
   const totalPaid = getTotalPaid(sub);
-  const formattedDate = new Date(sub.renewal_date).toLocaleDateString("en-GB", {
+  const formattedDate = parseRenewalDateLocal(sub.renewal_date).toLocaleDateString("en-GB", {
     day: "2-digit",
     month: "short",
     year: "numeric",
