@@ -214,7 +214,7 @@ footer>div.left {
 
 #viewSubscription {
     width: 400px;
-    height: 645px;
+    height: 550px;
     overflow: scroll;
     border-radius: 12px;
     border: 2px solid var(--primary-colour);
@@ -231,7 +231,7 @@ footer>div.left {
     background-color: var(--secondary-colour);
     border: 1px solid black;
     border-radius: 4px;
-    width: 50%;
+    width: 60%;
     padding-left: 3em;
     padding-right: 3em;
     text-align: center;
@@ -332,19 +332,61 @@ footer>div.left {
     overflow-y: auto;
 }
 
-#editSubButtonDiv {
+#editSubButtonDiv,
+#cancelEditButtonDiv {
     text-align: center;
     margin-top: 1em;
 }
 
-#editSubButton {
+#saveEditButtonDiv {
+    text-align: center;
+    margin-top: 3em;
+}
+
+#editSubButton,
+#saveEditButton,
+#cancelEditButton {
     background-color: var(--primary-colour);
     border: 1px solid black;
     border-radius: 6px;
     padding: 0.5em 1em 0.5em;
 }
 
-#editSubButton:hover {
+#editSubButton:hover,
+#saveEditButton:hover,
+#cancelEditButton:hover {
     background-color: var(--hover-primary-colour);
     cursor: pointer;
+}
+
+#subNameEditInput,
+#subPriceEditInput,
+#subPeriodEditInput,
+#subRenewalDateInput,
+#subscribedOnDateEditInput {
+    display: inline-block;
+    width: 12em;
+    height: 2em;
+    border: 1px solid black;
+    background-color: var(--secondary-colour);
+    border-radius: 4px;
+}
+
+#subNameEdit,
+#subPriceEdit,
+#subPeriodEdit,
+#subRenewalDateEdit,
+#subscribedOnDateEdit {
+    margin-top: 1em;
+}
+
+#subNameEdit>label,
+#subPriceEdit>label,
+#subPeriodEdit>label,
+#subRenewalDateEdit>label,
+#subscribedOnDateEdit>label {
+    text-align: center;
+    width: 9em;
+    display: inline-block;
+    margin-left: 3.2em;
 }
