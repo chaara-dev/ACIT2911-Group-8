@@ -1,5 +1,7 @@
 import { parseRenewalDateLocal, resetSubscriptionDialog } from "./shared.js";
 import { displayEditSubscription } from "./subscription-edit.js";
+import { allSubscriptions } from "./index.js";
+import { applySubscriptionView } from "./index.js";
 
 const getSubscriptionsList = async () => {
   const res = await fetch(`/static/data/subscription_services.json`);
@@ -86,7 +88,9 @@ export const displaySubscription = async (subId) => {
 
   const logo = getSubscriptionLogo(sub, subsList);
   const totalPaid = getTotalPaid(sub);
-  const formattedDate = parseRenewalDateLocal(sub.renewal_date).toLocaleDateString("en-GB", {
+  const formattedDate = parseRenewalDateLocal(
+    sub.renewal_date,
+  ).toLocaleDateString("en-GB", {
     day: "2-digit",
     month: "short",
     year: "numeric",
@@ -108,6 +112,12 @@ export const displaySubscription = async (subId) => {
 
   deleteButton.addEventListener("click", async () => {
     await deleteSubscription(subId);
-    window.location.href = "/";
+
+    resetSubscriptionDialog();
+    viewPage.close();
+    document.querySelector(`.card[data-id="${subId}"]`).remove();
+
+    allSubscriptions = allSubscriptions.filter((sub) => sub.id !== subId);
+    applySubscriptionView();
   });
 };
