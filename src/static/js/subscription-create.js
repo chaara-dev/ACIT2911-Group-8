@@ -53,16 +53,21 @@ const displaySubDropdown = async () => {
   }
 };
 
-const checkRenewalDateValid = (subPeriod, renewalDate) => {
-  // Set date input limits
+
+// Set date input limits
+const setDateInputLimits = () => {
   const dateInput = document.getElementById("subscriptionDate");
-  const tomorrow = new Date();
+ const tomorrow = new Date();
   tomorrow.setDate(tomorrow.getDate() + 1);
   const nextYear = new Date();
   nextYear.setFullYear(nextYear.getFullYear() + 1);
   dateInput.min = `${tomorrow.getFullYear()}-${String(tomorrow.getMonth() + 1).padStart(2, "0")}-${String(tomorrow.getDate()).padStart(2, "0")}`;
   dateInput.max = `${nextYear.getFullYear()}-${String(nextYear.getMonth() + 1).padStart(2, "0")}-${String(nextYear.getDate()).padStart(2, "0")}`;
+};
 
+const checkRenewalDateValid = (subPeriod, renewalDate) => {
+  const dateInput = document.getElementById("subscriptionDate");
+ 
   // Validate renewal date is within limit
   const maxDate = new Date();
   if (subPeriod === "Monthly") {
@@ -136,6 +141,7 @@ const createNewSubscription = () => {
 const main = async () => {
   addLogoutListener();
   await displaySubDropdown();
+  setDateInputLimits();
   createNewSubscription();
 };
 
