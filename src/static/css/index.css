@@ -134,6 +134,7 @@ main {
 .card:hover {
     background-color: var(--hover-secondary-colour);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+    cursor: pointer;
 }
 
 .date {
@@ -297,6 +298,7 @@ footer>div.left {
     padding: 14px 16px;
     border-bottom: 2px solid var(--primary-colour);
     font-size: 13px;
+    text-align: center;
 }
 
 .payments-table td {
@@ -304,6 +306,7 @@ footer>div.left {
     border-bottom: 1px solid #e0e0e0;
     color: lightgrey;
     font-weight: 600;
+    text-align: center;
 }
 
 .payments-table tr:last-child td {
