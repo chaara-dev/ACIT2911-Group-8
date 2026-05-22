@@ -157,6 +157,7 @@ const main = async () => {
 
     let isFilterClicked = false;
     let isSortClicked = false;
+    let isSearchClicked = false;
 
     if (filterButton) {
       filterButton.addEventListener("click", () => {
@@ -279,12 +280,19 @@ const main = async () => {
     }
 
     searchButton.addEventListener("click", () => {
-      if (document.querySelector(".search")) return;
+      if (isSearchClicked) {
+        document.querySelector(".search").remove();
+        activeSearch = "";
+        applySubscriptionView();
+        isSearchClicked = false;
+        return;
+      }
 
       const searchBox = document.createElement("input");
       searchBox.type = "text";
       searchBox.classList.add("search");
       document.getElementById("search-div").appendChild(searchBox);
+      isSearchClicked = true;
 
       searchBox.addEventListener("keydown", (e) => {
         if (e.key === "Enter") {
