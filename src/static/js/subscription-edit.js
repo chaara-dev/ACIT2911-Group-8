@@ -1,4 +1,6 @@
 import { resetSubscriptionDialog } from "./shared.js";
+import { updateSubscriptionCard, applySubscriptionView } from "./index.js";
+import { displaySubscription } from "./subscription-view.js";
 
 const displayError = (errorMessage) => {
   document.querySelector(".save-edits-error")?.remove();
@@ -124,14 +126,18 @@ export const displayEditSubscription = (sub) => {
       return;
     }
 
-    await saveEdits(
+    const updatedSub = await saveEdits(
       nameValue.value,
       parseFloat(priceValue.value),
       periodValue.value,
       renewalDateValue.value,
       sub.id,
     );
-    window.location.href = `/`;
+
+    updateSubscriptionCard(updatedSub);
+    resetSubscriptionDialog();
+    applySubscriptionView();
+    await displaySubscription(sub.id);
   });
 
   cancelButton.addEventListener(
