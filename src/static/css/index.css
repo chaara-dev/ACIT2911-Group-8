@@ -125,6 +125,11 @@ main {
   width: 82px;
 }
 
+.filters button,
+.sort-options button {
+  white-space: nowrap;
+}
+
 .cards {
   display: flex;
   flex-direction: column;
