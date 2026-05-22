@@ -23,10 +23,10 @@ const calculateNextRenewal = (subs) => {
   return calculateRenewalDays(subs[0]["renewal_date"]);
 };
 
-const calculateTotalCost = (subs) => {
+const calculateTotalCost = (subs, billing_type) => {
   let total = 0;
   for (const sub of subs) {
-    if (sub["billing_type"] === "Monthly") {
+    if (sub["billing_type"] === billing_type) {
       total += sub["cost"];
     }
   }
@@ -80,9 +80,7 @@ const displayDashboard = (subs) => {
 
   activeSubsValue.textContent = subs.length;
   nextRenewalValue.textContent = calculateNextRenewal(subs);
-  nextRenewalSubName.textContent =
-    subs.length > 0 ? `[${subs[0].name}]` : "";
-  totalCostValue.textContent = calculateTotalCost(subs);
+  nextRenewalSubName.textContent = subs.length > 0 ? `[${subs[0].name}]` : "";
 };
 
 const displaySubscriptions = (subs) => {
@@ -133,6 +131,19 @@ const applySubscriptionView = () => {
     shown = sortSubscriptionsByRenewalDate(shown, activeSortDirection);
   } else if (activeSort === "name") {
     shown = sortSubscriptionsAlpha(shown, activeSortDirection);
+  }
+
+  const totalCalculationTitle = document.getElementById(
+    "periodTypeCalculationTitle",
+  );
+  const totalPrice = document.getElementById("total-price");
+
+  if (activeBillingFilter === "Yearly") {
+    totalCalculationTitle.textContent = "Yearly Total";
+    totalPrice.textContent = calculateTotalCost(allSubscriptions, "Yearly");
+  } else {
+    totalCalculationTitle.textContent = "Monthly Total";
+    totalPrice.textContent = calculateTotalCost(allSubscriptions, "Monthly");
   }
 
   displayDashboard(shown);
