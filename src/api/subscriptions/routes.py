@@ -5,6 +5,7 @@ from flask_login import current_user, login_required
 
 from src.database.models import Subscription, Payment
 from src.util.app_dates import today_in_app_timezone
+from services.renewal_reminders import maybe_send_reminders_for_subscription
 from . import subscriptions_bp
 
 
@@ -78,6 +79,7 @@ def create_subscription():
         billing_type=billing_type,
         renewal_date=renewal_date,
     )
+    maybe_send_reminders_for_subscription(new_sub)
 
     return jsonify(new_sub.to_dict()), 201
 
@@ -110,6 +112,7 @@ def update_subscription(sub_id):
     sub.billing_type = billing_type
     sub.renewal_date = renewal_date
     sub.save()
+    maybe_send_reminders_for_subscription(sub)
 
     return jsonify(sub.to_dict())
 
