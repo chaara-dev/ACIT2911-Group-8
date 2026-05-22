@@ -64,27 +64,43 @@ def _send_reminder(user: User, subscription, reminder_type: str) -> None:
     )
 
 
+def _reminder_type_for_subscription(subscription, today=None) -> str | None:
+    if today is None:
+        today = today_in_app_timezone()
+    days_until = (_as_date(subscription.renewal_date) - today).days
+    return REMINDER_DAYS.get(days_until)
+
+
+def maybe_send_reminders_for_subscription(subscription) -> bool:
+    """Send one reminder for this subscription if it is due today (3/1/0-day window).
+
+    Uses the same dedup rules as the daily job. Failures are logged and do not raise.
+    Returns True if an email was sent successfully.
+    """
+    reminder_type = _reminder_type_for_subscription(subscription)
+    if reminder_type is None:
+        return False
+    if _reminder_already_sent(subscription, reminder_type):
+        return False
+
+    user = User.get_by_id(subscription.user_id)
+    try:
+        _send_reminder(user, subscription, reminder_type)
+        return True
+    except Exception as error:
+        print(
+            f"Failed to send {reminder_type} reminder for "
+            f"subscription {subscription.id} to {user.email}: {error}"
+        )
+        return False
+
+
 def run_renewal_reminders() -> int:
     """Send 3-day, 1-day, and due-day emails. Returns number of emails sent."""
-    today = today_in_app_timezone()
     sent_count = 0
 
     for subscription in Subscription.select():
-        days_until = (_as_date(subscription.renewal_date) - today).days
-        reminder_type = REMINDER_DAYS.get(days_until)
-        if reminder_type is None:
-            continue
-        if _reminder_already_sent(subscription, reminder_type):
-            continue
-
-        user = User.get_by_id(subscription.user_id)
-        try:
-            _send_reminder(user, subscription, reminder_type)
+        if maybe_send_reminders_for_subscription(subscription):
             sent_count += 1
-        except Exception as error:
-            print(
-                f"Failed to send {reminder_type} reminder for "
-                f"subscription {subscription.id} to {user.email}: {error}"
-            )
 
     return sent_count
