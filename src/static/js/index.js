@@ -115,13 +115,13 @@ const displaySubscriptions = (subs) => {
   });
 };
 
-let allSubscriptions = [];
+export let allSubscriptions = [];
 let activeSearch = "";
 let activeBillingFilter = "";
 let activeSort = "";
 let activeSortDirection = "";
 
-const applySubscriptionView = () => {
+export const applySubscriptionView = () => {
   let shown = allSubscriptions.slice();
   shown = searchSubscriptions(shown, activeSearch);
   shown = filterSubscriptions(shown, activeBillingFilter);
