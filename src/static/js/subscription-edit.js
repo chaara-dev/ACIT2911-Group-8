@@ -1,7 +1,7 @@
 import { resetSubscriptionDialog } from "./shared.js";
 
 const displayError = (errorMessage) => {
-  document.querySelector("save-edits-error")?.remove();
+  document.querySelector(".save-edits-error")?.remove();
 
   const subscribedDateField = document.querySelector(".sub-logo");
 
