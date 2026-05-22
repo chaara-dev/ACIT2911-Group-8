@@ -100,19 +100,24 @@ export const displaySubscription = async (subId) => {
 
   viewPage.showModal();
 
-  editButton.addEventListener("click", () => {
+  editButton.onclick = () => {
     displayEditSubscription(sub);
-  });
+  };
 
-  closeButton.addEventListener("click", () => {
+  closeButton.onclick = () => {
     resetSubscriptionDialog();
     viewPage.close();
-  });
+  };
 
-  deleteButton.addEventListener("click", async () => {
+  deleteButton.onclick = async () => {
     const deleted = await deleteSubscription(subId);
-    if (deleted) {
-      window.location.href = "/";
+    if (!deleted) {
+      return;
     }
-  });
+    resetSubscriptionDialog();
+    viewPage.close();
+    window.dispatchEvent(
+      new CustomEvent("subscription-deleted", { detail: { subId } }),
+    );
+  };
 };
