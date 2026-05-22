@@ -1,5 +1,48 @@
 import { resetSubscriptionDialog } from "./shared.js";
 
+const displayError = (errorMessage) => {
+  document.querySelector(".save-edits-error")?.remove();
+
+  const subscribedDateField = document.querySelector(".sub-logo");
+
+  const error = document.createElement("p");
+  error.textContent = errorMessage;
+  error.classList.add("save-edits-error");
+  subscribedDateField.after(error);
+};
+
+const checkRenewalDateValid = (subPeriod, renewalDate) => {
+  // Set date input limits
+  const dateInput = document.getElementById("subRenewalDateInput");
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  const nextYear = new Date();
+  nextYear.setFullYear(nextYear.getFullYear() + 1);
+  dateInput.min = `${tomorrow.getFullYear()}-${String(tomorrow.getMonth() + 1).padStart(2, "0")}-${String(tomorrow.getDate()).padStart(2, "0")}`;
+  dateInput.max = `${nextYear.getFullYear()}-${String(nextYear.getMonth() + 1).padStart(2, "0")}-${String(nextYear.getDate()).padStart(2, "0")}`;
+
+  // Validate renewal date is within limit
+  const maxDate = new Date();
+  if (subPeriod === "Monthly") {
+    maxDate.setMonth(maxDate.getMonth() + 1);
+  } else if (subPeriod === "Yearly") {
+    maxDate.setFullYear(maxDate.getFullYear() + 1);
+  }
+  const maxDateString = `${maxDate.getFullYear()}-${String(maxDate.getMonth() + 1).padStart(2, "0")}-${String(maxDate.getDate()).padStart(2, "0")}`;
+
+  if (renewalDate > maxDateString) {
+    dateInput.value = "";
+    if (subPeriod === "Monthly") {
+      displayError("Renewal date must be within a month from today.");
+      return false;
+    } else {
+      displayError("Renewal date must be within a year from today.");
+      return false;
+    }
+  }
+  return true;
+};
+
 const saveEdits = async (name, cost, billing_type, renewal_date, subId) => {
   const edits = {
     name: name,
@@ -58,24 +101,38 @@ export const displayEditSubscription = (sub) => {
   periodValue.value = sub.billing_type;
   renewalDateValue.value = sub.renewal_date.slice(0, 10);
 
-  saveButton.addEventListener(
-    "click",
-    async () => {
-      await saveEdits(
-        nameValue.value,
-        parseFloat(priceValue.value),
-        periodValue.value,
-        renewalDateValue.value,
-        sub.id,
-      );
-      window.location.href = `/`;
-    },
-    { once: true },
-  );
+  saveButton.addEventListener("click", async () => {
+    if (
+      !nameValue.value ||
+      !priceValue.value ||
+      !periodValue.value ||
+      !renewalDateValue.value
+    ) {
+      return displayError("All fields must be entered.");
+    }
+
+    if (parseFloat(priceValue.value) < 0) {
+      return displayError("Price cannot be less than $0.");
+    }
+
+    if (!checkRenewalDateValid(periodValue.value, renewalDateValue.value)) {
+      return;
+    }
+
+    await saveEdits(
+      nameValue.value,
+      parseFloat(priceValue.value),
+      periodValue.value,
+      renewalDateValue.value,
+      sub.id,
+    );
+    window.location.href = `/`;
+  });
 
   cancelButton.addEventListener(
     "click",
     () => {
+      document.querySelector(".save-edits-error")?.remove();
       resetSubscriptionDialog();
     },
     { once: true },
