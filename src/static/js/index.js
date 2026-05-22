@@ -20,7 +20,10 @@ const calculateNextRenewal = (subs) => {
   if (subs.length === 0) {
     return "N/A";
   }
-  return calculateRenewalDays(subs[0]["renewal_date"]);
+  const subsSorted = subs
+    .slice()
+    .sort((a, b) => new Date(a.renewal_date) - new Date(b.renewal_date));
+  return subsSorted[0];
 };
 
 const calculateTotalCost = (subs, billing_type) => {
@@ -79,8 +82,10 @@ const displayDashboard = (subs) => {
   const totalCostValue = document.getElementById("total-price");
 
   activeSubsValue.textContent = subs.length;
-  nextRenewalValue.textContent = calculateNextRenewal(subs);
-  nextRenewalSubName.textContent = subs.length > 0 ? `[${subs[0].name}]` : "";
+  const nextRenewal = calculateNextRenewal(subs);
+  nextRenewalValue.textContent = calculateRenewalDays(nextRenewal.renewal_date);
+  nextRenewalSubName.textContent =
+    subs.length > 0 ? `[${nextRenewal.name}]` : "";
 };
 
 const displaySubscriptions = (subs) => {
