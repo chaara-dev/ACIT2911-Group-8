@@ -9,6 +9,7 @@ from src.database.models import User, Subscription, Payment
 @pytest.fixture()
 def test_client():
     flask_app = create_app()
+    flask_app.config["TESTING"] = True
 
     with flask_app.test_client() as testing_client:
         testing_client.post(
@@ -129,7 +130,7 @@ def test_create_subscription_without_renewal_date(test_client):
         "billing_type": "monthly",
         # missing renewal_date
     })
-    assert response.status_code == 500
+    assert response.status_code == 400
 
 def test_update_subscription_without_renewal_date(test_client):
     test_subscription = Subscription.get(Subscription.name == "test_subscription")
@@ -142,5 +143,5 @@ def test_update_subscription_without_renewal_date(test_client):
             # missing renewal_date
         }
     )
-    assert response.status_code == 500
+    assert response.status_code == 400
 

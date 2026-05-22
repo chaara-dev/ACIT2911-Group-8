@@ -1,12 +1,19 @@
 import datetime
 
-from flask import request, jsonify
+from flask import current_app, request, jsonify
 from flask_login import current_user, login_required
 
 from src.database.models import Subscription, Payment
 from src.util.app_dates import today_in_app_timezone
 from services.renewal_reminders import maybe_send_reminders_for_subscription
 from . import subscriptions_bp
+
+
+def _try_send_reminders_for_subscription(subscription) -> None:
+    """Send reminders on save in production only; skip during pytest (shared CI DB)."""
+    if current_app.config.get("TESTING"):
+        return
+    maybe_send_reminders_for_subscription(subscription)
 
 
 def process_subscriptions():
@@ -67,11 +74,13 @@ def create_subscription():
     name = data.get("name")
     cost = data.get("cost")
     billing_type = data.get("billing_type")
-    renewal_date = datetime.date.fromisoformat(data.get("renewal_date"))
+    renewal_date_str = data.get("renewal_date")
 
-    if not name or cost is None or not billing_type or not renewal_date:
+    if not name or cost is None or not billing_type or not renewal_date_str:
         return jsonify({"error": "name, cost, billing_type, and renewal_date are required"}), 400
- 
+
+    renewal_date = datetime.date.fromisoformat(renewal_date_str)
+
     new_sub = Subscription.create(
         user=user_id,
         name=name,
@@ -79,7 +88,7 @@ def create_subscription():
         billing_type=billing_type,
         renewal_date=renewal_date,
     )
-    maybe_send_reminders_for_subscription(new_sub)
+    _try_send_reminders_for_subscription(new_sub)
 
     return jsonify(new_sub.to_dict()), 201
 
@@ -102,17 +111,19 @@ def update_subscription(sub_id):
     name = data.get("name")
     cost = data.get("cost")
     billing_type = data.get("billing_type")
-    renewal_date = datetime.date.fromisoformat(data.get("renewal_date"))
+    renewal_date_str = data.get("renewal_date")
 
-    if not name or cost is None or not billing_type or not renewal_date:
+    if not name or cost is None or not billing_type or not renewal_date_str:
         return jsonify({"error": "name, cost, billing_type, renewal_date are required"}), 400
- 
+
+    renewal_date = datetime.date.fromisoformat(renewal_date_str)
+
     sub.name = name
     sub.cost = cost
     sub.billing_type = billing_type
     sub.renewal_date = renewal_date
     sub.save()
-    maybe_send_reminders_for_subscription(sub)
+    _try_send_reminders_for_subscription(sub)
 
     return jsonify(sub.to_dict())
 

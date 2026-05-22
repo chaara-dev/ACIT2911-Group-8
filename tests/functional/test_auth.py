@@ -5,6 +5,7 @@ from src.database.models import User
 @pytest.fixture()
 def user_client():
     flask_app = create_app()
+    flask_app.config["TESTING"] = True
     with flask_app.test_client() as testing_client:
         yield testing_client
 

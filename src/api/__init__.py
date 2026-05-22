@@ -40,7 +40,10 @@ def create_app():
 
     @login_manager.user_loader
     def load_user(user_id):
-        return User.get_by_id(int(user_id))
+        try:
+            return User.get_by_id(int(user_id))
+        except User.DoesNotExist:
+            return None
 
     # Import Blueprints
     from src.api.views import views_bp
