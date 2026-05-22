@@ -13,6 +13,16 @@ from peewee import (
 from .database import BaseModel
 
 
+def _default_date_paid():
+    from src.util.app_dates import today_in_app_timezone
+    return today_in_app_timezone()
+
+
+def _default_sent_on():
+    from src.util.app_dates import now_in_app_timezone
+    return now_in_app_timezone()
+
+
 class User(UserMixin, BaseModel):
     id = AutoField()
     email = CharField(unique=True)
@@ -47,7 +57,7 @@ class Subscription(BaseModel):
 class Payment(BaseModel):
     id = AutoField()
     subscription = ForeignKeyField(Subscription, backref="payments")
-    date_paid = DateField(default=datetime.date.today)
+    date_paid = DateField(default=_default_date_paid)
     amount = FloatField()
 
     def to_dict(self):
@@ -64,7 +74,7 @@ class RenewalReminder(BaseModel):
     subscription = ForeignKeyField(Subscription, backref="renewal_reminders")
     reminder_type = CharField(max_length=20)
     renewal_date = DateTimeField()
-    sent_on = DateTimeField(default=datetime.datetime.now)
+    sent_on = DateTimeField(default=_default_sent_on)
 
     class Meta:
         indexes = (

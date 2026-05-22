@@ -1,4 +1,4 @@
-import { addLogoutListener } from "./shared.js";
+import { addLogoutListener, calculateRenewalDays } from "./shared.js";
 import { displaySubscription } from "./subscription-view.js";
 
 const getSubscriptions = async () => {
@@ -31,11 +31,6 @@ const calculateTotalCost = (subs) => {
     }
   }
   return total.toFixed(2);
-};
-
-const calculateRenewalDays = (renewalDate) => {
-  const difference = new Date(renewalDate) - new Date();
-  return Math.ceil(difference / (24 * 60 * 60 * 1000));
 };
 
 const filterSubscriptions = (subs, billing_type) => {

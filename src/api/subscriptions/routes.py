@@ -4,13 +4,16 @@ from flask import request, jsonify
 from flask_login import current_user, login_required
 
 from src.database.models import Subscription, Payment
+from src.util.app_dates import today_in_app_timezone
 from . import subscriptions_bp
 
 
 def process_subscriptions():
-    now = datetime.date.today()
+    now = today_in_app_timezone()
     for sub in Subscription.select().where(Subscription.user == current_user.id):
-        while sub.renewal_date <= now:
+        # Only roll forward after the renewal date has passed (< today).
+        # renewal_date == today means "due today" — still valid for reminders.
+        while sub.renewal_date < now:
             Payment.create(
                 subscription=sub.id,
                 amount=sub.cost,

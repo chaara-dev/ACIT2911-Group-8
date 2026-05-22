@@ -1,3 +1,18 @@
+/** Parse API date (YYYY-MM-DD) as local calendar date, not UTC midnight. */
+export const parseRenewalDateLocal = (renewalDate) => {
+  const [y, m, d] = String(renewalDate).slice(0, 10).split("-").map(Number);
+  return new Date(y, m - 1, d);
+};
+
+/** Days from today (local) until renewal; 0 = due today, negative = overdue. */
+export const calculateRenewalDays = (renewalDate) => {
+  const renewal = parseRenewalDateLocal(renewalDate);
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  renewal.setHours(0, 0, 0, 0);
+  return Math.round((renewal - today) / (24 * 60 * 60 * 1000));
+};
+
 export const addLogoutListener = () => {
   const logoutButton = document.querySelector(".account");
 
