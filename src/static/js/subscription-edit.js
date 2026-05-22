@@ -132,6 +132,7 @@ export const displayEditSubscription = (sub) => {
   cancelButton.addEventListener(
     "click",
     () => {
+      document.querySelector(".save-edits-error")?.remove();
       resetSubscriptionDialog();
     },
     { once: true },
