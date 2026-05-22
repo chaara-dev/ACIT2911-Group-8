@@ -12,6 +12,9 @@
   --primary-text-colour: black;
   --green-text-colour: green;
   --red-text-colour: darkred;
+
+  --danger-colour: #dc3545;
+  --hover-danger-colour: #c82333;
 }
 
 * {
@@ -336,6 +339,7 @@ footer > div.left {
 }
 
 #editSubButtonDiv,
+#deleteSubButtonDiv,
 #cancelEditButtonDiv {
   text-align: center;
   margin-top: 1em;
@@ -359,6 +363,18 @@ footer > div.left {
 #saveEditButton:hover,
 #cancelEditButton:hover {
   background-color: var(--hover-primary-colour);
+  cursor: pointer;
+}
+
+#deleteSubButton {
+  background-color: var(--danger-colour);
+  border: 1px solid black;
+  border-radius: 6px;
+  padding: 0.5em 1em 0.5em;
+}
+
+#deleteSubButton:hover {
+  background-color: var(--hover-danger-colour);
   cursor: pointer;
 }
 
