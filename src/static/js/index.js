@@ -75,10 +75,12 @@ const searchSubscriptions = (subs, search) => {
 const displayDashboard = (subs) => {
   const activeSubsValue = document.getElementById("active-sub");
   const nextRenewalValue = document.getElementById("next-renew");
+  const nextRenewalSubName = document.getElementById("next-renew-name");
   const totalCostValue = document.getElementById("total-price");
 
   activeSubsValue.textContent = subs.length;
   nextRenewalValue.textContent = calculateNextRenewal(subs);
+  nextRenewalSubName.textContent = `[${subs[0].name}]`;
   totalCostValue.textContent = calculateTotalCost(subs);
 };
 

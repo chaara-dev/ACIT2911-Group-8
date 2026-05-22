@@ -57,6 +57,7 @@ main {
 }
 
 .stat-box {
+  position: relative;
   flex: 1;
   background: var(--secondary-colour);
   border-radius: 12px;
@@ -64,6 +65,18 @@ main {
   text-align: center;
   border: 1px solid;
   margin: 10px 0px;
+}
+
+#next-renew-name {
+  position: absolute;
+  left: 50%;
+  bottom: 6px;
+  transform: translateX(-50%);
+  font-size: 0.85rem;
+  font-weight: bold;
+  opacity: 0.7;
+  margin: 0;
+  white-space: nowrap;
 }
 
 .stat-text {
@@ -123,6 +136,11 @@ main {
 .filters,
 .sort-options {
   width: 82px;
+}
+
+.filters button,
+.sort-options button {
+  white-space: nowrap;
 }
 
 .cards {
