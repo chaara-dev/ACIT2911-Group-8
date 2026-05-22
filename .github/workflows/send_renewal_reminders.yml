@@ -1,0 +1,30 @@
+# Send subscription renewal emails (3 days, 1 day, due today) once per day.
+# Requires repo secrets: RESEND_API_KEY, MAIL_FROM, PG*, SECRET_KEY (same as on_push tests).
+name: Send renewal reminder emails
+
+on:
+  schedule:
+    # 16:00 UTC ≈ 9:00 AM America/Vancouver (PDT). Adjust if team changes APP_TIMEZONE.
+    - cron: "0 16 * * *"
+  workflow_dispatch:
+
+jobs:
+  send-reminders:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install dependencies
+        run: curl -LsSf https://astral.sh/uv/install.sh | sh && uv sync --frozen
+      - name: Send renewal reminders
+        env:
+          APP_TIMEZONE: America/Vancouver
+          TZ: America/Vancouver
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          MAIL_FROM: ${{ secrets.MAIL_FROM }}
+          PGDATABASE: ${{ secrets.PGDATABASE }}
+          PGUSER: ${{ secrets.PGUSER }}
+          PGPASSWORD: ${{ secrets.PGPASSWORD }}
+          PGHOST: ${{ secrets.PGHOST }}
+          PGPORT: ${{ secrets.PGPORT }}
+          SECRET_KEY: ${{ secrets.SECRET_KEY }}
+        run: uv run python scripts/send_renewal_reminders.py
