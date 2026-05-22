@@ -186,14 +186,23 @@ main {
 .search {
   display: block;
   margin-left: auto;
-  width: 100px;
+  width: 165px;
   margin-top: 5px;
+  font-size: large;
+  height: 25px;
+  background-color: var(--yellow-background-colour);
+  border: 2px solid black;
+  border-radius: 4px;
 }
 
 #search-div {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+}
+
+#search-div button {
+  margin-bottom: 3px;
 }
 
 .cards {
