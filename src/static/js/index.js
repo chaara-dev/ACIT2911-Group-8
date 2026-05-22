@@ -284,7 +284,7 @@ const main = async () => {
       const searchBox = document.createElement("input");
       searchBox.type = "text";
       searchBox.classList.add("search");
-      searchButton.appendChild(searchBox);
+      document.getElementById("search-div").appendChild(searchBox);
 
       searchBox.addEventListener("keydown", (e) => {
         if (e.key === "Enter") {

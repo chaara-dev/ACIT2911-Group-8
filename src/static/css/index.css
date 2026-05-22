@@ -110,10 +110,16 @@ main {
   background-color: var(--hover-primary-colour);
 }
 
+.button-bar {
+  display: flex;
+  flex-direction: column;
+}
+
 .action {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: flex-start;
   margin: 10px 0px;
 }
 
@@ -132,8 +138,15 @@ main {
 
 .filter-sort-options {
   display: flex;
-  gap: 1px;
-  margin-bottom: 10px;
+  gap: 0px;
+  margin-bottom: 0px;
+  margin-top: 0;
+}
+
+.filter-sort-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 5px;
 }
 
 .filters,
@@ -168,6 +181,19 @@ main {
 .filters button.clear-button:hover,
 .sort-options button.clear-button:hover {
   background-color: var(--hover-danger-colour);
+}
+
+.search {
+  display: block;
+  margin-left: auto;
+  width: 100px;
+  margin-top: 5px;
+}
+
+#search-div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
 .cards {
@@ -234,41 +260,6 @@ footer > div.left {
 .right {
   text-align: end;
   padding-top: 20px;
-}
-
-.monthly {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin: 2px 0px;
-}
-
-.yearly {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin: 2px 0px;
-}
-
-.price {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin: 2px 0px;
-}
-
-.renewal-date {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin: 2px 0px;
-}
-
-.name {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin: 2px 0px;
 }
 
 #viewSubscription {
