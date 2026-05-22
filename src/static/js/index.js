@@ -215,15 +215,15 @@ const main = async () => {
         }
         sortOptions.replaceChildren();
 
-        const price = document.createElement("button");
-        price.textContent = "Price";
-        price.classList.add("price");
-        sortOptions.appendChild(price);
-
         const renewalDate = document.createElement("button");
         renewalDate.textContent = "Renewal date";
         renewalDate.classList.add("renewal-date");
         sortOptions.appendChild(renewalDate);
+
+        const price = document.createElement("button");
+        price.textContent = "Price";
+        price.classList.add("price");
+        sortOptions.appendChild(price);
 
         const name = document.createElement("button");
         name.textContent = "Name";
@@ -237,9 +237,9 @@ const main = async () => {
 
         isSortClicked = true;
 
-        price.addEventListener("click", () => {
-          if (activeSort !== "price") {
-            activeSort = "price";
+        renewalDate.addEventListener("click", () => {
+          if (activeSort !== "date") {
+            activeSort = "date";
             activeSortDirection = "asc";
           } else {
             activeSortDirection =
@@ -248,9 +248,9 @@ const main = async () => {
           applySubscriptionView();
         });
 
-        renewalDate.addEventListener("click", () => {
-          if (activeSort !== "date") {
-            activeSort = "date";
+        price.addEventListener("click", () => {
+          if (activeSort !== "price") {
+            activeSort = "price";
             activeSortDirection = "asc";
           } else {
             activeSortDirection =

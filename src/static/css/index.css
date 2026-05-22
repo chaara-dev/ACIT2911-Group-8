@@ -13,6 +13,8 @@
   --green-text-colour: green;
   --red-text-colour: darkred;
 
+  --yellow-background-colour: #ffd700;
+  --yellow-hover-colour: #e6c200;
   --danger-colour: #dc3545;
   --hover-danger-colour: #c82333;
 }
@@ -131,6 +133,7 @@ main {
 .filter-sort-options {
   display: flex;
   gap: 1px;
+  margin-bottom: 10px;
 }
 
 .filters,
@@ -140,7 +143,31 @@ main {
 
 .filters button,
 .sort-options button {
+  background-color: var(--yellow-background-colour);
+  border: 2px solid black;
+  border-radius: 6px;
+  padding: 0.3em 1.2em;
+  cursor: pointer;
+  color: black;
+  margin: 2px 0;
   white-space: nowrap;
+}
+
+.filters button:hover,
+.sort-options button:hover {
+  background-color: var(--yellow-hover-colour);
+  cursor: pointer;
+}
+
+.filters button.clear-button,
+.sort-options button.clear-button {
+  background-color: var(--danger-colour);
+  color: white;
+}
+
+.filters button.clear-button:hover,
+.sort-options button.clear-button:hover {
+  background-color: var(--hover-danger-colour);
 }
 
 .cards {
