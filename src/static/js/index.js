@@ -157,6 +157,7 @@ const main = async () => {
 
     let isFilterClicked = false;
     let isSortClicked = false;
+    let isSearchClicked = false;
 
     if (filterButton) {
       filterButton.addEventListener("click", () => {
@@ -215,15 +216,15 @@ const main = async () => {
         }
         sortOptions.replaceChildren();
 
-        const price = document.createElement("button");
-        price.textContent = "Price";
-        price.classList.add("price");
-        sortOptions.appendChild(price);
-
         const renewalDate = document.createElement("button");
         renewalDate.textContent = "Renewal date";
         renewalDate.classList.add("renewal-date");
         sortOptions.appendChild(renewalDate);
+
+        const price = document.createElement("button");
+        price.textContent = "Price";
+        price.classList.add("price");
+        sortOptions.appendChild(price);
 
         const name = document.createElement("button");
         name.textContent = "Name";
@@ -237,9 +238,9 @@ const main = async () => {
 
         isSortClicked = true;
 
-        price.addEventListener("click", () => {
-          if (activeSort !== "price") {
-            activeSort = "price";
+        renewalDate.addEventListener("click", () => {
+          if (activeSort !== "date") {
+            activeSort = "date";
             activeSortDirection = "asc";
           } else {
             activeSortDirection =
@@ -248,9 +249,9 @@ const main = async () => {
           applySubscriptionView();
         });
 
-        renewalDate.addEventListener("click", () => {
-          if (activeSort !== "date") {
-            activeSort = "date";
+        price.addEventListener("click", () => {
+          if (activeSort !== "price") {
+            activeSort = "price";
             activeSortDirection = "asc";
           } else {
             activeSortDirection =
@@ -279,12 +280,19 @@ const main = async () => {
     }
 
     searchButton.addEventListener("click", () => {
-      if (document.querySelector(".search")) return;
+      if (isSearchClicked) {
+        document.querySelector(".search").remove();
+        activeSearch = "";
+        applySubscriptionView();
+        isSearchClicked = false;
+        return;
+      }
 
       const searchBox = document.createElement("input");
       searchBox.type = "text";
       searchBox.classList.add("search");
-      searchButton.appendChild(searchBox);
+      document.getElementById("search-div").appendChild(searchBox);
+      isSearchClicked = true;
 
       searchBox.addEventListener("keydown", (e) => {
         if (e.key === "Enter") {

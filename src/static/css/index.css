@@ -13,6 +13,8 @@
   --green-text-colour: green;
   --red-text-colour: darkred;
 
+  --yellow-background-colour: #ffd700;
+  --yellow-hover-colour: #e6c200;
   --danger-colour: #dc3545;
   --hover-danger-colour: #c82333;
 }
@@ -108,11 +110,18 @@ main {
   background-color: var(--hover-primary-colour);
 }
 
+.button-bar {
+  display: flex;
+  flex-direction: column;
+}
+
 .action {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin: 10px 0px;
+  align-items: flex-start;
+  margin: 5px 0px;
+  margin-top: 10px;
 }
 
 .action button {
@@ -130,7 +139,15 @@ main {
 
 .filter-sort-options {
   display: flex;
-  gap: 1px;
+  gap: 0px;
+  margin-bottom: 10px;
+  margin-top: 0;
+}
+
+.filter-sort-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 5px;
 }
 
 .filters,
@@ -140,7 +157,53 @@ main {
 
 .filters button,
 .sort-options button {
+  background-color: var(--yellow-background-colour);
+  border: 2px solid black;
+  border-radius: 6px;
+  padding: 0.3em 1.2em;
+  cursor: pointer;
+  color: black;
+  margin: 2px 0;
   white-space: nowrap;
+}
+
+.filters button:hover,
+.sort-options button:hover {
+  background-color: var(--yellow-hover-colour);
+  cursor: pointer;
+}
+
+.filters button.clear-button,
+.sort-options button.clear-button {
+  background-color: var(--danger-colour);
+  color: white;
+}
+
+.filters button.clear-button:hover,
+.sort-options button.clear-button:hover {
+  background-color: var(--hover-danger-colour);
+}
+
+.search {
+  display: block;
+  margin-left: auto;
+  width: 165px;
+  margin-top: 5px;
+  font-size: large;
+  height: 25px;
+  background-color: var(--yellow-background-colour);
+  border: 2px solid black;
+  border-radius: 4px;
+}
+
+#search-div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+#search-div button {
+  margin-bottom: 3px;
 }
 
 .cards {
@@ -207,41 +270,6 @@ footer > div.left {
 .right {
   text-align: end;
   padding-top: 20px;
-}
-
-.monthly {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin: 2px 0px;
-}
-
-.yearly {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin: 2px 0px;
-}
-
-.price {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin: 2px 0px;
-}
-
-.renewal-date {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin: 2px 0px;
-}
-
-.name {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin: 2px 0px;
 }
 
 #viewSubscription {
