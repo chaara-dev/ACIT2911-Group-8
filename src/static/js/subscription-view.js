@@ -34,22 +34,22 @@ const fillSubscriptionInfo = (sub, logo, totalPaid, formattedDate) => {
 };
 
 const displayPaymentTable = (sub) => {
-  // const paymentTable = document.getElementById("paymentsBody");
-  // while (paymentTable.rows.length > 1) {
-  //   paymentTable.deleteRow(1);
-  // }
-  // const payments = sub.payments;
-  // payments.forEach((payment) => {
-  //   const row = document.createElement("tr");
-  //   row.classList.add("table-row");
-  //   const paid = document.createElement("td");
-  //   paid.textContent = payment.amount;
-  //   row.appendChild(paid);
-  //   const datePaid = document.createElement("td");
-  //   datePaid.textContent = payment.date_paid;
-  //   row.appendChild(datePaid);
-  //   paymentTable.appendChild(row);
-  // });
+  const paymentTable = document.getElementById("paymentsBody");
+  while (paymentTable.rows.length > 1) {
+    paymentTable.deleteRow(1);
+  }
+  const payments = sub.payments;
+  payments.forEach((payment) => {
+    const row = document.createElement("tr");
+    row.classList.add("table-row");
+    const paid = document.createElement("td");
+    paid.textContent = payment.amount;
+    row.appendChild(paid);
+    const datePaid = document.createElement("td");
+    datePaid.textContent = payment.date_paid;
+    row.appendChild(datePaid);
+    paymentTable.appendChild(row);
+  });
 };
 
 export const displaySubscription = async (subId) => {
