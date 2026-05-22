@@ -10,15 +10,18 @@ const displayError = (errorMessage) => {
   error.classList.add("save-edits-error");
   subscribedDateField.after(error);
 };
-
-const checkRenewalDateValid = (subPeriod, renewalDate) => {
-  // Set date input limits
+// Set date input limits
+const setDateInputLimits = () => {
   const dateInput = document.getElementById("subRenewalDateInput");
   const today = new Date();
   const nextYear = new Date();
   nextYear.setFullYear(nextYear.getFullYear() + 1);
   dateInput.min = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, "0")}-${String(today.getDate()).padStart(2, "0")}`;
   dateInput.max = `${nextYear.getFullYear()}-${String(nextYear.getMonth() + 1).padStart(2, "0")}-${String(nextYear.getDate()).padStart(2, "0")}`;
+};
+
+const checkRenewalDateValid = (subPeriod, renewalDate) => {
+  const dateInput = document.getElementById("subRenewalDateInput");
 
   // Validate renewal date is within limit
   const maxDate = new Date();
@@ -100,6 +103,8 @@ export const displayEditSubscription = (sub) => {
   priceValue.value = sub.cost;
   periodValue.value = sub.billing_type;
   renewalDateValue.value = sub.renewal_date.slice(0, 10);
+
+  setDateInputLimits();
 
   saveButton.addEventListener("click", async () => {
     if (
