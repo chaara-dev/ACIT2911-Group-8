@@ -1,7 +1,5 @@
 import { parseRenewalDateLocal, resetSubscriptionDialog } from "./shared.js";
 import { displayEditSubscription } from "./subscription-edit.js";
-import { allSubscriptions } from "./index.js";
-import { applySubscriptionView } from "./index.js";
 
 const getSubscriptionsList = async () => {
   const res = await fetch(`/static/data/subscription_services.json`);
@@ -21,7 +19,7 @@ const getSubscriptionLogo = (sub, subsList) => {
 };
 
 const getTotalPaid = (sub) =>
-  sub.payments.reduce((total, payment) => total + payment.amount, 0);
+  (sub.payments ?? []).reduce((total, payment) => total + payment.amount, 0);
 
 const fillSubscriptionInfo = (sub, logo, totalPaid, formattedDate) => {
   document.getElementById("subName").textContent = sub.name;
@@ -48,8 +46,11 @@ const deleteSubscription = async (subId) => {
       throw new Error(data.error);
     }
   } catch (error) {
-    console.log(error);
+    console.error(error);
+    alert(error.message || "Could not delete subscription.");
+    return false;
   }
+  return true;
 };
 
 const displayPaymentTable = (sub) => {
@@ -57,7 +58,7 @@ const displayPaymentTable = (sub) => {
   while (paymentTable.rows.length > 1) {
     paymentTable.deleteRow(1);
   }
-  const payments = sub.payments;
+  const payments = sub.payments ?? [];
   payments.forEach((payment) => {
     const row = document.createElement("tr");
     row.classList.add("table-row");
@@ -88,9 +89,7 @@ export const displaySubscription = async (subId) => {
 
   const logo = getSubscriptionLogo(sub, subsList);
   const totalPaid = getTotalPaid(sub);
-  const formattedDate = parseRenewalDateLocal(
-    sub.renewal_date,
-  ).toLocaleDateString("en-GB", {
+  const formattedDate = parseRenewalDateLocal(sub.renewal_date).toLocaleDateString("en-GB", {
     day: "2-digit",
     month: "short",
     year: "numeric",
@@ -111,13 +110,9 @@ export const displaySubscription = async (subId) => {
   });
 
   deleteButton.addEventListener("click", async () => {
-    await deleteSubscription(subId);
-
-    resetSubscriptionDialog();
-    viewPage.close();
-    document.querySelector(`.card[data-id="${subId}"]`).remove();
-
-    allSubscriptions = allSubscriptions.filter((sub) => sub.id !== subId);
-    applySubscriptionView();
+    const deleted = await deleteSubscription(subId);
+    if (deleted) {
+      window.location.href = "/";
+    }
   });
 };
