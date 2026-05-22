@@ -1,6 +1,6 @@
 import pytest
 from src.api import create_app
-from src.database.models import User, Subscription, Payment
+from src.database.models import User, Subscription, Payment, RenewalReminder
 from datetime import date
 
 @pytest.fixture()
@@ -10,10 +10,17 @@ def payment_client():
         yield testing_client
 
 def test_payment(payment_client):
-    #create user
+    existing = User.get_or_none(User.email == "test_payment@test.com")
+    if existing:
+        for sub in Subscription.select().where(Subscription.user == existing):
+            Payment.delete().where(Payment.subscription == sub).execute()
+            RenewalReminder.delete().where(RenewalReminder.subscription == sub).execute()
+            sub.delete_instance()
+        existing.delete_instance()
+
     test_user = User.create(
-        email="test_payment@test.com", 
-        password_hash="password123"
+        email="test_payment@test.com",
+        password_hash="password123",
     )
     
     #create subscription
@@ -37,7 +44,10 @@ def test_payment(payment_client):
     
     assert payment.subscription.name == "Payment Test" 
     assert payment.amount == 9.99
-    assert payment.date_paid.date() == date(2026, 5, 22)
+    paid_on = payment.date_paid
+    if hasattr(paid_on, "date"):
+        paid_on = paid_on.date()
+    assert paid_on == date(2026, 5, 22)
 
     test_payment.delete_instance()  
     test_subscription.delete_instance()       

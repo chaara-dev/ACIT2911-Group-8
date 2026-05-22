@@ -33,9 +33,10 @@ def create_app():
         if not db.is_closed():
             db.close()
     
-    db.connect()
+    db.connect(reuse_if_open=True)
     db.create_tables([User, Subscription, Payment, RenewalReminder])
-    db.close()
+    if not db.is_closed():
+        db.close()
 
     @login_manager.user_loader
     def load_user(user_id):

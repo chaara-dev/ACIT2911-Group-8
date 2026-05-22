@@ -42,6 +42,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Create Pull Request
-        run: gh pr create -B main -H ${{ github.ref_name }} --title "Merge ${{ github.ref_name }} into main" --body "Automatic PR from Github Actions"
+        run: |
+          gh pr view --head "${{ github.ref_name }}" >/dev/null 2>&1 || \
+          gh pr create -B main -H "${{ github.ref_name }}" \
+            --title "Merge ${{ github.ref_name }} into main" \
+            --body "Automatic PR from Github Actions"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
