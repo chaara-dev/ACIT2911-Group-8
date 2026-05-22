@@ -1,4 +1,4 @@
-import { addLogoutListener } from "./shared.js";
+import { addLogoutListener, calculateRenewalDays } from "./shared.js";
 import { displaySubscription } from "./subscription-view.js";
 
 const getSubscriptions = async () => {
@@ -33,26 +33,37 @@ const calculateTotalCost = (subs) => {
   return total.toFixed(2);
 };
 
-const calculateRenewalDays = (renewalDate) => {
-  const difference = new Date(renewalDate) - new Date();
-  return Math.ceil(difference / (24 * 60 * 60 * 1000));
-};
-
 const filterSubscriptions = (subs, billing_type) => {
   if (!billing_type) return subs;
   return subs.filter((sub) => sub.billing_type === billing_type);
 };
 
-const sortSubscriptionsByPrice = (subs) => {
-  return subs.sort((a, b) => b.cost - a.cost);
+const sortSubscriptionsByPrice = (subs, direction) => {
+  if (direction == "desc") {
+    return subs.sort((a, b) => b.cost - a.cost);
+  } else if (direction == "asc") {
+    return subs.sort((a, b) => a.cost - b.cost);
+  }
 };
 
-const sortSubscriptionsByRenewalDate = (subs) => {
-  return subs.sort((a, b) => b.renewal_date - a.renewal_date);
+const sortSubscriptionsByRenewalDate = (subs, direction) => {
+  if (direction === "asc") {
+    return subs.sort(
+      (a, b) => new Date(a.renewal_date) - new Date(b.renewal_date),
+    );
+  } else if (direction === "desc") {
+    return subs.sort(
+      (a, b) => new Date(b.renewal_date) - new Date(a.renewal_date),
+    );
+  }
 };
 
-const sortSubscriptionsAlpha = (subs) => {
-  return subs.sort((a, b) => a.name - b.name);
+const sortSubscriptionsAlpha = (subs, direction) => {
+  if (direction === "asc") {
+    return subs.sort((a, b) => a.name.localeCompare(b.name));
+  } else if (direction === "desc") {
+    return subs.sort((a, b) => b.name.localeCompare(a.name));
+  }
 };
 
 const searchSubscriptions = (subs, search) => {
@@ -106,6 +117,7 @@ let allSubscriptions = [];
 let activeSearch = "";
 let activeBillingFilter = "";
 let activeSort = "";
+let activeSortDirection = "";
 
 const applySubscriptionView = () => {
   let shown = allSubscriptions.slice();
@@ -113,11 +125,11 @@ const applySubscriptionView = () => {
   shown = filterSubscriptions(shown, activeBillingFilter);
 
   if (activeSort === "price") {
-    shown = sortSubscriptionsByPrice(shown);
+    shown = sortSubscriptionsByPrice(shown, activeSortDirection);
   } else if (activeSort === "date") {
-    shown = sortSubscriptionsByRenewalDate(shown);
+    shown = sortSubscriptionsByRenewalDate(shown, activeSortDirection);
   } else if (activeSort === "name") {
-    shown = sortSubscriptionsAlpha(shown);
+    shown = sortSubscriptionsAlpha(shown, activeSortDirection);
   }
 
   displayDashboard(shown);
@@ -141,9 +153,18 @@ const main = async () => {
     const searchButton = document.getElementById("search-button");
     const sortButton = document.getElementById("sort-button");
 
+    let isFilterClicked = false;
+    let isSortClicked = false;
+
     if (filterButton) {
       filterButton.addEventListener("click", () => {
         const filterOptions = document.querySelector(".filters");
+
+        if (isFilterClicked) {
+          filterOptions.replaceChildren();
+          isFilterClicked = false;
+          return;
+        }
         filterOptions.replaceChildren();
 
         const monthly = document.createElement("button");
@@ -160,6 +181,8 @@ const main = async () => {
         clearFilter.textContent = "X";
         clearFilter.classList.add("clear-button");
         filterOptions.appendChild(clearFilter);
+
+        isFilterClicked = true;
 
         monthly.addEventListener("click", () => {
           const value = "Monthly";
@@ -181,46 +204,73 @@ const main = async () => {
     }
     if (sortButton) {
       sortButton.addEventListener("click", () => {
-        const filterOptions = document.querySelector(".filters");
-        filterOptions.replaceChildren();
+        const sortOptions = document.querySelector(".sort-options");
+
+        if (isSortClicked) {
+          sortOptions.replaceChildren();
+          isSortClicked = false;
+          return;
+        }
+        sortOptions.replaceChildren();
 
         const price = document.createElement("button");
         price.textContent = "Price";
         price.classList.add("price");
-        filterOptions.appendChild(price);
+        sortOptions.appendChild(price);
 
         const renewalDate = document.createElement("button");
         renewalDate.textContent = "Renewal date";
         renewalDate.classList.add("renewal-date");
-        filterOptions.appendChild(renewalDate);
+        sortOptions.appendChild(renewalDate);
 
         const name = document.createElement("button");
         name.textContent = "Name";
         name.classList.add("name");
-        filterOptions.appendChild(name);
+        sortOptions.appendChild(name);
 
         const clearFilter = document.createElement("button");
         clearFilter.textContent = "X";
         clearFilter.classList.add("clear-button");
-        filterOptions.appendChild(clearFilter);
+        sortOptions.appendChild(clearFilter);
+
+        isSortClicked = true;
 
         price.addEventListener("click", () => {
-          activeSort = "price";
+          if (activeSort !== "price") {
+            activeSort = "price";
+            activeSortDirection = "asc";
+          } else {
+            activeSortDirection =
+              activeSortDirection === "asc" ? "desc" : "asc";
+          }
           applySubscriptionView();
         });
 
         renewalDate.addEventListener("click", () => {
-          activeSort = "date";
+          if (activeSort !== "date") {
+            activeSort = "date";
+            activeSortDirection = "asc";
+          } else {
+            activeSortDirection =
+              activeSortDirection === "asc" ? "desc" : "asc";
+          }
           applySubscriptionView();
         });
 
         name.addEventListener("click", () => {
-          activeSort = "name";
+          if (activeSort !== "name") {
+            activeSort = "name";
+            activeSortDirection = "asc";
+          } else {
+            activeSortDirection =
+              activeSortDirection === "asc" ? "desc" : "asc";
+          }
           applySubscriptionView();
         });
 
         clearFilter.addEventListener("click", () => {
           activeSort = "";
+          activeSortDirection = "";
           applySubscriptionView();
         });
       });
