@@ -4,7 +4,7 @@ const displayError = (errorMessage) => {
   if (!document.querySelector(".signup-error")) {
     const error = document.createElement("p");
     error.textContent = errorMessage;
-    error.classList.add("signup-error"); // edit this class in signup.css
+    error.classList.add("signup-error");
     signupButton.after(error);
   }
 };
@@ -34,6 +34,11 @@ const createNewAccount = () => {
     } catch (error) {
       console.log(error);
       return displayError(error);
+    }
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      signupButton.click();
     }
   });
 };

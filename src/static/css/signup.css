@@ -1,152 +1,159 @@
 :root {
-    --primary-colour: #32c077;
-    --hover-primary-colour: #2aa164;
-    --secondary-colour: #32afc0;
-    --hover-secondary-colour: #2c8c98;
+  --primary-colour: #32c077;
+  --hover-primary-colour: #2aa164;
+  --secondary-colour: #32afc0;
+  --hover-secondary-colour: #2c8c98;
 
-    --primary-font: monospace;
+  --primary-font: monospace;
 
-    --outer-background-colour: #282a36;
-    --inner-background-colour: #515466;
+  --outer-background-colour: #282a36;
+  --inner-background-colour: #515466;
 
-    --primary-text-colour: black;
-    --green-text-colour: green;
-    --red-text-colour: darkred;
+  --primary-text-colour: black;
+  --green-text-colour: green;
+  --red-text-colour: darkred;
+
+  --danger-colour: #ffd700;
 }
 
 * {
-    font-family: var(--primary-font);
+  font-family: var(--primary-font);
 }
 
 html {
-    background-color: var(--outer-background-colour);
-    zoom: 110%;
+  background-color: var(--outer-background-colour);
+  zoom: 110%;
 }
 
 body {
-    max-width: 700px;
-    margin: auto;
+  max-width: 700px;
+  margin: auto;
 }
 
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-header>h1,
-header>h3 {
-    display: inline-block;
-    padding: 5px 7px;
-    background-color: var(--primary-colour);
-    border-radius: 8px;
+header > h1,
+header > h3 {
+  display: inline-block;
+  padding: 5px 7px;
+  background-color: var(--primary-colour);
+  border-radius: 8px;
 }
 
 main {
-    background-color: var(--inner-background-colour);
-    padding: 20px 20px 0px;
-    border: 3px solid var(--primary-colour);
-    border-radius: 12px;
-    display: flex;
-    flex-direction: column;
-    line-height: 1.75em;
-    align-items: center;
-    zoom: 110%;
+  background-color: var(--inner-background-colour);
+  padding: 20px 20px 0px;
+  border: 3px solid var(--primary-colour);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.75em;
+  align-items: center;
+  zoom: 110%;
 }
 
 .value-div {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 #login-button-div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-#login-button-div>p {
-    margin: 0px;
-    font-size: medium;
+#login-button-div > p {
+  margin: 0px;
+  font-size: medium;
 }
 
-#sign-up>div>label {
-    display: block;
-    width: 120px;
-    text-align: center;
-    font-size: larger;
+#sign-up > div > label {
+  display: block;
+  width: 120px;
+  text-align: center;
+  font-size: larger;
 }
 
-#sign-up>div>input,
+#sign-up > div > input,
 .signupButton {
-    font-size: large;
-    width: 250px;
-    height: 30px;
-    background-color: var(--secondary-colour);
-    border: 1px solid black;
-    border-radius: 4px;
+  font-size: large;
+  width: 250px;
+  height: 30px;
+  background-color: var(--secondary-colour);
+  border: 1px solid black;
+  border-radius: 4px;
 }
 
 #login-page-button {
-    font-size: large;
-    width: 200px;
-    height: 30px;
-    background-color: var(--secondary-colour);
-    border: 1px solid black;
-    border-radius: 4px;
-    text-decoration: none;
-    color: black;
-    text-align: center;
-    margin: 0px auto 1em auto;
+  font-size: large;
+  width: 200px;
+  height: 30px;
+  background-color: var(--secondary-colour);
+  border: 1px solid black;
+  border-radius: 4px;
+  text-decoration: none;
+  color: black;
+  text-align: center;
+  margin: 0px auto 1em auto;
 }
 
-#sign-up>div>input:hover,
+#sign-up > div > input:hover,
 .signupButton:hover,
 #subscriptionPeriodSelect:hover,
 #login-page-button:hover {
-    background-color: var(--hover-secondary-colour);
+  background-color: var(--hover-secondary-colour);
 }
 
 .signupButton {
-    margin: 1.5em 0 1em 0;
-    cursor: pointer;
+  margin: 1.5em 0 1em 0;
+  cursor: pointer;
 }
 
 div:has(> .signupButton) {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
 
 #email-input::placeholder,
 #password-input::placeholder {
-    text-align: center;
+  text-align: center;
 }
 
 footer {
-    background-color: var(--inner-background-colour);
-    padding: 20px;
-    border: 3px solid var(--primary-colour);
-    border-radius: 12px;
-    margin-top: 3em;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+  background-color: var(--inner-background-colour);
+  padding: 20px;
+  border: 3px solid var(--primary-colour);
+  border-radius: 12px;
+  margin-top: 3em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
-footer>div.left {
-    margin-left: 3em;
-    list-style: none;
+footer > div.left {
+  margin-left: 3em;
+  list-style: none;
 }
 
 .left a {
-    color: black;
-    text-decoration: underline;
+  color: black;
+  text-decoration: underline;
 }
 
 .right {
-    text-align: end;
-    padding-top: 20px;
+  text-align: end;
+  padding-top: 20px;
+}
+
+.signup-error {
+  color: var(--danger-colour);
+  font-weight: bold;
 }
