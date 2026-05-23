@@ -29,7 +29,7 @@ html {
 }
 
 body {
-  max-width: min(700px, 100%);
+  max-width: 700px;
   margin: auto;
 }
 
@@ -51,21 +51,16 @@ main {
   padding: 20px;
   border: 3px solid var(--primary-colour);
   border-radius: 12px;
-  gap: 0.5rem;
-  flex: 0 1 auto;
-  align-self: stretch;
 }
 
 .stats {
   display: flex;
-  flex-wrap: wrap;
   gap: 10px;
 }
 
 .stat-box {
   position: relative;
-  flex: 1 1 8rem;
-  min-width: min(100%, 8rem);
+  flex: 1;
   background: var(--secondary-colour);
   border-radius: 12px;
   padding: 10px 15px;
@@ -129,17 +124,13 @@ main {
 .button-bar {
   display: flex;
   flex-direction: column;
-  flex: 1 1 auto;
-  min-width: min(100%, 12rem);
 }
 
 .action {
   display: flex;
-  flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 0.75rem;
   margin: 5px 0px;
   margin-top: 10px;
   margin-bottom: 1px;
@@ -231,8 +222,6 @@ main {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  flex: 0 1 auto;
-  min-width: min(100%, 10rem);
 }
 
 #search-div button {
@@ -248,10 +237,8 @@ main {
 
 .card {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 0.5rem;
   padding: 16px 20px;
   border-radius: 15px;
   background: var(--secondary-colour);
@@ -309,11 +296,9 @@ footer > div.left {
 }
 
 #viewSubscription {
-  width: min(400px, calc(100vw - 2rem));
-  max-width: 100%;
-  max-height: min(550px, 90vh);
-  height: auto;
-  overflow: auto;
+  width: 400px;
+  height: 550px;
+  overflow: scroll;
   border-radius: 12px;
   border: 2px solid var(--primary-colour);
   padding: 20px;
@@ -509,37 +494,4 @@ footer > div.left {
   font-weight: bold;
   text-align: center;
   margin: 0px;
-}
-
-@media (max-width: 540px) {
-  .stats {
-    flex-direction: column;
-  }
-
-  .stat-box {
-    flex: 1 1 100%;
-  }
-
-  #next-renew-name {
-    white-space: normal;
-    max-width: 100%;
-  }
-
-  .action {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  #search-div {
-    align-items: stretch;
-  }
-
-  .filter-sort-buttons {
-    flex-wrap: wrap;
-  }
-
-  .card {
-    justify-content: center;
-    text-align: center;
-  }
 }
