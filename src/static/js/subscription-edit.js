@@ -108,44 +108,55 @@ export const displayEditSubscription = (sub) => {
 
   setDateInputLimits();
 
-  saveButton.addEventListener("click", async () => {
-    if (
-      !nameValue.value ||
-      !priceValue.value ||
-      !periodValue.value ||
-      !renewalDateValue.value
-    ) {
-      return displayError("All fields must be entered.");
-    }
+  const controller = new AbortController();
+  const { signal } = controller;
 
-    if (parseFloat(priceValue.value) < 0) {
-      return displayError("Price cannot be less than $0.");
-    }
+  saveButton.addEventListener(
+    "click",
+    async () => {
+      document.querySelector(".save-edits-error")?.remove();
 
-    if (!checkRenewalDateValid(periodValue.value, renewalDateValue.value)) {
-      return;
-    }
+      if (
+        !nameValue.value ||
+        !priceValue.value ||
+        !periodValue.value ||
+        !renewalDateValue.value
+      ) {
+        return displayError("All fields must be entered.");
+      }
 
-    const updatedSub = await saveEdits(
-      nameValue.value,
-      parseFloat(priceValue.value),
-      periodValue.value,
-      renewalDateValue.value,
-      sub.id,
-    );
+      if (parseFloat(priceValue.value) < 0) {
+        return displayError("Price cannot be less than $0.");
+      }
 
-    updateSubscriptionCard(updatedSub);
-    resetSubscriptionDialog();
-    applySubscriptionView();
-    await displaySubscription(sub.id);
-  });
+      if (!checkRenewalDateValid(periodValue.value, renewalDateValue.value)) {
+        return;
+      }
+
+      const updatedSub = await saveEdits(
+        nameValue.value,
+        parseFloat(priceValue.value),
+        periodValue.value,
+        renewalDateValue.value,
+        sub.id,
+      );
+
+      controller.abort();
+      updateSubscriptionCard(updatedSub);
+      resetSubscriptionDialog();
+      applySubscriptionView();
+      await displaySubscription(sub.id);
+    },
+    { signal },
+  );
 
   cancelButton.addEventListener(
     "click",
     () => {
       document.querySelector(".save-edits-error")?.remove();
+      controller.abort();
       resetSubscriptionDialog();
     },
-    { once: true },
+    { signal },
   );
 };
