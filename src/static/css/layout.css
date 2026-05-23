@@ -1,0 +1,173 @@
+/* Shared responsive flex layout for all pages */
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  max-width: min(700px, 100%);
+  margin: 0 auto;
+  padding: 0.75rem;
+}
+
+header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+  width: 100%;
+}
+
+#buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  flex: 0 1 auto;
+  min-width: 0;
+  width: 100%;
+}
+
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  flex-shrink: 0;
+  width: 100%;
+}
+
+footer > div.left,
+footer .footer.left {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  margin-left: 0;
+  padding: 0;
+  list-style: none;
+}
+
+footer > div.right,
+footer .footer.right {
+  flex: 1 1 auto;
+  min-width: min(100%, 10rem);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 100%;
+  gap: 1rem;
+  flex: 0 0 auto;
+}
+
+.value-div,
+#subscription-details > div {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem 0.75rem;
+  width: 100%;
+  max-width: 100%;
+}
+
+.value-div input,
+.value-div a,
+.value-div label,
+#subscription-details > div > label,
+#subscription-details > div > input,
+#subscription-details > div > select,
+.submitButton {
+  max-width: 100%;
+}
+
+.dropdown-wrapper {
+  position: relative;
+  flex: 0 0 auto;
+  width: 250px;
+  max-width: 100%;
+}
+
+@media (max-width: 640px) {
+  html {
+    zoom: 100%;
+  }
+
+  body {
+    padding: 0.5rem;
+  }
+
+  header {
+    justify-content: center;
+  }
+
+  #buttons {
+    justify-content: center;
+    width: 100%;
+  }
+
+  footer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  footer > div.right,
+  footer .footer.right {
+    text-align: center;
+  }
+
+  .value-div,
+  #subscription-details > div {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  #log-in > div > label,
+  #sign-up > div > label,
+  #subscription-details > div > label {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  #log-in > div > input,
+  .loginButton,
+  #signup-page-button,
+  #sign-up > div > input,
+  .signupButton,
+  #login-page-button,
+  #subscription-details > div > input,
+  #subscription-details > div > .dropdown-wrapper input,
+  .submitButton,
+  #subscriptionPeriodSelect {
+    width: 100%;
+  }
+
+  .dropdown-wrapper {
+    width: 100%;
+  }
+}

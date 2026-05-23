@@ -24,7 +24,7 @@ html {
 }
 
 body {
-  max-width: 700px;
+  max-width: min(700px, 100%);
   margin: auto;
 }
 
@@ -43,14 +43,27 @@ header > h1 {
 
 main {
   background-color: var(--inner-background-colour);
-  padding: 20px 20px 0px;
+  padding: 20px;
   border: 3px solid var(--primary-colour);
   border-radius: 12px;
   display: flex;
   flex-direction: column;
-  line-height: 1.75em;
+  line-height: normal;
   align-items: center;
-  zoom: 110%;
+}
+
+#subscription-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+#subscriptionNameDiv {
+  position: relative;
+  z-index: 20;
+  flex: 0 0 auto;
 }
 
 .account,
@@ -91,7 +104,7 @@ main {
 
 #subscriptionDropdown {
   position: absolute;
-  top: 100%;
+  top: calc(100% + 2px);
   left: 0;
   right: 0;
   background-color: var(--secondary-colour);
@@ -102,8 +115,9 @@ main {
   list-style: none;
   margin: 0;
   padding: 0;
-  z-index: 99;
+  z-index: 100;
   display: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
 }
 
 #subscriptionDropdown li {
@@ -136,8 +150,13 @@ main {
   background-color: var(--hover-secondary-colour);
 }
 
+.submitButtonDiv {
+  flex: 0 0 auto;
+  margin-top: 0.25rem;
+}
+
 .submitButton {
-  margin: 1.5em 0 1em 0;
+  margin: 0;
 }
 
 div:has(> .submitButton) {
