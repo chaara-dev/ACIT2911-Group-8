@@ -108,7 +108,7 @@ const displaySubscriptions = (subs) => {
 
     const renewalDays = calculateRenewalDays(sub.renewal_date);
 
-    cost.textContent = `$${sub.cost}`;
+    cost.textContent = `$${sub.cost.toLocaleString("en-US")}`;
     name.textContent = sub.name;
     renewal.textContent = `${renewalDays} days`;
 
