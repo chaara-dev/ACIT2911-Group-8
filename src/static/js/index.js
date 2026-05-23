@@ -199,6 +199,7 @@ const main = async () => {
 
     let isFilterClicked = false;
     let isSortClicked = false;
+    let isSearchClicked = false;
 
     if (filterButton) {
       filterButton.addEventListener("click", () => {
@@ -320,21 +321,36 @@ const main = async () => {
       });
     }
 
-    searchButton.addEventListener("click", () => {
-      if (document.querySelector(".search")) return;
+    if (searchButton) {
+      searchButton.addEventListener("click", (e) => {
+        if (e.target.classList.contains("search")) return;
 
-      const searchBox = document.createElement("input");
-      searchBox.type = "text";
-      searchBox.classList.add("search");
-      searchButton.appendChild(searchBox);
-
-      searchBox.addEventListener("keydown", (e) => {
-        if (e.key === "Enter") {
-          activeSearch = searchBox.value.trim();
+        if (isSearchClicked) {
+          searchButton.querySelector(".search")?.remove();
+          searchButton.classList.remove("expanded");
+          activeSearch = "";
           applySubscriptionView();
+          isSearchClicked = false;
+          return;
         }
+
+        const searchBox = document.createElement("input");
+        searchBox.type = "text";
+        searchBox.classList.add("search");
+        searchBox.setAttribute("aria-label", "Search subscriptions");
+        searchButton.classList.add("expanded");
+        searchButton.appendChild(searchBox);
+        isSearchClicked = true;
+        searchBox.focus();
+
+        searchBox.addEventListener("keydown", (e) => {
+          if (e.key === "Enter") {
+            activeSearch = searchBox.value.trim();
+            applySubscriptionView();
+          }
+        });
       });
-    });
+    }
   } catch (error) {
     console.log(error);
   }
