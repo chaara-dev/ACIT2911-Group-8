@@ -26,7 +26,7 @@ html {
 }
 
 body {
-  max-width: 700px;
+  max-width: min(700px, 100%);
   margin: auto;
 }
 
@@ -46,14 +46,21 @@ header > h3 {
 
 main {
   background-color: var(--inner-background-colour);
-  padding: 20px 20px 0px;
+  padding: 20px;
   border: 3px solid var(--primary-colour);
   border-radius: 12px;
   display: flex;
   flex-direction: column;
-  line-height: 1.75em;
+  line-height: normal;
   align-items: center;
-  zoom: 110%;
+}
+
+#log-in {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
 }
 
 #signup-button-div {
