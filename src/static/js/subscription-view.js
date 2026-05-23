@@ -24,9 +24,10 @@ const getTotalPaid = (sub) =>
 const fillSubscriptionInfo = (sub, logo, totalPaid, formattedDate) => {
   document.getElementById("subName").textContent = sub.name;
   document.getElementById("subLogo").src = logo;
-  document.getElementById("subPrice").textContent = `Price: $${sub.cost}`;
+  document.getElementById("subPrice").textContent =
+    `Price: $${sub.cost.toLocaleString("en-US")}`;
   document.getElementById("subTotalPaid").textContent =
-    `Total Paid: $${totalPaid}`;
+    `Total Paid: $${totalPaid.toLocaleString("en-US")}`;
   document.getElementById("subPeriod").textContent =
     `Billing type: ${sub.billing_type}`;
   document.getElementById("subRenewalDate").textContent =
@@ -89,7 +90,9 @@ export const displaySubscription = async (subId) => {
 
   const logo = getSubscriptionLogo(sub, subsList);
   const totalPaid = getTotalPaid(sub);
-  const formattedDate = parseRenewalDateLocal(sub.renewal_date).toLocaleDateString("en-GB", {
+  const formattedDate = parseRenewalDateLocal(
+    sub.renewal_date,
+  ).toLocaleDateString("en-GB", {
     day: "2-digit",
     month: "short",
     year: "numeric",
