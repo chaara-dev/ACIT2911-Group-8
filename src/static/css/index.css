@@ -196,16 +196,26 @@ main {
   background-color: var(--hover-danger-colour);
 }
 
-.search {
+#search-button.expanded {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 6px;
+  min-width: 150px;
+  padding: 10px 12px;
+}
+
+#search-button.expanded .search {
   display: block;
-  margin-left: auto;
-  width: 165px;
-  margin-top: 5px;
+  width: 100%;
+  margin: 0;
+  box-sizing: border-box;
   font-size: large;
   height: 25px;
   background-color: var(--yellow-background-colour);
   border: 2px solid black;
   border-radius: 4px;
+  cursor: text;
 }
 
 #search-div {
